@@ -1,0 +1,71 @@
+
+<!-- saved from url=(0056)http://merchant.allinpay.com/ms/merchant/login/middle.do -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>平台体</title>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style>
+<style> 
+.navPoint { 
+COLOR: white; CURSOR: hand; FONT-FAMILY: Webdings; FONT-SIZE: 9pt 
+} 
+</style> 
+<script>
+function switchSysBar(){ 
+var locate=location.href.replace('/ms/merchant/login/middle.do','');
+var ssrc=document.all("img1").src.replace(locate,'');
+if (ssrc=="/mssource/image/main_55.gif")
+{ 
+document.all("img1").src="/mssource/image/main_55_1.gif";
+document.all("frmTitle").style.display="none" 
+} 
+else
+{ 
+document.all("img1").src="/mssource/image/main_55.gif";
+document.all("frmTitle").style.display="" 
+} 
+} 
+
+function setLoginType()
+{
+	var loginType = parent.document.getElementById("mainFrame").getAttribute("loginType");
+	document.getElementById("hdLoginType").value = loginType;
+}
+</script>
+
+</head>
+<body style="overflow:hidden;" onload="setLoginType()" >
+	<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed;">
+		<tbody><tr>
+			<td width="170" id="frmTitle" nowrap="" name="fmTitle" align="center" valign="top">
+				<table width="170" height="100%" border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed;">
+				<tbody><tr>
+				<td bgcolor="#1873aa" style="width:6px;">&nbsp;</td>
+				<td width="165">
+				<!-- 功能菜单栏 -->
+				<iframe name="left" id="I1" height="100%" width="220" src="left.jsp" border="0" frameborder="0" scrolling="1">
+				</iframe>
+				<input type="hidden" id="hdLoginType" value="1">
+				</td>
+				</tr>
+				</tbody></table>
+			</td>
+			
+			<td width="6" style="width:6px;" valign="middle" bgcolor="1873aa" onclick="switchSysBar()">
+				<sapn class="navPoint" id="switchPoint" title="关闭/打开左栏">
+				<img src="main_55.gif" name="img1" width="6" height="40" id="img1"></sapn>
+			</td>
+			<td width="100%" align="center" valign="top">
+				<iframe name="operation_area" style="z-index:1000;" height="100%" width="100%" border="0" frameborder="0" src="first.htm">
+				</iframe>
+			</td>
+			<td width="6" bgcolor="#1873aa" style=" width:6px;">&nbsp;</td>
+		</tr>
+	</tbody></table>
+</body></html>

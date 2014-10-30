@@ -1,0 +1,46 @@
+.detail_list_center_0 {
+	background-color: #ffffff;
+	line-height: 17px;
+}
+
+.detail_list_center_1 {
+	background-color: #F3F8F7;
+	line-height: 17px;
+}
+
+.detail_result_right_black {
+	COLOR: black;
+	LINE-HEIGHT: 25px;
+	TEXT-ALIGN: right;
+	bgcolor
+	="#00CCFF"
+}
+
+.left_title_center_1 {
+	background-color: #F3F8E2;
+	color: #0099CC;
+	font-weight: bold;
+	line-height: 17px;
+	text-align: center;
+}
+
+.result1_list_center {
+	line-height: 17px;
+	text-align: center;
+}
+
+body {
+	background-color: #F9F9F9;
+	font-family: Verdana, Arial, Vrinda, Tahoma;
+	line-height: 175%;
+	font-size: 12px;
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0099CC;
+}

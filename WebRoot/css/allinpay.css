@@ -1,0 +1,79 @@
+form * {
+	font: 15px;
+}
+
+font {
+	color: red;
+}
+
+table.dataTable1 {
+	border-collapse: collapse;
+}
+
+table.dataTable1 th.dataTableHeader {
+	color: #fff;
+	background-color: #052d92;
+	padding: 2px;
+	border: #fff 1px solid;
+	text-align: center;
+	font: 15px;
+	height: 35px;
+}
+
+table.dataTable1 td {
+	padding: 2px;
+	border-style: solid;
+	border-width: 1px 1px 0 1px;
+	border-color: #ccc #fff #ccc #fff;
+	text-align: left;
+}
+
+table.dataTable1 td a {
+	padding-right: 2px;
+}
+
+table.dataTable1 tr.odd_row {
+	background-color: #e4f2fb;
+}
+
+table.dataTable1 tr.even_row {
+	background-color: #f8f8f8;
+}
+
+table.dataTable1 tr.odd_row:hover,table.dataTable1 tr.even_row:hover,table.dataTable1 tr.odd_row:hover a,table.dataTable1 tr.even_row:hover a
+	{
+	background-color: #FFD900;
+}
+
+table.dataTable1 tr.odd_row:hover a:hover,table.dataTable1 tr.even_row:hover a:hover
+	{
+	
+}
+
+table.dataTable1 th.dataTableHeader a,table.dataTable1 th.dataTableHeader a:link,table.dataTable1 th.dataTableHeader a:active,table.dataTable1 th.dataTableHeader a:visited
+	{
+	color: #fff;
+	display: block;
+	text-decoration: none;
+}
+
+* html table.dataTable1 th.dataTableHeader a {
+	width: 100%;
+}
+
+table.dataTable1 th.dataTableHeader a:hover {
+	text-decoration: underline;
+}
+
+table.dataTable1 {
+	border-bottom: 1px solid #fff;
+}
+
+table.dataTable1 thead td,table.dataTable1 tfoot td.dataTableFooter {
+	border: 0;
+	padding: 0;
+}
+
+.export {
+	font-size: 25;
+}

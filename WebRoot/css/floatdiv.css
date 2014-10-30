@@ -1,0 +1,57 @@
+#newnotice {
+	display: block;
+}
+#newnotice {
+	/*display:none;*/
+	width: 210px; /*height:22px;*/;
+	border: solid #369 1px;
+	background-color: #369;
+}
+#newnotice p {
+	font-size: 12px;
+	margin: 1px;
+	padding: 0px 2px 0px 5px;
+	background-color: #369;
+	color: #ffffff;
+	height: 20px;
+	line-height: 20px;
+}
+#newnotice p .title {
+	float: left;
+}
+#newnotice p #bts {
+	display: block;
+	float: right;
+	width: 48px;
+	height: 15px;
+	/*border:#000000 solid 1px;*/
+}
+#newnotice p #bts .button {
+	display: block;
+	float: left;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	cursor: pointer;
+	/*border:#000000 solid 1px;*/
+}
+#newnotice p #bts #tomin {
+	background-image: url(../img/notice_button.gif);
+	background-position: center;
+}
+#newnotice p #bts #tomax {
+	background-image: url(../img/notice_button.gif);
+	background-position: bottom;
+}
+#newnotice p #bts #toclose {
+	background-image: url(../img/notice_button.gif);
+}
+#newnotice div {
+	font-size: 12px;
+	margin: 1px;
+	padding: 0px 5px 0px 5px;
+	background-color: #FFFFFF;
+	color: #369;
+	height: 75px;
+	line-height: 20px;
+}

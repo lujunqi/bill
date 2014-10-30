@@ -1,0 +1,84 @@
+<%@ page contentType="text/html;charset=utf-8" language="java"%>
+<%@ include file="../../import.jsp"%>
+<%
+	//押金查询
+	try
+	{
+		String sql = request.getParameter("sql");
+		//Log.getLogger().info(sql);
+		CreatePage createPage = new CreatePage();
+		if (request.getParameter("cur_page") != null
+				&& !"".equals(request.getParameter("cur_page")))
+		{
+			int cur_page = Integer.valueOf(request
+					.getParameter("cur_page"));
+			createPage.setCurPage(cur_page);
+		}
+		if (request.getParameter("page_size") != null
+				&& !"".equals(request.getParameter("page_size")))
+		{
+			int page_size = Integer.valueOf(request
+					.getParameter("page_size"));
+			createPage.setPageSize(page_size);
+		}
+		DatabaseAccess dba = new DatabaseAccess();
+
+		String defaultSql = "select *  from (select t.*,  m.*,  substr(t.fld_48, 16, 8) as terminalsno,(t.fld_4 / 100) as amt           from SECU_DEPO t           left join (select (select o.operman_name   from operman_info o   where o.operman_id = m.e_id) as sales_man,   c.unit_area,         temp.term_id1,temp.term_id2,    c.unit_name    from Apppay_105      m,                            commercial_info c,                            Term_App_Table  temp                      where temp.commercial_id = c.commercial_id                                                  and m.commercial_id = c.commercial_id   and temp.apppay_id = m.apppay_id  and temp.apptype='105') m  on trim(m.term_id1) = substr(t.fld_48, 0, 15) and trim(m.term_id2)=substr(t.fld_48, 14, 8)) t  where 1 = 1";
+
+		String where = request.getParameter("where");
+
+		if (null != where)
+		{
+			System.out.println("押金查询：" + where);
+			defaultSql += where;
+		}
+
+		ResultSet rs = dba.executeQuery(defaultSql);
+		rs.last();
+		createPage.setTotalCount(rs.getRow());
+		rs.first();
+		ResultSetMetaData rsmd = rs.getMetaData();
+		JSONArray ja = new JSONArray();
+		for (int i = createPage.getStart(); i < createPage.getEnd(); i++)
+		{
+			if (createPage.getTotalCount() == 0)
+				break;
+			rs.absolute(i + 1);
+			JSONObject jo = new JSONObject();
+			for (int j = 1; j <= rsmd.getColumnCount(); j++)
+			{
+				if (rsmd.getColumnTypeName(j)
+						.equalsIgnoreCase("NUMBER"))
+				{
+					jo.put(rsmd.getColumnName(j).toLowerCase(),
+							rs.getDouble(j));
+				} else if (rsmd.getColumnTypeName(j).equalsIgnoreCase(
+						"TIMESTAMP"))
+				{
+					jo.put(rsmd.getColumnName(j).toLowerCase(),
+							UtilTime.getLocalFormat2String(rs
+									.getTimestamp(j)));
+				} else
+				{
+					jo.put(rsmd.getColumnName(j).toLowerCase(),
+							rs.getString(j));
+				}
+			}
+			ja.add(jo);
+		}
+		rs.close();
+		dba.release();
+		JSONObject jo = new JSONObject();
+		jo.put("rows", createPage.getRowsCount());
+		jo.put("total", createPage.getTotalCount());
+		jo.put("cur_page", createPage.getCurPage());
+		jo.put("total_page", createPage.getPageCount());
+		jo.put("resultset", ja);
+		out.println(jo);
+	} catch (Exception e)
+	{
+		response.setStatus(500);
+		e.printStackTrace(response.getWriter());
+		e.printStackTrace();
+	}
+%>
