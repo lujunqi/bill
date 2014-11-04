@@ -326,17 +326,22 @@ function beforeSubmit2(form,isFormSubmit) {
 	var allow = "";
 	if($("#appr_status").val()==2)
 	$("#" + form + " input[type!='hidden'][class!='notRequired'],#"+form+" select").each(function(index, data) {
-		if ($.trim($(this).val()).length<1) {
-			allow = false;
-			allow = $($(this).parent()).prev().html() + " 未填写！";
-			$(this).focus();
-			return false;
+		if($(this).attr("title")!="c1"){
+			if ($.trim($(this).val()).length<1) {
+				
+				allow = false;
+				allow = $($(this).parent()).prev().html() + " 未填写！";
+				$(this).focus();
+				return false;
+				
+			}
 		}
 		return true;
 	});
 	if ("" != allow) {
 		alert(allow);
 	} else {
+
 		if(isFormSubmit){
 			if($("#appr_status").val()==2&&$.trim($("#commercialNoTemp").val()).length!=15){
 				$("#commercialNoTemp").focus();
@@ -498,7 +503,8 @@ function find(cur_page){
 	        			}
 	        			if(row.find('#'+pro+'')!=null)
 	        			row.find('#'+pro+'').html(vvv);
-	        		}else 
+
+					}else 
 	        		row.find('#'+pro+'').html(object[i][pro]);
 
 	        		if(object[i]["TEMINAL_STATUS"]==15)//整改
@@ -551,6 +557,7 @@ function find(cur_page){
 		        		row.find("#TERM_ID3").html("<input style='width:130px;' value='"+ter3+"' disabled='disabled' name='TERM_ID3' id='TERM_ID3"+i+"'/>");
 		        		row.find("#TERM_ID4").html("<input style='width:130px;' value='"+ter4+"' disabled='disabled' name='TERM_ID4' id='TERM_ID4"+i+"'/>");
 	        		}
+					
 	        		$("#TERM_ID3"+i).val($("#commercial_id"+i).val());
 	        		//row.find("#terminal_address").html(object[i]["UNIT_INSTALLED_ADD"]);
 	        	}
@@ -577,8 +584,17 @@ function find(cur_page){
 			        	$("[name='commercial_id']").val("");
 			        }
 		        }
-		       
+		     
 	        };
+	        if($("#fee_chan").val()=="2" || $("#fee_chan").val()=="3"||$("#fee_chan").val()=="5"){
+	        	$(".c100").hide();
+				$(".c101").show();
+				
+	        }else{
+				$(".c100").show();
+				$(".c101").hide();
+				
+			}
 	        if(appStatus==2)
     		{
     			$("button[name='ajaxSubmitBtn']").removeAttr("disabled");	
@@ -665,9 +681,9 @@ color:red;
 				<td align="right">业务类型:</td>
 				<td>
 					<span>收单</span>
-					<input type="hidden" name="apptype" id="apptype" value="105" readonly="readonly"/>
-					<input type="hidden" name="apppay_id" id="apppay_id" value='<c:out value="${param.appayId}"></c:out>' readonly="readonly"/>
-					<input type="hidden" name="cId" id="cId" value='${param.CommercialId }' readonly="readonly"/>
+					<input type="hidden" name="apptype" id="apptype" value="105" readonly/>
+					<input type="hidden" name="apppay_id" id="apppay_id" value='<c:out value="${param.appayId}"></c:out>' readonly/>
+					<input type="hidden" name="cId" id="cId" value='${param.CommercialId }' readonly/>
 				</td>
 				<td align='right'>账户类型:</td>
 				<td>
@@ -829,7 +845,7 @@ color:red;
 			 <tr>
 				 <td align='right'>交易渠道:</td>
 				<td>
-					<select name='fee_chan' id="fee_chan" style='width: 120px'  label='请输入交易渠道' />
+					<select name='fee_chan' id="fee_chan" style='width: 120px'  label='请输入交易渠道' >
 						<option value="" selected="selected">--请选择---</option>
 						<option value="1" >自主直联</option>
 						<option value="2">自主间联</option> 
@@ -879,14 +895,14 @@ color:red;
 		<div class="mycss">
 		<form action="../action/AppayApprove.jsp" id="bussiness105OperationForm" method="post" >
 			<table>
-				<input type="hidden" name="type" value='105' readonly="readonly"/>
+				<input type="hidden" name="type" value='105' readonly/>
 				<%
 				Operman_info man = (Operman_info) session.getAttribute("man");
 				%>
-				<input type="hidden" name="appr_man" value='<%=man.getOperman_id() %>' readonly="readonly"/>
-				<input type="hidden" name="appr_date" value='<%=UtilTime.getOtherFormat2String("yyyy-MM-dd",new java.util.Date()) %>' readonly="readonly"/>
-				<input type="hidden" name="apppay_id" value='<c:out value="${param.appayId}"></c:out>' readonly="readonly"/>
-			<input type="hidden" name="type" value='105' readonly="readonly"/>
+				<input type="hidden" name="appr_man" value='<%=man.getOperman_id() %>' readonly/>
+				<input type="hidden" name="appr_date" value='<%=UtilTime.getOtherFormat2String("yyyy-MM-dd",new java.util.Date()) %>' readonly/>
+				<input type="hidden" name="apppay_id" value='<c:out value="${param.appayId}"></c:out>' readonly/>
+			<input type="hidden" name="type" value='105' readonly/>
 			<tr>
 				<td align='right'>清算机构:</td>
 				<td>
@@ -1037,9 +1053,9 @@ color:red;
 					<font>*</font> 
 				</td>
 		</tr>		
-		<tr id='shenpimerchantDiv'>
+		<tr id='shenpimerchantDiv' class="c100">
 			<td align='right'>商户组别:</td>
-			<td ><select id="marchanttype" name="marchanttype" style='width: 120px'  label='请选择商户组别'>
+			<td ><select id="marchanttype" title="c1" name="marchanttype" style='width: 120px'  label='请选择商户组别'>
 					<option value="00" selected="selected">综合零售</option>
 					<option value="01" >专门零售</option>
 					<option value="02" >批发类</option>
@@ -1062,7 +1078,7 @@ color:red;
 				<font>*</font>
 			</td>
 			<td align='right'>分润算法:</td>
-			<td ><select name="lq_rule" id="lq_rule" style='width: 90%' require="true"  label='请选择分润算法'>
+			<td ><select name="lq_rule" title="c1" id="lq_rule" style='width: 90%' require="true"  label='请选择分润算法'>
 				<option value=""  selected="selected">请选择</option>
 					<%
 					Commercial_LqRuleDao commercial_LqRuleDao = new Commercial_LqRuleDao();
@@ -1076,9 +1092,9 @@ color:red;
 				<font>*</font>
 			</td>
 		</tr> 
-		<tr> 
+		<tr class="c100"> 
 			<td align='right'>NK001-全国南卡北用决定索引:</td>
-			<td ><select name="fee_rule1" id="fee_rule1" style='width: 90%' require="true"  label='请选择全国南卡北用决定索引'>
+			<td ><select name="fee_rule1" title="c1" id="fee_rule1" style='width: 90%' require="true"  label='请选择全国南卡北用决定索引'>
 				<option value=""  selected="selected">请选择</option>
 					<%
 					Commercial_FeeRuleDao commercial_FeeRuleDao = new Commercial_FeeRuleDao();
@@ -1093,7 +1109,7 @@ color:red;
 				<font>*</font>
 			</td>
 			<td align='right'>TP001-全国通配决定索引:</td>
-			<td ><select name="fee_rule2" id="fee_rule2" style='width: 99%' require="true"  label='请选择全国通配决定索引'>
+			<td ><select name="fee_rule2" title="c1" id="fee_rule2" style='width: 99%' require="true"  label='请选择全国通配决定索引'>
 				<option value=""  selected="selected">请选择</option>
 					<%
 					for(int i=(commercial_FeeRuleDao.totalCount-1);i>=0;i--){
@@ -1104,6 +1120,33 @@ color:red;
 				<font>*</font>
 			</td>
 		</tr>
+        <tr class="c101"> 
+			<td align="right">境内银联卡手续费标准:</td>
+            <td>
+                <input type="text" name="LC_FEE_PRE" title="c1" id="LC_FEE_PRE" style="width:100px;"
+                onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"
+                />%
+            </td>
+            <td align="right">封顶</td>
+            <td>
+                <input type="text" name="LC_FEE_TOP" title="c1" id="LC_FEE_TOP" style="width:100px;"
+                onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"
+                />(元)
+            </td>
+        </tr>
+        <tr class="c101"> 
+			<td align="right">境外银联卡手续费标准:</td>
+            <td>
+                <input type="text" name="OUT_FEE_PRE" title="c1" id="OUT_FEE_PRE" style="width:100px;"
+                onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"/>%
+            </td>
+            <td align="right">封顶</td>
+            <td>
+                <input type="text" name="OUT_FEE_TOP" title="c1" id="OUT_FEE_TOP" style="width:100px;"
+                onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"/>(元)
+            </td>
+        </tr>
+        
 			<tr>
 				<td align='right'>审批状态:</td>
 				<td>
@@ -1137,13 +1180,13 @@ color:red;
 					<input name="appr_remark"  style="width: 300px" disabled="disabled"  id="appr_remark" class='notRequired'/>
 				</td>
 				<td>
-					<input type="hidden" name='status' id="status" width="150"  value="1" readonly="readonly"/>
+					<input type="hidden" name='status' id="status" width="150"  value="1" readonly/>
 				</td>
 			</tr>
 			<tr>
 			<td>历史驳回信息：</td>
 				<td>
-					<textarea rows="3" cols="40" readonly="readonly" id="historyOperateData">
+					<textarea rows="3" cols="40" readonly id="historyOperateData">
 					</textarea>
 				</td>
 			<td align='right'>门店名称:</td>

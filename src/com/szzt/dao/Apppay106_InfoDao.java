@@ -327,6 +327,13 @@ public class Apppay106_InfoDao extends AbstractDao<Apppay106_Info>
 		info.setREMARK_INFO(rs.getString("REMARK_INFO"));
 		info.setTERM_TYPE(rs.getString("TERM_TYPE"));
 		info.setSERIAL(rs.getString("SERIAL"));
+		
+		info.setMC_NAME(rs.getString("MC_NAME"));
+		info.setLC_FEE_PRE(rs.getString("LC_FEE_PRE"));
+		info.setLC_FEE_TOP(rs.getString("LC_FEE_TOP"));
+		info.setOUT_FEE_PRE(rs.getString("OUT_FEE_PRE"));
+		info.setOUT_FEE_TOP(rs.getString("OUT_FEE_TOP"));
+		
 		return info;
 	}
 
@@ -519,6 +526,7 @@ public class Apppay106_InfoDao extends AbstractDao<Apppay106_Info>
 	@Override
 	public void operate(Apppay106_Info info) throws Exception
 	{
+		
 		// 使用bind绑定信息
 		super.initUpdate(TABLE);
 		if (null != info.getAPPR_MAN())
@@ -578,6 +586,13 @@ public class Apppay106_InfoDao extends AbstractDao<Apppay106_Info>
 		}
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		super.wrapUpdateSql("STATUS", info.getSTATUS());
+		
+		super.wrapUpdateSql("MC_NAME", info.getMC_NAME());
+		super.wrapUpdateSql("LC_FEE_PRE", info.getLC_FEE_PRE());
+		super.wrapUpdateSql("LC_FEE_TOP", info.getLC_FEE_TOP());
+		super.wrapUpdateSql("OUT_FEE_TOP", info.getOUT_FEE_TOP());
+		super.wrapUpdateSql("OUT_FEE_PRE", info.getOUT_FEE_PRE());
+		
 		// super.wrapUpdateSql(
 		// "APPR_REMARK",
 		// "" +format.format(System.currentTimeMillis())

@@ -46,8 +46,52 @@ public class Apppay106_Info implements TableBeanInterface
 	private String PSAM_NO;// 16位
 	private String TERM_TYPE;
 	private String SERIAL;
+	private String MC_NAME;
+	private String LC_FEE_PRE;
+	private String LC_FEE_TOP;
+	private String OUT_FEE_PRE;
+	private String OUT_FEE_TOP;
 	
+	public String getMC_NAME() {
+		return MC_NAME;
+	}
+
+	public void setMC_NAME(String mC_NAME) {
+		MC_NAME = mC_NAME;
+	}
 	
+	public String getLC_FEE_PRE() {
+		return LC_FEE_PRE;
+	}
+
+	public void setLC_FEE_PRE(String lC_FEE_PRE) {
+		LC_FEE_PRE = lC_FEE_PRE;
+	}
+
+	public String getLC_FEE_TOP() {
+		return LC_FEE_TOP;
+	}
+
+	public void setLC_FEE_TOP(String lC_FEE_TOP) {
+		LC_FEE_TOP = lC_FEE_TOP;
+	}
+
+	public String getOUT_FEE_PRE() {
+		return OUT_FEE_PRE;
+	}
+
+	public void setOUT_FEE_PRE(String oUT_FEE_PRE) {
+		OUT_FEE_PRE = oUT_FEE_PRE;
+	}
+
+	public String getOUT_FEE_TOP() {
+		return OUT_FEE_TOP;
+	}
+
+	public void setOUT_FEE_TOP(String oUT_FEE_TOP) {
+		OUT_FEE_TOP = oUT_FEE_TOP;
+	}
+
 	public String getTERM_TYPE() {
 	    return TERM_TYPE;
 	}
@@ -275,6 +319,35 @@ public class Apppay106_Info implements TableBeanInterface
 			this.setAPPR_MAN(request.getParameter("APPR_MAN"));
 		}
 
+		
+		if (request.getParameter("MC_NAME") != null
+				&& !request.getParameter("MC_NAME").equals(""))
+		{
+			this.setMC_NAME(request.getParameter("MC_NAME"));
+		}
+		if (request.getParameter("LC_FEE_PRE") != null
+				&& !request.getParameter("LC_FEE_PRE").equals(""))
+		{
+			this.setLC_FEE_PRE(request.getParameter("LC_FEE_PRE"));
+		}
+		if (request.getParameter("LC_FEE_TOP") != null
+				&& !request.getParameter("LC_FEE_TOP").equals(""))
+		{
+			this.setLC_FEE_TOP(request.getParameter("LC_FEE_TOP"));
+		}
+		if (request.getParameter("OUT_FEE_PRE") != null
+				&& !request.getParameter("OUT_FEE_PRE").equals(""))
+		{
+			this.setOUT_FEE_PRE(request.getParameter("OUT_FEE_PRE"));
+		}
+		if (request.getParameter("OUT_FEE_TOP") != null
+				&& !request.getParameter("OUT_FEE_TOP").equals(""))
+		{
+			this.setOUT_FEE_TOP(request.getParameter("OUT_FEE_TOP"));
+		}
+
+		
+		
 		if (request.getParameter("APPR_STATUS") != null
 				&& !request.getParameter("APPR_STATUS").equals(""))
 		{
@@ -694,5 +767,7 @@ public class Apppay106_Info implements TableBeanInterface
 	{
 		CHANGE_DATE = cHANGE_DATE;
 	}
+
+	
 
 }

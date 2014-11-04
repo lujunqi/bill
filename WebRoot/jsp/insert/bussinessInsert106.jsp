@@ -397,13 +397,15 @@ function beforeSubmit2(form,isFormSubmit) {
 if($("#APPR_STATUS").val()==2)
 	{
 		$("#" + form + " input[type!='hidden'][class!='notRequired'],#"+form+" select").each(function(index, data) {
-		if ($.trim($(this).val()).length<1) {
-			allow = $($(this).parent()).prev().html() + " 未填写！";
-			try{
-				$(this).focus();
-			}catch(e){
+		if($(this).attr("title")!="c1"){
+			if ($.trim($(this).val()).length<1) {
+				allow = $($(this).parent()).prev().html() + " 未填写！";
+				try{
+					$(this).focus();
+				}catch(e){
+				}
+				return false;
 			}
-			return false;
 		}
 		return true;
 	});
@@ -451,9 +453,9 @@ color:red;}
 				<td align="right">业务类型:</td>
 				<td>
 					<span>自助终端</span>
-					<input type="hidden" name="APPTYPE" id="APPTYPE" value="106" readonly="readonly"/>
-					<input type="hidden" name="APPPAY_ID" id="APPPAY_ID" value='<c:out value="${param.appayId}"></c:out>' readonly="readonly"/>
-					<input type="hidden" name="COMMERCIAL_ID" id="COMMERCIAL_ID" value='<c:out value="${param.CommercialId}"></c:out>' readonly="readonly"/>
+					<input type="hidden" name="APPTYPE" id="APPTYPE" value="106" readonly/>
+					<input type="hidden" name="APPPAY_ID" id="APPPAY_ID" value='<c:out value="${param.appayId}"></c:out>' readonly/>
+					<input type="hidden" name="COMMERCIAL_ID" id="COMMERCIAL_ID" value='<c:out value="${param.CommercialId}"></c:out>' readonly/>
 				</td>
 				<td align='right'>终端类型:</td>
 				<td>
@@ -628,6 +630,8 @@ color:red;}
 					<font>*</font>
 				</td>
 			</tr>
+            
+            
 			<tr>
 				<td align="right">银行推荐人:</td>
 				<td>
@@ -675,9 +679,9 @@ color:red;}
 			<tr>
 				<td align='right'>清算机构号:</td>
 				<td>
-				<input type="hidden" name="type" value='106' readonly="readonly"/>
-					<input type="hidden" name="APPPAY_ID" value='<c:out value="${param.appayId}"></c:out>' readonly="readonly"/>
-					<input type="hidden" name="COMMERCIAL_ID" id="COMMERCIAL_ID" value='<c:out value="${param.CommercialId}"></c:out>' readonly="readonly"/>
+				<input type="hidden" name="type" value='106' readonly/>
+					<input type="hidden" name="APPPAY_ID" value='<c:out value="${param.appayId}"></c:out>' readonly/>
+					<input type="hidden" name="COMMERCIAL_ID" id="COMMERCIAL_ID" value='<c:out value="${param.CommercialId}"></c:out>' readonly/>
 					<!-- <input type="text" name="UNIT_NO" id="UNIT_NO"/> -->
 					<%DaoUtils u=new DaoUtils();
 					request.setAttribute("UNIT_NO", u.qingSuanJiGou());
@@ -753,6 +757,39 @@ color:red;}
 					<font>*</font>
 				</td>
 			</tr>
+            <tr>
+            	<td align="right">门店名称:</td>
+				<td>
+				  <input type="text" name="MC_NAME" title="c1" id="MC_NAME" class=""/><font>*</font>
+				</td>
+			 	<td align="right">&nbsp;</td>
+			  <td>&nbsp;</td>
+            </tr>
+            <tr>
+            	<td align="right">境内银联卡手续费标准:</td>
+				<td>
+					<input type="text" name="LC_FEE_PRE" title="c1" id="LC_FEE_PRE" style="width:100px;"
+                    onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"/>%
+				</td>
+			 	<td align="right">封顶</td>
+				<td>
+					<input type="text" name="LC_FEE_TOP" title="c1" id="LC_FEE_TOP" style="width:100px;"
+                    onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"/>(元)
+				</td>
+            </tr>
+            <tr>
+            	<td align="right">境外银联卡手续费标准:</td>
+				<td>
+					<input type="text" name="OUT_FEE_PRE" title="c1" id="OUT_FEE_PRE" style="width:100px;"
+                    onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"/>%
+				</td>
+			 	<td align="right">封顶</td>
+				<td>
+					<input type="text" name="OUT_FEE_TOP" title="c1" id="OUT_FEE_TOP" style="width:100px;"
+                    onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"/>(元)
+				</td>
+            </tr>
+            
 			<tr>
 				<td align='right'>借记卡月限次:</td>
 				<td>
@@ -789,13 +826,13 @@ color:red;}
 					<input name="APPR_REMARK"  style="width: 300px" id="APPR_REMARK" disabled="disabled" class="notRequired"/>
 				</td>
 				<td>
-					<input type="hidden" name='STATUS' id="STATUS" width="150"  value="1" readonly="readonly"/>
+					<input type="hidden" name='STATUS' id="STATUS" width="150"  value="1" readonly/>
 				</td>
 			</tr>
 			<tr>
 			<td>历史驳回信息：</td>
 				<td>
-					<textarea rows="3" cols="40" readonly="readonly" id="historyOperateData">
+					<textarea rows="3" cols="40" readonly id="historyOperateData">
 					</textarea>
 				</td>
 			

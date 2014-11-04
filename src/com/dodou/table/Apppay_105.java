@@ -53,6 +53,43 @@ public class Apppay_105
 	private String MARCHANT_NAME;
 	private String MARCHANT_NAME2;
 
+	private String LC_FEE_PRE;
+	private String LC_FEE_TOP;
+	private String OUT_FEE_PRE;
+	private String OUT_FEE_TOP;
+	
+	public String getLC_FEE_PRE() {
+		return LC_FEE_PRE;
+	}
+
+	public void setLC_FEE_PRE(String lC_FEE_PRE) {
+		LC_FEE_PRE = lC_FEE_PRE;
+	}
+
+	public String getLC_FEE_TOP() {
+		return LC_FEE_TOP;
+	}
+
+	public void setLC_FEE_TOP(String lC_FEE_TOP) {
+		LC_FEE_TOP = lC_FEE_TOP;
+	}
+
+	public String getOUT_FEE_PRE() {
+		return OUT_FEE_PRE;
+	}
+
+	public void setOUT_FEE_PRE(String oUT_FEE_PRE) {
+		OUT_FEE_PRE = oUT_FEE_PRE;
+	}
+
+	public String getOUT_FEE_TOP() {
+		return OUT_FEE_TOP;
+	}
+
+	public void setOUT_FEE_TOP(String oUT_FEE_TOP) {
+		OUT_FEE_TOP = oUT_FEE_TOP;
+	}
+	
 	public String getMARCHANT_NAME()
 	{
 		return MARCHANT_NAME;
@@ -508,6 +545,27 @@ public class Apppay_105
 	public void requestGetParameter(HttpServletRequest request)
 			throws Exception
 	{
+		
+		if (request.getParameter("LC_FEE_PRE") != null
+				&& !request.getParameter("LC_FEE_PRE").equals(""))
+		{
+			this.setLC_FEE_PRE(request.getParameter("LC_FEE_PRE"));
+		}
+		if (request.getParameter("LC_FEE_TOP") != null
+				&& !request.getParameter("LC_FEE_TOP").equals(""))
+		{
+			this.setLC_FEE_TOP(request.getParameter("LC_FEE_TOP"));
+		}
+		if (request.getParameter("OUT_FEE_PRE") != null
+				&& !request.getParameter("OUT_FEE_PRE").equals(""))
+		{
+			this.setOUT_FEE_PRE(request.getParameter("OUT_FEE_PRE"));
+		}
+		if (request.getParameter("OUT_FEE_TOP") != null
+				&& !request.getParameter("OUT_FEE_TOP").equals(""))
+		{
+			this.setOUT_FEE_TOP(request.getParameter("OUT_FEE_TOP"));
+		}
 
 		if (request.getParameter("MARCHANT_NAME") != null
 				&& !request.getParameter("MARCHANT_NAME").equals(""))

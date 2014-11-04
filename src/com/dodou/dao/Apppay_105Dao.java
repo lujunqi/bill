@@ -313,6 +313,12 @@ public class Apppay_105Dao extends AbstractDao<Apppay_105>
 
 		apppay_105.setMARCHANT_NAME(rs.getString("MARCHANT_NAME"));
 		apppay_105.setMARCHANT_NAME2(rs.getString("MARCHANT_NAME2"));
+		
+		
+		apppay_105.setLC_FEE_PRE(rs.getString("LC_FEE_PRE"));
+		apppay_105.setLC_FEE_TOP(rs.getString("LC_FEE_TOP"));
+		apppay_105.setOUT_FEE_PRE(rs.getString("OUT_FEE_PRE"));
+		apppay_105.setOUT_FEE_TOP(rs.getString("OUT_FEE_TOP"));
 
 		return apppay_105;
 	}
@@ -523,6 +529,31 @@ public class Apppay_105Dao extends AbstractDao<Apppay_105>
 			fields += ",apptype";
 			values += ",'" + apppay_105.getApptype() + "'";
 		}
+		
+		if (apppay_105.getLC_FEE_PRE() != null)
+		{
+			fields += ",LC_FEE_PRE";
+			values += ",'" + apppay_105.getLC_FEE_PRE() + "'";
+		}
+		
+		if (apppay_105.getLC_FEE_TOP() != null)
+		{
+			fields += ",LC_FEE_TOP";
+			values += ",'" + apppay_105.getLC_FEE_TOP() + "'";
+		}
+		
+		if (apppay_105.getOUT_FEE_TOP() != null)
+		{
+			fields += ",OUT_FEE_TOP";
+			values += ",'" + apppay_105.getOUT_FEE_TOP() + "'";
+		}
+		
+		if (apppay_105.getOUT_FEE_PRE() != null)
+		{
+			fields += ",OUT_FEE_PRE";
+			values += ",'" + apppay_105.getOUT_FEE_PRE() + "'";
+		}
+		
 		if (apppay_105.getAccount_type() != 0)
 		{
 			fields += ",account_type";
@@ -1000,6 +1031,24 @@ public class Apppay_105Dao extends AbstractDao<Apppay_105>
 		{
 			sql += ",fee_rule2='" + apppay_105.getFee_rule2() + "'";
 		}
+
+		if (apppay_105.getOUT_FEE_PRE() != null)
+		{
+			sql += ",OUT_FEE_PRE='" + apppay_105.getOUT_FEE_PRE() + "'";
+		}
+		if (apppay_105.getOUT_FEE_TOP() != null)
+		{
+			sql += ",OUT_FEE_TOP='" + apppay_105.getOUT_FEE_TOP() + "'";
+		}
+		if (apppay_105.getLC_FEE_TOP() != null)
+		{
+			sql += ",LC_FEE_TOP='" + apppay_105.getLC_FEE_TOP() + "'";
+		}
+		if (apppay_105.getLC_FEE_PRE() != null)
+		{
+			sql += ",LC_FEE_PRE='" + apppay_105.getLC_FEE_PRE() + "'";
+		}
+		
 		if (apppay_105.getMarchanttype() != null)
 		{
 			sql += ",marchanttype='" + apppay_105.getMarchanttype() + "'";
@@ -1018,6 +1067,7 @@ public class Apppay_105Dao extends AbstractDao<Apppay_105>
 		}
 		sql += " where APPPAY_ID=" + apppay_105.getApppay_id() + "";
 		Log.getLogger().debug("Apppay_105 [更新],SQL:[" + sql + "]");
+		System.out.println(sql+"===");
 		DatabaseAccess dba = new DatabaseAccess();
 		dba.executeUpdate(sql);
 		dba.release();
@@ -1369,11 +1419,30 @@ public class Apppay_105Dao extends AbstractDao<Apppay_105>
 		{
 			sql += ",MARCHANT_NAME2='" + apppay_105.getMARCHANT_NAME2() + "'";
 		}
-
+		/**********************************/
+		if (apppay_105.getOUT_FEE_PRE() != null)
+		{
+			sql += ",OUT_FEE_PRE='" + apppay_105.getOUT_FEE_PRE() + "'";
+		}
+		if (apppay_105.getOUT_FEE_TOP() != null)
+		{
+			sql += ",OUT_FEE_TOP='" + apppay_105.getOUT_FEE_TOP() + "'";
+		}
+		if (apppay_105.getLC_FEE_TOP() != null)
+		{
+			sql += ",LC_FEE_TOP='" + apppay_105.getLC_FEE_TOP() + "'";
+		}
+		if (apppay_105.getLC_FEE_PRE() != null)
+		{
+			sql += ",LC_FEE_PRE='" + apppay_105.getLC_FEE_PRE() + "'";
+		}
+		/**********************************/
+		
 		if (apppay_105.getMcc() != null)
 		{
 			sql += ",mcc='" + apppay_105.getMcc() + "'";
 		}
+		
 		if (apppay_105.getMcc18() != null)
 		{
 			sql += ",mcc18='" + apppay_105.getMcc18() + "'";
