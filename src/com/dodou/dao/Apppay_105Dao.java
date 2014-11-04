@@ -1408,7 +1408,7 @@ public class Apppay_105Dao extends AbstractDao<Apppay_105>
 
 		if (null != apppay_105.getAppr_remark()
 				&& apppay_105.getAppr_remark().trim().length() > 0
-				&& 1 == apppay_105.getAppr_status())
+				&& (1 == apppay_105.getAppr_status() || 5 == apppay_105.getAppr_status() || 6 == apppay_105.getAppr_status()))
 		{
 			sql += ", APPR_REMARK=" + "concat(APPR_REMARK,'\n"
 					+ format.format(new Date(System.currentTimeMillis()))
