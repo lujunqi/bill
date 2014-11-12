@@ -62,8 +62,78 @@ if(null!=info&&info.equals("s1")){
  <script src="../../js/province_city_area_select.js" type="text/javascript"></script>
    <script src="../../js/Area.js" type="text/javascript"></script>
     <script src="../../js/AreaData_min.js" type="text/javascript"></script>
-<script type="text/javascript">
+    <script type="text/javascript" src="../../js/jquery.prism.2.0.js"></script>
 
+<script type="text/javascript">
+$(function(){
+	$("#auto").bind("propertychange input",function(e) {
+        if($("#auto").val()!=""){
+			$("#autoinfos").prism({
+				content:"ajax:../../auto_bank_info.rp",
+				param:{C2:$("#auto").val(),ACTION_TYPE:"JSONLIST"}
+				});
+		}
+    });
+	$("#account_bank").change(function(e){
+		
+		if(bankcc($("#account_bank").val()) 
+			&& $("#account_type").val()=="2"){
+			$("#account_bank").val("");
+			alert("该银行不支持结算行入账，请选择其他银行");
+		}
+			
+	});
+});
+function bankcc(val){
+
+	if(val=="05025510"){
+		return true;
+	}
+	if(val=="15585591"){
+		return true;
+	}
+	if(val=="15585583"){
+		return true;
+	}
+	if(val=="15585514"){
+		return true;
+	}
+	if(val=="15585511"){
+		return true;
+	}
+	if(val=="15585635"){
+		return true;
+	}
+	if(val=="15585634"){
+		return true;
+	}
+	if(val=="15585624"){
+		return true;
+	}
+	if(val=="15585525"){
+		return true;
+	}
+	if(val=="15585584"){
+		return true;
+	}
+	if(val=="15585541"){
+		return true;
+	}
+	if(val=="15585586"){
+		return true;
+	}
+	if(val=="15585623"){
+		return true;
+	}
+	if(val=="03133100"){
+		return true;
+	}
+	if(val=="01005500"){
+		return true;
+	}
+	
+	return false;
+}
 var appStatus,UNIT_NO;
 
 var commercialNoLength=-1;//商户长度
@@ -655,6 +725,11 @@ function zhengGai(){
 		window.location.href="../action/ZhengGai.jsp?id=${param.appayId}&commercial=${param.CommercialId}";
 	}
 }
+function func_auto(c1,c2){
+	$("#account_bank_brach").val(c2);
+	$("#account_bank_id").val(c1);
+	$("#TB_closeWindowButton").trigger("click");
+}
 </script>
 <style type="text/css">
 font{
@@ -685,11 +760,11 @@ color:red;
 					<input type="hidden" name="apppay_id" id="apppay_id" value='<c:out value="${param.appayId}"></c:out>' readonly/>
 					<input type="hidden" name="cId" id="cId" value='${param.CommercialId }' readonly/>
 				</td>
-				<td align='right'>账户类型:</td>
+				<td align='right'>入账类型:</td>
 				<td>
 					<select name="account_type" id="account_type">
-						<option value="2" >存折</option>
-						<option value="1" selected="selected">银行卡</option>
+						<option value="2" >结算行入账</option>
+						<option value="3" >银联小额入账</option>
 					</select>
 					<font>*</font>
 				</td>
@@ -740,9 +815,14 @@ color:red;
 				<td>
 					<input type="text" name="account_bank_id" id="account_bank_id" maxlength="12" onkeyup="onlyNumberAllow(this)"/>
 					<font>*</font>
-					<a target="_bank" href="https://e.czbank.com/CORPORBANK/query_unionBank_index.jsp">检索行号</a>
+					<a href="#TB_inline?height=250&width=600&inlineId=div2" class="thickbox">检索行号</a>
 				</td>
-
+<div id="div2" style=" display:none;">
+<b>请输入支行名关键字：</b><input type="text" id="auto" >
+<ul id="autoinfos" prism="dataGrid">
+<li style="height:30px; line-height:30px;"><a href='javascript:func_auto("#@C1#","#@C2#");'>#@C2#[支行号：#@C1#][接收行号：#@C5#]</a></li>
+</ul>
+</div>
 			</tr>
 			<tr>
 				<td align="right">账户所在省：</td>
@@ -1069,6 +1149,7 @@ color:red;
 					<option value="10" >公共事业</option>
 					<option value="11" >居民服务</option>
 					<option value="12" >商业服务</option>
+
 					<option value="13" >交通物流</option>
 					<option value="14" >直销类商户</option>
 					<option value="15" >租赁服务</option>
