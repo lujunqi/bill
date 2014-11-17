@@ -2,6 +2,7 @@ package com.ljq;
 
 import java.io.StringWriter;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,6 +59,7 @@ public class MyDatabase {
 		return list;
 	}
 
+	
 	public List<Map<String, Object>> getResultSet(Map<String, Object> map,
 			int minnum, int maxnum) {
 		VMPreparedStatement cmd = new VMPreparedStatement(conn);
@@ -78,6 +80,27 @@ public class MyDatabase {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ArrayList<Map<String, Object>>();
+		}
+	}
+	public ResultSet getResultSet(Map<String, Object> map) {
+		VMPreparedStatement cmd = new VMPreparedStatement(conn);
+		try {
+			vc = new VelocityContext();
+			VMRequest v = new VMRequest();
+			if (map != null) {
+				v.setReqMap(map);
+			}
+			vc.put("v", v);
+			String sql1 = getResultfromContent(sql);
+			System.out.println(sql1);
+			cmd.putAll(map);
+			return cmd.getResultSet(sql1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 

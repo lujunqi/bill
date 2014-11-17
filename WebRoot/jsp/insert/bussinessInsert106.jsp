@@ -166,6 +166,10 @@ function find(cur_page,appStatus){
 		$.post("../action/findById/Commercial..jsp",{id:${param.CommercialId}},function(j){
 			var jj=$.parseJSON(j);
 			$("#unitName").html(jj.UNIT_NAME);
+
+			if ($.trim($("#MC_NAME").val()).length<1) {
+				$("#MC_NAME").val(jj.UNIT_NAME);
+			}
 		});
 		//$.address("ACCOUNT_PROVINCE","ACCOUNT_CITY","","湖南","长沙市");
 	});
@@ -396,6 +400,11 @@ function beforeSubmit2(form,isFormSubmit) {
 	var allow = "";
 if($("#APPR_STATUS").val()==2)
 	{
+
+	if ($.trim($("#MC_NAME").val()).length<1) {
+		alert("门店名称不能为空");
+		return false;
+	}
 		$("#" + form + " input[type!='hidden'][class!='notRequired'],#"+form+" select").each(function(index, data) {
 		if($(this).attr("title")!="c1"){
 			if ($.trim($(this).val()).length<1) {
@@ -459,7 +468,7 @@ color:red;}
 				</td>
 				<td align='right'>终端类型:</td>
 				<td>
-					<select name="TERM_TYPE" id="TERM_TYPE" onchange="
+					<select name="TERM_TYPE" id="TERM_TYPE" onChange="
 					var v=$(this).val();
 					if(parseInt(v)==1){
 						$('#SERIAL').attr('disabled','disabled');
@@ -485,7 +494,7 @@ color:red;}
 			<tr>
 				<td align='right'>账户帐号:</td>
 				<td>
-					<input type="text" name='ACCOUNT_NO' id="ACCOUNT_NO" maxlength="20" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name='ACCOUNT_NO' id="ACCOUNT_NO" maxlength="20" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 				</td>
 				<% DaoUtils daoUtils=new DaoUtils();
@@ -517,7 +526,7 @@ color:red;}
 			<tr>	
 				<td align="right">账户支行号:</td>
 				<td>
-					<input type="text" name="ACCOUNT_BANK_ID" id="ACCOUNT_BANK_ID" maxlength="12" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="ACCOUNT_BANK_ID" id="ACCOUNT_BANK_ID" maxlength="12" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 					<a target="_bank" href="https://e.czbank.com/CORPORBANK/query_unionBank_index.jsp">检索行号</a>
 				</td>
@@ -589,9 +598,9 @@ color:red;}
 				</td>
 				<td align="right">费用<p id="changeFeeType">(%-)</p>:</td>
 				<td>
-					<input type="text" name="FEE_SET" id="FEE_SET" style="width: 100px" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="FEE_SET" id="FEE_SET" style="width: 100px" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
-					<input  class="notRequired" name="FEE_SET_TOP" id="FEE_SET_TOP" style="width: 100px" onkeyup="onlyNumberAllow(this)"/>
+					<input  class="notRequired" name="FEE_SET_TOP" id="FEE_SET_TOP" style="width: 100px" onKeyUp="onlyNumberAllow(this)"/>
 					<label id="FEE_SET_label">封顶</label>
 				</td>
 			</tr>
@@ -603,7 +612,7 @@ color:red;}
 				</td>
 				<td align="right">销售金额（元）:</td>
 				<td>
-					<input type="text" name="BILL_INFO" id="BILL_INFO" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="BILL_INFO" id="BILL_INFO" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 				</td>
 			</tr>
@@ -648,17 +657,17 @@ color:red;}
 					<td>
 						<%Permission per=new PositionPermessionImpl(); %>
 						<c:if test="${param.show==1 }">
-							<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showLog(${param.appayId})">修改日志</button>
+							<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showLog(${param.appayId})">修改日志</button>
 						&nbsp;&nbsp;
-						<button style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showAttachFile(${param.appayId})">附件</button>
+						<button style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showAttachFile(${param.appayId})">附件</button>
 							<%if(!per.hasPermission(session, Permission.OPERAT_POSITION)){ %>
 							
-								<button type="button" id="modifyBtn" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="updateData3()">修改</button>
+								<button type="button" id="modifyBtn" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="updateData3()">修改</button>
 							<%} %>
 						</c:if>
-							<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showAppendPage(${param.appayId})">追加备注</button>
-						<button  type="button" id="submitBtn" style="width:100px;text-align: center; table-layout: fixed;" onclick="beforeSubmit('bussiness102form')" >提交</button>
-						<button type="button" id="windowBackBtn" onclick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" name="windowBackBtn" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
+							<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showAppendPage(${param.appayId})">追加备注</button>
+						<button  type="button" id="submitBtn" style="width:100px;text-align: center; table-layout: fixed;" onClick="beforeSubmit('bussiness102form')" >提交</button>
+						<button type="button" id="windowBackBtn" onClick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" name="windowBackBtn" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
 					</td>
 				</tr>
 			</center>
@@ -709,7 +718,7 @@ color:red;}
 			<tr>	
 				<td align="right">卡限制:</td>
 				<td>
-					<select name="CREDIT_FLAG" id="CREDIT_FLAG" onchange="
+					<select name="CREDIT_FLAG" id="CREDIT_FLAG" onChange="
 					var v=$(this).val();
 					if(parseInt(v)==0){
 						$('input[mineP=1]').attr('disabled','disabled');
@@ -735,7 +744,7 @@ color:red;}
 			<tr>
 				<td align='right'>信用卡月限额(元):</td>
 				<td>
-					<input type="text" value="0" mineP='1' name='CREDIT_M_A_LIMIT' id="CREDIT_M_A_LIMIT" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" value="0" mineP='1' name='CREDIT_M_A_LIMIT' id="CREDIT_M_A_LIMIT" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 				</td>
 				<td align='right'>信用卡月限次:</td>
@@ -748,12 +757,12 @@ color:red;}
 			<tr>
 				<td align='right'>借记卡单笔交易限制(元):</td>
 				<td>
-					<input type="text" value="0" mineP='1' name='DEBIT_CARD_LIMIT' id="DEBIT_CARD_LIMIT" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" value="0" mineP='1' name='DEBIT_CARD_LIMIT' id="DEBIT_CARD_LIMIT" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 				</td>
 				<td align='right'>借记卡月限额(元):</td>
 				<td>
-					<input type="text" value="0" mineP='1' name='DEBIT_M_A_LIMIT' id="DEBIT_M_A_LIMIT" width="150" onkeyup="onlyNumberAllow(this)" />
+					<input type="text" value="0" mineP='1' name='DEBIT_M_A_LIMIT' id="DEBIT_M_A_LIMIT" width="150" onKeyUp="onlyNumberAllow(this)" />
 					<font>*</font>
 				</td>
 			</tr>
@@ -798,7 +807,7 @@ color:red;}
 				</td>
 				<td align='right'>审批状态:</td>
 				<td>
-					<select name="APPR_STATUS" id="APPR_STATUS" onchange="
+					<select name="APPR_STATUS" id="APPR_STATUS" onChange="
 						if(this.value==1){
 							$('#aaaaaaaaaaaaaaaaaaa').removeAttr('disabled');
 							$('#APPR_REMARK').removeAttr('disabled');
@@ -817,7 +826,7 @@ color:red;}
 			<tr>
 				<td align='right'>不通过原因:</td>
 				<td>
-					<select  class="notRequired" disabled="disabled" onchange="$('#APPR_REMARK').val($('#aaaaaaaaaaaaaaaaaaa').val())" id="aaaaaaaaaaaaaaaaaaa">
+					<select  class="notRequired" disabled="disabled" onChange="$('#APPR_REMARK').val($('#aaaaaaaaaaaaaaaaaaa').val())" id="aaaaaaaaaaaaaaaaaaa">
 						<option>--请选择--</option>
 						<option value="资料缺失">资料缺失</option>
 						<option value="扣率不符">扣率不符</option>
@@ -846,7 +855,7 @@ color:red;}
 							if(per.hasPermission(session, Permission.OPERAT_POSITION)){
 						%>
 							<!-- 审批的权限 -->
-							<button type="button" id='operateBtn' onclick="beforeSubmit2('bussiness102OperationForm',true)"  style="width:100px;text-align: center; table-layout: fixed;">完成</button>
+							<button type="button" id='operateBtn' onClick="beforeSubmit2('bussiness102OperationForm',true)"  style="width:100px;text-align: center; table-layout: fixed;">完成</button>
 						<%} %>
 					</td>
 				</tr>
