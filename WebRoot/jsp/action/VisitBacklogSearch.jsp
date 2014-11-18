@@ -22,7 +22,7 @@
 		String date = request.getParameter("APPROVAL_DATE");
 		if (null != date && date.length() > 2)
 		{
-			where += " and to_char(tem.APPROVAL_DATE,'yyyy-MM')='"
+			where += " and to_char(tem.ARCHIVE_DATE,'yyyy-MM')='"
 					+ date + "'";
 		}
 		Teminal_info_visit_callDao dao = new Teminal_info_visit_callDao();
