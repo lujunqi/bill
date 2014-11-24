@@ -60,10 +60,10 @@ function timeSelected(){
 		}
 		var sqlstr="";
 	    if ($('#UNIT_NAME').val() != ''){
-	    	sqlstr += " and com.UNIT_NAME like '%"+$('#UNIT_NAME').val()+"%'";
+	    	sqlstr += " and t.UNIT_NAME like '%"+$('#UNIT_NAME').val()+"%'";
 	    }
 	    if ($('#man').val() != ''){
-			sqlstr += " and o.OPERMAN_NAME like '%"+$('#man').val()+"%'";
+			sqlstr += " and t.OPERMAN_NAME like '%"+$('#man').val()+"%'";
 			}
 	    if ($('#has_col10').val() != ''){
 	    	if($('#has_col10').val()==1){
@@ -203,9 +203,9 @@ function timeSelected(){
 		<tr>
 			<td align='right' width="8%">查询时间段:</td>
 			<td width="30%">
-				<input  readonly="readonly" style='width: 100px' id="startTime" name="startTime" onclick="WdatePicker();" class="Wdate" />
+				<input  readonly="readonly" style='width: 100px' id="startTime" name="startTime" onClick="WdatePicker();" class="Wdate" />
 				至
-				<input  readonly="readonly" style='width: 100px' id="endTime" name="endTime" onclick="WdatePicker();" class="Wdate" />
+				<input  readonly="readonly" style='width: 100px' id="endTime" name="endTime" onClick="WdatePicker();" class="Wdate" />
 			</td>
 			<td align='right' width="8%">解决状态:</td>
 			<td width="15%">
@@ -223,7 +223,7 @@ function timeSelected(){
 			<td width="15%">
 				<input type="text" id="man" style="width: 120px;" maxlength="12"/>
 			</td>
-			<td align="right" ><input name="submit" type="button" value="查 询" onclick="find(0)"  />&nbsp;
+			<td align="right" ><input name="submit" type="button" value="查 询" onClick="find(0)"  />&nbsp;
 			</td>
 		</tr>
 		</table>
@@ -250,7 +250,7 @@ function timeSelected(){
 				<th class='dataTableHeader'>押金收据</th>
 				<th class='dataTableHeader'>是否满意</th>
 			</tr>
-			<tr id='complain_Templet' onclick="complainDetail(this.id);" style="cursor:hand;">
+			<tr id='complain_Templet' onClick="complainDetail(this.id);" style="cursor:hand;">
 					<td id='index' ></td>
 					<td id='SAFE_MAN' ></td>
 					<td id='UNIT_NAME' style="width:22%"></td>

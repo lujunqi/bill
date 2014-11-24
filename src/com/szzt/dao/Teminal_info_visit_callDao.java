@@ -99,14 +99,19 @@ public class Teminal_info_visit_callDao extends
 	{
 		StringBuilder builder = new StringBuilder();
 		//(select o.operman_name from  OPERMAN_INFO o where o.OPERMAN_ID = tem.SAFE_MAN)as operman_name
-		builder.append("SELECT allData.* FROM (select visit.*,com.UNIT_NAME, o.operman_name ,tem.UNIT_INSTALLED_NAME, ROWNUM RN FROM ");
-		builder.append(Commercial_InfoDao.TABLE)
-				.append(" com ,")
-				.append(Terminal_InfoDao.TABLE)
-				.append("  tem,")
+		builder.append("SELECT allData.* FROM (select visit.*,T.UNIT_NAME, T.operman_name ,T.UNIT_INSTALLED_NAME, ROWNUM RN FROM ");
+		builder.append(
+				"(SELECT COM.UNIT_NAME," +
+						"                       O.OPERMAN_NAME," + 
+						"                       TEM.UNIT_INSTALLED_NAME," + 
+						"                       TEMINAL_INFO_ID" + 
+						"                  FROM COMMERCIAL_INFO COM, TEMINAL_INFO TEM, OPERMAN_INFO O " + 
+						"                 WHERE O.OPERMAN_ID = TEM.SAFE_MAN" + 
+						"                   AND TEM.COMMERCIAL_ID = COM.COMMERCIAL_ID)")
+				.append(" T ,")
 				.append(TABLE)
-				.append(" visit ,OPERMAN_INFO o ")
-				.append(" where   o.OPERMAN_ID = tem.SAFE_MAN and tem.teminal_info_id=visit.teminal_info_id and tem.commercial_id=com.commercial_id  ");
+				.append(" visit ")
+				.append(" where T.teminal_info_id(+)=visit.teminal_info_id  ");
 		builder.append(where == null ? "" : where);
 		builder.append(" and ROWNUM<")
 				.append(this.getCurPage() * this.pageSize);
@@ -114,14 +119,19 @@ public class Teminal_info_visit_callDao extends
 				"  allData WHERE RN>=" + (this.getCurPage() - 1)
 						* this.getPageSize());
 		StringBuilder counts = new StringBuilder();
-		counts.append("SELECT count(*) FROM (select visit.*,com.UNIT_NAME, o.operman_name,tem.UNIT_INSTALLED_NAME, ROWNUM RN FROM ");
-		counts.append(Commercial_InfoDao.TABLE)
-				.append(" com ,")
-				.append(Terminal_InfoDao.TABLE)
-				.append("  tem,")
+		counts.append("SELECT count(*) FROM (select visit.*,T.UNIT_NAME, T.operman_name,t.UNIT_INSTALLED_NAME, ROWNUM RN FROM ");
+		counts.append(
+				"(SELECT COM.UNIT_NAME," +
+						"                       O.OPERMAN_NAME," + 
+						"                       TEM.UNIT_INSTALLED_NAME," + 
+						"                       TEMINAL_INFO_ID" + 
+						"                  FROM COMMERCIAL_INFO COM, TEMINAL_INFO TEM, OPERMAN_INFO O " + 
+						"                 WHERE O.OPERMAN_ID = TEM.SAFE_MAN" + 
+						"                   AND TEM.COMMERCIAL_ID = COM.COMMERCIAL_ID)")
+				.append(" T ,")
 				.append(TABLE)
-				.append(" visit ,OPERMAN_INFO o  ")
-				.append("  where o.OPERMAN_ID = tem.SAFE_MAN and tem.teminal_info_id=visit.teminal_info_id and tem.commercial_id=com.commercial_id  ");
+				.append(" visit  ")
+				.append(" where T.teminal_info_id(+)=visit.teminal_info_id  ");
 		counts.append(where == null ? "" : where);
 		counts.append(" ) ");
 
