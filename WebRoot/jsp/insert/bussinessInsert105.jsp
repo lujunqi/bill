@@ -818,7 +818,7 @@ color:red;
 					<a href="#TB_inline?height=250&width=600&inlineId=div2" class="thickbox">检索行号</a>
 				</td>
 <div id="div2" style=" display:none;">
-<b>请输入支行名关键字：</b><input type="text" id="auto" >
+<b>请输入支行名关键字：</b><input type="text" id="auto" class='notRequired'>
 <ul id="autoinfos" prism="dataGrid">
 <li style="height:30px; line-height:30px;"><a href='javascript:func_auto("#@C1#","#@C2#");'>#@C2#[支行号：#@C1#][接收行号：#@C5#]</a></li>
 </ul>
