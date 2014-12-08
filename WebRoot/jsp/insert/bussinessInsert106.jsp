@@ -1,6 +1,7 @@
 <%@page import="com.szzt.dao.DaoUtils"%>
 <%@page import="com.szzt.authority.PositionPermessionImpl"%>
 <%@page import="com.dodou.inferface.Permission"%>
+
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ include file="../../import.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -59,6 +60,24 @@ if(null!=info&&info.equals("10")){
   </style>
  <script src="../../js/province_city_area_select.js" type="text/javascript"></script>
 <script type="text/javascript">
+$(init);
+function init(){
+	$("#TERM_ID1").bind("propertychange input",function(e) {
+		var tmp = $("#TERM_ID1").val();
+		if(tmp.length>=15){
+			var param = {};
+			param["TERM_ID1"] = tmp;
+			param["ACTION_TYPE"] = "JSONLIST";
+			
+			$.post("../../v_check_shbh.rp",param,function(j){
+				if(j.length>=1){
+					alert("商户编码已存在");
+				}
+			},"JSON");
+		}
+	});
+}
+
 function showLog(id){
 	window.open ('../show/log.jsp?type=106&id='+id, 'log', 'height=600, width=1000, top=40, left=100,menubar=no, scrollbars=yes, resizable=yes,location=n o, status=no'); //这句要写成一行
 }
@@ -75,6 +94,7 @@ function onlyNumberAllow(obj){
 		obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
 	}
 }
+var UNIT_AREA;
 var appppppppStatus=0;
 var cur_page = 0;
 function find(cur_page,appStatus){
@@ -103,6 +123,7 @@ function find(cur_page,appStatus){
 	        		if(object[i]["TEMINAL_STATUS"]==3)//审批通过
 	        		{
 	        			var ter1=object[i]["TERM_ID1"];
+						
 	        			if(null!=ter1){
 	        				ter1=$.trim(ter1);
 	        			}else ter1="";
@@ -166,7 +187,8 @@ function find(cur_page,appStatus){
 		$.post("../action/findById/Commercial..jsp",{id:${param.CommercialId}},function(j){
 			var jj=$.parseJSON(j);
 			$("#unitName").html(jj.UNIT_NAME);
-
+			$("#TERM_ID1").val(jj.UNIT_AREA);
+			UNIT_AREA = "821"+jj.UNIT_AREA;
 			if ($.trim($("#MC_NAME").val()).length<1) {
 				$("#MC_NAME").val(jj.UNIT_NAME);
 			}
@@ -178,6 +200,7 @@ function find(cur_page,appStatus){
 		//$("#bussiness101form input").removeAttr("disabled");
 		//$("#bussiness101form select").removeAttr("disabled");
 		//$("#bussiness101form textarea").removeAttr("disabled");
+
 		if(appppppppStatus==2)
 		{
 			$("#ACCOUNT_NO").removeAttr("disabled");
@@ -257,6 +280,7 @@ function find(cur_page,appStatus){
 					$("#bussiness102form button[id='windowBackBtn']").removeAttr("disabled");
 
 						$.post("../action/findById/Apppay106.jsp",{'id':${param.appayId}},function(json){
+
 							var result=eval("("+json+")");
 							//var result=json.resultset[0];
 							appppppppStatus=result["APPR_STATUS"];
@@ -282,8 +306,11 @@ function find(cur_page,appStatus){
 								}else{
 									if(result[itemId]!=null)
 										$(this).val($.trim(result[itemId]));
-									}
+							}
 							});
+							if($("#TERM_ID1").val()==""){
+								$("#TERM_ID1").val(UNIT_AREA);
+							}
 						$("#ACCOUNT_NO_CHECK").val($("#ACCOUNT_NO").val());	
 						$("#FEE_TYPE").change();
 						//卡限制
@@ -607,7 +634,8 @@ color:red;}
 			<tr>
 				<td align="right">机具序列号:</td>
 				<td>
-					<input type="text" name="SERIAL" id="SERIAL"/>
+					<input type="text" name="SERIAL" id="SERIAL"  onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" 
+					/>
 					<font>*</font>
 				</td>
 				<td align="right">销售金额（元）:</td>

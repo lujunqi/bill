@@ -76,10 +76,44 @@ input{
 <script src="../../js/province_city_area_select.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../js/jquery.dataTable.js"></script>
 <script src="../../js/Area.js" type="text/javascript"></script>
-    <script src="../../js/AreaData_min.js" type="text/javascript"></script>
+<script src="../../js/validator.js" type="text/javascript"></script>
+<script src="../../js/AreaData_min.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+function isMobile(val) { 
+	var teleReg = /^((0\d{2,3})-)(\d{7,8})$/;  
+    var mobileReg =/^1[358]\d{9}$/; 
+    if (!teleReg.test(val) && !mobileReg.test(val)){  
+        return false;  
+    }else{  
+        return true;  
+    }
+} 
+function isChinaOrNumbOrLett( s ){//判断是否是汉字、字母、数字组成
+	var regu = "^[0-9a-zA-Z\u4e00-\u9fa5]+$";  
+	var re = new RegExp(regu);
+	if (re.test(s)) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function isTel(val){
+	if(isNaN(val)){
+		return false;
+	}else{
+		var t = val.length;
+		if(11<=t<=12){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+
 $(function(){
-	//$.address("UNIT_Province","UNIT_City","UNIT_AREA","湖南","长沙市","天心区");
+
 });
 
 function showAreaID(city,street) {
@@ -414,6 +448,34 @@ var id=<%=request.getParameter("CommercialId")%>;
 			}
 			return true;
 		});
+
+		if(!isMobile($("#CONTACT_TEL_1").val())){
+			alert("请输入正确的手机号码！");
+			$("#CONTACT_TEL_1").focus();
+			return false;
+		}
+		
+		if(!isChinaOrNumbOrLett($("#COMM_AD").val())){
+			alert("工商营业执照地址不能输入特殊符号！");
+			$("#COMM_AD").focus();
+			return false;
+		}
+		if(!isChinaOrNumbOrLett($("#UNIT_ADD").val())){
+			alert("客户营业地址不能输入特殊符号！");
+			$("#UNIT_ADD").focus();
+			return false;
+		}
+		if(!isChinaOrNumbOrLett($("#UNIT_NAME").val())){
+			alert("客户单位名称不能输入特殊符号！");
+			$("#UNIT_NAME").focus();
+			return false;
+		}
+		if(!isTel($("#CONTACT_TEL_2").val())){
+			alert("请输入正确的固定电话！");
+			$("#CONTACT_TEL_2").focus();
+			return false;
+		}
+		
 		if(""!=allow){
 			alert(allow);
 			 var evt = e|| window.event;
@@ -478,20 +540,20 @@ var id=<%=request.getParameter("CommercialId")%>;
 		<c:if test="${1==param.show }">
 				<form  method="post"  id="from1"  action="../action/CommercialDataUpdate.jsp">
 		</c:if>
-		营业执照编码查询: <input id="checkComIdQuery" class="notRequired"><button type="button" onclick="queryGSYY()">查询</button>
+		营业执照编码查询: <input id="checkComIdQuery" class="notRequired"><button type="button" onClick="queryGSYY()">查询</button>
 		<hr>
 			<table>
 				<tr>
 				<td align="right">客户单位名称:</td>
 				<td>
-					<input  type="text" name="UNIT_NAME" id="UNIT_NAME" onkeyup="$('#COMM_NAME,#TRADE_NAME').val($(this).val())" maxlength="50"/><font>*</font>
+					<input  type="text" name="UNIT_NAME" id="UNIT_NAME" onKeyUp="$('#COMM_NAME,#TRADE_NAME').val($(this).val())" maxlength="50"/><font>*</font>
 					<input type="hidden" name="COMMERCIAL_ID" class="notRequired" value='<c:out value="${param.CommercialId }" ></c:out>'/>
 				</td>
 				<td align="right">工商营业执照编码:</td>
 				<td>
-					<input type="text" name="COMM_NO" id="COMM_NO" onblur="checkSigletonComNo()"/>
+					<input type="text" name="COMM_NO" id="COMM_NO" onBlur="checkSigletonComNo()"/>
 					<font>*</font>
-					<button style="width:100px" onclick="autoCreateCommno()">暂无执照编码</button>
+					<button style="width:100px" onClick="autoCreateCommno()">暂无执照编码</button>
 				</td>
 			</tr>
 			<tr>
@@ -501,7 +563,7 @@ var id=<%=request.getParameter("CommercialId")%>;
 				</td>
 				<td align="right">工商营业执照地址:</td>
 				<td>
-					<input type="text" name="COMM_AD" id="COMM_AD" onkeyup="$('#UNIT_ADD').val($(this).val())"/><font>*</font>
+					<input type="text" name="COMM_AD" id="COMM_AD" onKeyUp="$('#UNIT_ADD').val($(this).val())"/><font>*</font>
 				</td>
 			</tr>
 			<tr>
@@ -566,12 +628,14 @@ var id=<%=request.getParameter("CommercialId")%>;
 				</td> -->
 					<td align="right">移动电话</td>
 				<td>
-					<input type="text" name="CONTACT_TEL_1" id="CONTACT_TEL_1"/><font>*</font>
+					<input type="text" name="CONTACT_TEL_1" id="CONTACT_TEL_1" 
+					onKeyUp="if(isNaN(this.value)){this.value=this.value.replace(/\D/g,'')}" 
+					onafterpaste="if(isNaN(this.value)){this.value=this.value.replace(/\D/g,'')}"/><font>*</font>
 				</td>
 				
 				<td align="right">固定电话</td>
 				<td>
-					<input type="text" name="CONTACT_TEL_2" id="CONTACT_TEL_2" class="notRequired"/>
+					<input type="text" name="CONTACT_TEL_2" id="CONTACT_TEL_2" onKeyUp="if(isNaN(this.value)){this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(isNaN(this.value)){this.value=this.value.replace(/\D/g,'')}" class="notRequired"/>
 				</td>
 				
 			</tr>
@@ -614,7 +678,7 @@ var id=<%=request.getParameter("CommercialId")%>;
 							<%
 							Permission per=new PositionPermessionImpl();
 							if(!per.onlyPosition(session, Permission.OPERAT_POSITION)){ %>
-								<button onclick="updateData()"  type="button"  id="updataData"  style="width:100px;text-align: center; table-layout: fixed;">修改</button>
+								<button onClick="updateData()"  type="button"  id="updataData"  style="width:100px;text-align: center; table-layout: fixed;">修改</button>
 							<%} %>
 								<button  onclick="beforeSubmit()" type="button" style="width:100px;text-align: center; table-layout: fixed;">提交</button>
 						</c:if>
