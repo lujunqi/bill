@@ -12,7 +12,7 @@
 	String filename = "apms" + date + ".xls";
 	
 	APMSImportExcel export = new APMSImportExcel();
-	String filePath = export.createAPMSData2Excel(date, application);
+	String filePath = export.createAPMSData2Excel(date,application,filename);
 	out.println("<a href='../../../report/" + filename+ "'>生成文件:" + filePath + "</a>");
 %>
 

@@ -19,7 +19,8 @@
 			    + "')t1, (select count(*) from APPPAY_106 where trim(TERM_ID1)=trim('"
 			    + no
 			    + "')) t2,(select count(*) from APPPAY_102 where trim(TERM_ID1)=trim('"
-			    + no + "')) t3";
+			    + no + "')) t3,(select count(*) from APMS_TERM where trim(TERM)=trim('"
+			    + no + "')) t4";
 		    DatabaseAccess dba = new DatabaseAccess();
 		    ResultSet set = dba.executeQuery(sql);
 		    if (set.next()) {
@@ -27,8 +28,9 @@
 			int apms = set.getInt(2);
 			int zizhu = set.getInt(3);
 			int shoufu = set.getInt(4);
+			int apms_term = set.getInt(5);
 			if (exists == 0 && apms == 0 && zizhu == 0
-				&& shoufu == 0) {
+				&& shoufu == 0 && apms_term == 0) {
 			    out.println(1);
 			}
 		    }

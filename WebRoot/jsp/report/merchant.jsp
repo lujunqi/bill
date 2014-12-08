@@ -64,6 +64,7 @@ String address = man.getOper_address();
 	width:120px;
 	display:inline-block;
 }
+.box{ height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:1000; opacity:0.3; filter: alpha(opacity=30); background-color:#000; text-align:center; line-height:100%; display:none;} 
 </style>
 <script>
 $(document).ready(function()
@@ -169,12 +170,16 @@ function find(cur_page){
 			header.eq(key).hide();
 		}
 	}
+	if($("input[name='begin_tj_date']").val()=="" || $("input[name='end_tj_date']").val()==""){
+		alert("统计时间必填");
+		return;
+	}
 	$("#ACTION_TYPE").val("");
 	$('#terminalDayGain_Templet').nextAll().remove();
 	cur_page = cur_page || 0;
 	var row = $('#terminalDayGain_Templet').clone(true);
 	$("#cur_page").val(cur_page+1);
-	
+	$(".box").show();
 	$("#detail_custForm").ajaxSubmit({
 		dataType:'json',
 		error : function(XMLResponse) {
@@ -193,6 +198,7 @@ function find(cur_page){
 			
 			$("#terminalDayGain_Templet").prism({content:object,end:function(el,data){
 				var tr = $("TR",el);
+				$(".box").hide();
 				for(var j=0;j<tr.length;j++){
 					var td = $("TD",tr.eq(j));
 					for(var i=0;i<checkboxs.length;i++){
@@ -227,6 +233,10 @@ function find(cur_page){
 }
 
 function exportReport(){
+	if($("input[name='begin_tj_date']").val()=="" || $("input[name='end_tj_date']").val()==""){
+		alert("统计时间必填");
+		return false;
+	}
 	var checkboxs = $(":checked","#setTitle");
 	var keys = [];
 	for(var i=0;i<checkboxs.length;i++){
@@ -234,21 +244,26 @@ function exportReport(){
 	}
 	$("#ACTION_TYPE").val("EXCEL");
 	$("#keys").val(JSON.stringify(keys));
+	return true;
 }	
 
 </script>
 </head>
 
 <body>
+<table class="box">
+<tr><td><img src="../../images/loading2.gif"  alt=""/> </td></tr>
 
+
+</table>
 <div id=detailDiv class="left02">
 <div class="left02topDiv">
   <div class="left02top_right"></div>
   <div class="left02top_left"></div>
-  <div class="left02top_c" id="titleInfo" style="width: 600px">台账报表-&gt;商户交易</div>
+  <div class="left02top_c" id="titleInfo" style="width: 600px">台账报表-&gt;商户交易台账</div>
 </div>
 <div class="left02downDiv">
-  <form id="detail_custForm" onsubmit="exportReport()" target="_blank" action="../../merchant.rp"  method="post">
+  <form id="detail_custForm" onsubmit="return exportReport()" target="_blank" action="../../merchant.rp"  method="post">
     
     <ul id="setTitle" style="display:none;">
       <%

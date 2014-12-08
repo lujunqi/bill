@@ -1,6 +1,8 @@
 package com.szzt.dao;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.dodou.db.DatabaseAccess;
 import com.dodou.inferface.AbstractDao;
@@ -60,6 +62,9 @@ public class PhotoDao extends AbstractDao<Photo>
 	@Override
 	public int insert(Photo data) throws Exception
 	{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String day = format.format(new Date(System.currentTimeMillis()));
+
 		String sql = "insert into " + TABLE;
 		String fields = "PHOTO_ID";
 		String values = "PHOTO_ID_ID.nextval";
@@ -72,7 +77,7 @@ public class PhotoDao extends AbstractDao<Photo>
 		fields += ",TYPE";
 		values += ",'" + data.getTYPE() + "'";
 		fields += ",UP_DAY";
-		values += ",'" + data.getUP_DAY() + "'";
+		values += ",'" + day + "'";
 		fields += ",APPPAY_TYPE";
 		values += "," + data.getAPPPAY_TYPE();
 		sql += "(" + fields + ") values (" + values + ")";

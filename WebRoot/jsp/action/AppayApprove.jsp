@@ -111,7 +111,7 @@
 			Apppay_105 a105 = new Apppay_105();
 			a105.setAppr_man(man.getOperman_id() + "");
 			a105.requestGetParameter(request);
-
+		
 			Apppay_105Dao dao = new Apppay_105Dao();
 
 			int status = dao.loadAppayStatus(Apppay_105Dao.TABLE,
@@ -151,16 +151,14 @@
 			String sql = "select * from (select count(*) from TERM_APP_TABLE where trim(TERM_ID1)='"
 				+ TERM_ID1
 				+ "')t"
-				+ ",(select count(*) from cms.GW_CUSTOMER where col1='"
-				+ TERM_ID1 + "')t1,(select count(*) from APPPAY_106 where trim(TERM_ID1)='"+TERM_ID1+"' and APPPAY_ID != "+appay+")t2,(select count(*) from APPPAY_102 where trim(TERM_ID1)='"+TERM_ID1+"')t3 ";
+				+ ",(select count(*) from APPPAY_106 where trim(TERM_ID1)='"+TERM_ID1+"' and APPPAY_ID != "+appay+")t2,(select count(*) from APPPAY_102 where trim(TERM_ID1)='"+TERM_ID1+"')t3 ";
 			DatabaseAccess dba = new DatabaseAccess();
 			ResultSet set = dba.executeQuery(sql);
 			if(set.next()){
 				int exists = set.getInt(1);
-				int apms = set.getInt(2);
-				int a_106 = set.getInt(3);
-				int a_102 = set.getInt(4);			    
-				if (exists != 0 || apms != 0 || a_106 != 0 || a_102 != 0){
+				int a_106 = set.getInt(2);
+				int a_102 = set.getInt(3);			    
+				if (exists != 0 || a_106 != 0 || a_102 != 0){
 					response.sendRedirect("../insert/bussinessInsert106.jsp?show=1&info=10&&appayId="
 						+ appay
 						+ "&CommercialId="

@@ -61,7 +61,8 @@ function find(cur_page){
 		unit_area = address;
 	}
 	var startTime = $("#startTime").val();
-
+	var sTime = $("#sTime").val();
+	var eTime = $("#eTime").val();
     $('#merDayGain_Templet').nextAll().remove();
 	cur_page = cur_page || 0;
 	var row = $('#merDayGain_Templet').clone(true);
@@ -71,7 +72,7 @@ function find(cur_page){
 		url:'../action/merDayTotalQuery.jsp',
 		dataType:'json',
 		type:'POST',
-		data:{'where':sqlstr,'cur_page':cur_page+1,'page_size':page_size,'unit_area':unit_area,'marchant_no':marchant_no,'marchant_name':marchant_name,'startTime':startTime},
+		data:{'where':sqlstr,'cur_page':cur_page+1,'page_size':page_size,'unit_area':unit_area,'marchant_no':marchant_no,'marchant_name':marchant_name,'startTime':startTime,'sTime':sTime,'eTime':eTime},
 		success: function(json){
 			var object = json.resultset;
 	        $('#merDayGain_Templet').nextAll().remove();
@@ -162,19 +163,19 @@ function find(cur_page){
 		<form id="detail_custForm" action="ExecuteQuery.jsp"  method="post">
 		<table border='0px' style='font-sizd: 1.2em' >
 		<tr>
-			<td align='right' width="8%">查询月份:</td>
+			<td align='right'  nowrap='nowrap'>查询月份:</td>
 			<td>
 				<input  readonly="readonly" style='width: 100px' id="startTime" name="startTime" onclick="WdatePicker({dateFmt:'yyMM'});" class="Wdate" />
 			</td>
 			<td align="right" >商户名称:</td>
 			<td><input id="marchant_name" name="marchant_name"> </td>
-			<td align="right" >商户编号:</td>
+			<td align="right" nowrap='nowrap'>商户编号:</td>
 			<td><input id="marchant_no" name="marchant_no"> </td>
 
 			<%Permission per=new PositionPermessionImpl();
 				if(per.hasPermission(session, Permission.LEADER_POSITION)){
 			%>
-			<td align='right' width="12%">所在地区:</td>
+			<td align='right'  nowrap='nowrap'>所在地区:</td>
 			<td width="13%">
 			<select id="unit_area" name='unit_area' style='width: 120px' />
 				<option value=''>请选择</option>
@@ -190,8 +191,14 @@ function find(cur_page){
 			<%} %>		
 		</tr>
 		<tr>
-				<td align="right" colspan="6" >
-				<input  type="button" value="查 询" onclick="find(0)"  />&nbsp;
+				<td align='right'  nowrap='nowrap'>零交易查询时间段:</td>
+			<td width="30%"  colspan="3">
+				<input  readonly="readonly" style='width: 100px' id="sTime" name="sTime" onclick="WdatePicker({dateFmt:'dd'});" class="Wdate" />
+				至
+				<input  readonly="readonly" style='width: 100px' id="eTime" name="eTime" onclick="WdatePicker({dateFmt:'dd'});" class="Wdate" />
+			</td>
+				<td align="right" nowrap='nowrap'>
+				<input  type="button" value="查 询" onclick="find(0)"  />&nbsp; 该数据分析量大，请耐心等待!
 			</td>
 		</tr>
 		</table>

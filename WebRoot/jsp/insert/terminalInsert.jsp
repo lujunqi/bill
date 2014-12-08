@@ -206,6 +206,10 @@ var leader=${sessionScope.man.oper_address};
 		  $("#terminal_status_form_2").find("button,input,select").attr("disabled","disabled");
 		  $("#terminal_status_form_5").find("button,input,select").attr("disabled","disabled");
 		  $("#TerminalMessageChange").removeAttr("disabled");
+		  
+		  $("#archTerminalDiv").show();
+		  $("#archTime").html(result["ARCHIVE_DATE"]);
+		  
 		  break;
 	  case 3:
 		  $("#terminal_status_form_10 *").attr("disabled","disabled");
@@ -563,19 +567,7 @@ function find(cur_page){
 				</td>
 			</tr>
 			<% DaoUtils daoUtils=new DaoUtils();
-			request.setAttribute("allOperateUsers", daoUtils.localExpandUser(session,false));
 			%>
-			
-			<tr>
-				<td align="right">拓展人：</td>
-				<td>
-					<select name="E_ID" id="E_ID">
-						<c:forEach items="${allOperateUsers }" var="val" varStatus="vasta">
-							<option value="<c:out value="${val.key }"></c:out>"><c:out value="${val.value }"></c:out></option>
-						</c:forEach>
-					</select>
-				</td>
-			</tr>
 			 
 			</table>
 		<div  class="left02">
@@ -653,6 +645,7 @@ function find(cur_page){
 						<tr>
 							<th class='dataTableHeader' style="width: 90px">绑定(双击解绑)</th>
 							<th class='dataTableHeader'>业务名称</th>
+							<th class='dataTableHeader'>门店名称</th>
 							<th class='dataTableHeader'>商户编号</th>
 							<th class='dataTableHeader'>终端编号</th>
 							<th class='dataTableHeader'>拓展人</th>
@@ -663,6 +656,7 @@ function find(cur_page){
 						<tr id='merDayGain_Templet'>
 							<td id="APPPAY_ID"  style='width:20px'></td>
 							<td id="APP_TYPE"></td>
+							<td id="MARCHANT_NAME"></td>
 							<td id="TERM_ID1"></td>
 							<td id="TERM_ID2"></td>
 							<td id="E_ID"></td>
@@ -942,6 +936,22 @@ function find(cur_page){
 					</td>
 				</tr>
 				</table>
+			<div  class="left02" id="cancelTerminalDiv" style="display: none">
+					<div class="left02topDiv">
+						<div class="left02top_right"></div>
+						<div class="left02top_left"></div>
+						<div class="left02top_c"><span id="titleName" style="width: 800px">该终端已撤机，撤机时间:<font id="cancelTime"></font></span>
+						</div>
+					</div>
+				</div>		
+			<div  class="left02" id="archTerminalDiv" style="display: none">
+					<div class="left02topDiv">
+						<div class="left02top_right"></div>
+						<div class="left02top_left"></div>
+						<div class="left02top_c"><span id="titleName" style="width: 800px">该终端已归档，归档时间:<font id="archTime"></font></span>
+						</div>
+					</div>
+				</div>						
 				<center>
 						<%
 							if(per.hasPermission(session,Permission.FILE_POSITION)||per.hasPermission(session,Permission.LEADER_POSITION)){
@@ -990,14 +1000,7 @@ function find(cur_page){
 							
 							
 			</div>
-			<div  class="left02" id="cancelTerminalDiv" style="display: none">
-					<div class="left02topDiv">
-						<div class="left02top_right"></div>
-						<div class="left02top_left"></div>
-						<div class="left02top_c"><span id="titleName" style="width: 800px">该终端已撤机，撤机时间:<font id="cancelTime"></font></span>
-						</div>
-					</div>
-				</div>
+
 		<%if(per.hasPermission(session, Permission.CUS_SERVICE_POSITION)){ %>
 				<!-- 回访信息 -->			
 				<div  class="left02">

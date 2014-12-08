@@ -25,8 +25,9 @@
 <script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="../../js/plupload.full.min.js"></script>
 <%
+	String apppay_type = request.getParameter("type");
   	PhotoDao pd=new PhotoDao();
-  	String sql="select * from " + PhotoDao.TABLE+" where APPPAY_ID="+request.getParameter("id")+" order by TYPE";
+  	String sql="select * from " + PhotoDao.TABLE+" where APPPAY_ID="+request.getParameter("id")+" and apppay_type="+apppay_type+"  order by PHOTO_ID "; 
   	request.setAttribute("photos", pd.select(sql));
   %>
   <script type="text/javascript">
@@ -76,6 +77,14 @@
 			<option value="组织代码证">组织代码证</option>
 			<option value="新增终端审批表">新增终端审批表</option>
 			<option value="商户信息变更表">商户信息变更表</option>
+			<option value="押金减免单">   押金减免单</option>  
+			<option value="风险承诺函">   风险承诺函</option>  
+			<option value="代理协议">     代理协议  </option>  
+			<option value="账号授权书">   账号授权书  </option>
+			<option value="商户特批单">   商户特批单  </option>
+			<option value="门面租赁协议"> 门面租赁协议</option>
+			<option value="账号复印件">   账号复印件  </option>
+
 			<option value="其他">其他</option>
 		</select>
 		<button class="button" id="pickfiles">选择文件</button>&nbsp;&nbsp;
@@ -87,7 +96,7 @@
 				<td>文件类型</td>
 				<td>文件名称</td>
 				<td>操作</td>
-				<td>上传进度</td>
+				<td>上传进度</td> 
 			</tr>
 		</table>
 	</div>
@@ -151,7 +160,7 @@
 					flash_swf_url : '../../js/Moxie.swf',
 					silverlight_xap_url : '../../js/Moxie.xap',
 					filters : {
-						max_file_size : '5mb',
+						max_file_size : '200kb',
 						mime_types : [ {
 							title : "图片类型",
 							extensions : "jpg,gif,png"

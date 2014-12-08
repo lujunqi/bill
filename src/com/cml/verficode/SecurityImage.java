@@ -6,10 +6,18 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Random;
 
+import javax.imageio.stream.ImageInputStream;
+
+import sun.awt.image.BufferedImageDevice;
+import sun.awt.image.PNGImageDecoder;
+
+import com.sun.image.codec.jpeg.ImageFormatException;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import com.sun.imageio.plugins.png.PNGImageWriter;
 
 /**
  * 验证码生成器类，可生成数字、大写、小写字母及三者混合类型的验证码。 支持自定义验证码字符数量； 支持自定义验证码图片的大小； 支持自定义需排除的特殊字符；
@@ -18,7 +26,8 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
  * @author shiyz
  * @version 1.0
  */
-public class SecurityImage {
+public class SecurityImage
+{
 	private static final int width = 100;
 	private static final int height = 30;
 
@@ -29,7 +38,8 @@ public class SecurityImage {
 	 *            验证码字符
 	 * @return BufferedImage 图片
 	 */
-	public BufferedImage createImage(String securityCode) {
+	public BufferedImage createImage(String securityCode)
+	{
 		// 验证码长度
 		int codeLength = securityCode.length();
 		// 字体大小
@@ -53,7 +63,8 @@ public class SecurityImage {
 		Random rand = new Random();
 		// 设置噪点颜色
 		g.setColor(Color.LIGHT_GRAY);
-		for (int i = 0; i < codeLength * 6; i++) {
+		for (int i = 0; i < codeLength * 6; i++)
+		{
 			int x = rand.nextInt(width);
 			int y = rand.nextInt(height);
 			// 绘制1*1大小的矩形
@@ -64,7 +75,8 @@ public class SecurityImage {
 		// 设置字体颜色和样式
 		g.setColor(new Color(19, 148, 246));
 		g.setFont(new Font("Georgia", Font.BOLD, fSize));
-		for (int i = 0; i < codeLength; i++) {
+		for (int i = 0; i < codeLength; i++)
+		{
 			g.drawString(String.valueOf(securityCode.charAt(i)), i * 20 + 10,
 					codeY);
 		}
@@ -80,7 +92,8 @@ public class SecurityImage {
 	 *            验证码
 	 * @return ByteArrayInputStream 图片流
 	 */
-	public ByteArrayInputStream getImageAsInputStream(String securityCode) {
+	public ByteArrayInputStream getImageAsInputStream(String securityCode)
+	{
 		BufferedImage image = createImage(securityCode);
 		return convertImageToStream(image);
 	}
@@ -92,17 +105,20 @@ public class SecurityImage {
 	 *            图片
 	 * @return ByteArrayInputStream 流
 	 */
-	private ByteArrayInputStream convertImageToStream(BufferedImage image) {
+	private ByteArrayInputStream convertImageToStream(BufferedImage image)
+	{
 
 		ByteArrayInputStream inputStream = null;
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		// JPEGImageEncoder jpeg = JPEGCodec.createJPEGEncoder(bos);
 		JPEGImageEncoder jpeg = JPEGCodec.createJPEGEncoder(bos);
-		try {
+		try
+		{
 			jpeg.encode(image);
 			byte[] bts = bos.toByteArray();
 			inputStream = new ByteArrayInputStream(bts);
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 		return inputStream;

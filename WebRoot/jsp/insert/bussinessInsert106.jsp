@@ -22,7 +22,7 @@ if(null!=info&&info.equals("11")){
 	out.println("<script type=\"text/javascript\">alert('修改成功')</script>");
 }
 if(null!=info&&info.equals("10")){
-	out.println("<script type=\"text/javascript\">alert('修改失败')</script>");}
+	out.println("<script type=\"text/javascript\">alert('自助终端编号已经存在')</script>");}
 
 %>
 <meta http-equiv="content-script-type" content="text/javascript">

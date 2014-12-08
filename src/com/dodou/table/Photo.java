@@ -44,9 +44,7 @@ public class Photo
 
 	public String getUP_DAY()
 	{
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
-		return format.format(new Date(System.currentTimeMillis()));
+		return UP_DAY;
 	}
 
 	public void setUP_DAY(String uP_DAY)

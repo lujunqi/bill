@@ -9,11 +9,9 @@
 		Apppay_105x.setChange_date(UtilTime.getOtherFormat2String(
 				"yyyy-MM-dd", new java.util.Date()));
 		Apppay_105x.requestGetParameter(request);
-
 		Operman_info man = (Operman_info) session.getAttribute("man");
 		Apppay_105dao.setWho(man.getOperman_name());
 		Apppay_105dao.update(Apppay_105x);
-		Log.getLogger().info("111111111111");
 		out.println(Apppay_105x.getApppay_id());
 		Apppay_105dao.release();
 	} catch (Exception e)

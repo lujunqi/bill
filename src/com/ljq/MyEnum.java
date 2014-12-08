@@ -1,9 +1,7 @@
 package com.ljq;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MyEnum {
 	public static List<String[]> commercialTitle = new ArrayList<String[]>();
@@ -39,7 +37,7 @@ public class MyEnum {
 		commercialTitle.add(new String[] { "MCC", "MCC" });
 		commercialTitle.add(new String[] { "商户名称", "SHMC" });
 		commercialTitle.add(new String[] { "对外营业名称", "TRADE_NAME" });
-
+		
 		commercialTitle.add(new String[] { "标准扣率", "BZKL" });
 		commercialTitle.add(new String[] { "地区代码", "DQDM" });
 		commercialTitle.add(new String[] { "法人代表", "FRDB" });
@@ -64,35 +62,14 @@ public class MyEnum {
 
 	}
 
+	
 	private List<String[]> list = new ArrayList<String[]>();
-
-	public void add(String p1, String p2) {
-		list.add(new String[] { p1, p2 });
+	
+	
+	public void add(String p1,String p2){
+		list.add(new String[]{p1,p2});
 	}
-
-	public List<String[]> getList() {
+	public List<String[]> getList(){
 		return list;
 	}
-
-	private List<Map<String, String>> secList = new ArrayList<Map<String, String>>();
-
-	public void addSec(String title, String widget) {
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("title", title);
-		m.put("widget", widget);
-		
-		secList.add(m);
-	}
-
-	public void addSec(String title, String widget, String js) {
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("title", title);
-		m.put("widget", widget);
-		m.put("js", js);
-		secList.add(m);
-	}
-	public List<Map<String, String>> getSec() {
-		return secList;
-	}
-
 }

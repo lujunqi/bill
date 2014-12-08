@@ -72,6 +72,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 			// a1.APPPAY_ID, a1.APPTYPE, a1.APPR_STATUS
 			model.setAPPPAY_ID(result.getInt("APPPAY_ID"));
 			model.setAPP_TYPE(result.getString("APPTYPE"));
+			model.setMARCHANT_NAME(result.getString("MARCHANT_NAME"));
 			model.setAPPR_STATUS(result.getInt("APPR_STATUS"));
 			model.setE_ID(result.getString("OPERMAN_NAME"));
 			if (checked)
@@ -120,7 +121,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 	{
 		StringBuffer sql = new StringBuffer();
 
-		sql.append("select a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
+		sql.append("select '无' as MARCHANT_NAME, a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
 		sql.append(" from APPPAY_101 a,TERM_APP_TABLE t ");
 		sql.append(
 				" where (t.status=1 or t.status=0) and a.APPPAY_ID in (select APPPAY_ID from TERM_APP_TABLE s where s.COMMERCIAL_ID=")
@@ -134,7 +135,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 
 		// 第二个。。。。。
 		sql.append(" union all  ");
-		sql.append(" select a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
+		sql.append(" select '无' as MARCHANT_NAME,a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
 		sql.append(" from APPPAY_103 a,TERM_APP_TABLE t ");
 		sql.append(
 				" where (t.status=1 or t.status=0) and a.APPPAY_ID in (select APPPAY_ID from TERM_APP_TABLE s where s.COMMERCIAL_ID=")
@@ -147,7 +148,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 				.append(terminalId);
 		// 第三个。。。。。
 		sql.append(" union all  ");
-		sql.append(" select a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
+		sql.append(" select '无' as MARCHANT_NAME,a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
 		sql.append(" from APPPAY_102 a,TERM_APP_TABLE t ");
 		sql.append(
 				" where (t.status=1 or t.status=0) and a.APPPAY_ID in (select APPPAY_ID from TERM_APP_TABLE s where s.COMMERCIAL_ID=")
@@ -160,7 +161,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 				.append(terminalId);		
 		sql.append(" union all  ");
 		// 第四个。。。。。
-		sql.append(" select a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
+		sql.append(" select a.MARCHANT_NAME,a.APPPAY_ID,a.APPTYPE,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a.E_ID) as OPERMAN_NAME,to_char(a.APPR_DATE,'yyyy-MM-dd') APPR_DATE,a.APPR_STATUS,t.TERM_ID1,t.TERM_ID2 ");
 		sql.append(" from APPPAY_105 a,TERM_APP_TABLE t ");
 		sql.append(
 				" where (t.status=1 or t.status=0) and a.APPPAY_ID in (select APPPAY_ID from TERM_APP_TABLE s where s.COMMERCIAL_ID=")
@@ -182,7 +183,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 
 		StringBuffer notSql = new StringBuffer();
 		notSql.append(
-				"select a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
+				"select '无' as MARCHANT_NAME,a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
 				.append("  from APPPAY_103 a1 ");
 		notSql.append(" where a1.APPTYPE='103' and a1.apppay_id not in");
 		notSql.append(
@@ -195,7 +196,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 		// ..
 		notSql.append(" union all ");
 		notSql.append(
-				"select a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
+				"select '无' as MARCHANT_NAME,a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
 				.append("  from APPPAY_101 a1 ");
 		notSql.append(" where a1.APPTYPE='101'  and a1.apppay_id not in");
 		notSql.append(
@@ -208,7 +209,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 		// ..
 		notSql.append(" union all ");
 		notSql.append(
-				"select a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
+				"select '无' as MARCHANT_NAME,a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
 				.append("  from APPPAY_102 a1 ");
 		notSql.append(" where a1.APPTYPE='102'  and a1.apppay_id not in");
 		notSql.append(
@@ -221,7 +222,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 		// ...
 		notSql.append(" union all ");
 		notSql.append(
-				"select a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
+				"select a1.MARCHANT_NAME,a1.APPPAY_ID,  a1.APPTYPE, a1.APPR_STATUS,(select o.OPERMAN_NAME from OPERMAN_INFO o where  o.OPERMAN_ID=a1.E_ID) as OPERMAN_NAME ")
 				.append("  from APPPAY_105 a1 ");
 		notSql.append(" where a1.APPTYPE='105'  and a1.apppay_id not in");
 		notSql.append(
@@ -290,23 +291,23 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 
 	public Object[] findByCommercialId(int commercialId) throws Exception
 	{
-		String sql = " select INPUT_DATE ,CHANGE_DATE,(select t.term_id1 from TERM_APP_TABLE t where rownum=1 and a.APPPAY_ID=t.APPPAY_ID and t.APPTYPE='101') as trem1,a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.contract_fee,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_101 a,OPERMAN_INFO o where a.commercial_id="
+		String sql = " select '无' as MARCHANT_NAME,INPUT_DATE ,CHANGE_DATE,(select t.term_id1 from TERM_APP_TABLE t where rownum=1 and a.APPPAY_ID=t.APPPAY_ID and t.APPTYPE='101') as trem1,a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.contract_fee,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_101 a,OPERMAN_INFO o where a.commercial_id="
 				+ commercialId
 				+ " and a.E_ID=o.operman_id  "
 				+ "union all "
-				+ " select INPUT_DATE ,CHANGE_DATE,' ', a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.FEE_SET,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_102 a,OPERMAN_INFO o where a.commercial_id="
+				+ " select '无' as MARCHANT_NAME,INPUT_DATE ,CHANGE_DATE,' ', a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.FEE_SET,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_102 a,OPERMAN_INFO o where a.commercial_id="
 				+ commercialId
 				+ " and a.E_ID=o.operman_id   "
 				+ "union all "
-				+ "  select INPUT_DATE ,CHANGE_DATE,(select t.term_id1 from TERM_APP_TABLE t where rownum=1 and a.APPPAY_ID=t.APPPAY_ID and t.APPTYPE='103') as trem1, a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.contract_fee,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_103 a,OPERMAN_INFO o where a.commercial_id="
+				+ "  select '无' as MARCHANT_NAME,INPUT_DATE ,CHANGE_DATE,(select t.term_id1 from TERM_APP_TABLE t where rownum=1 and a.APPPAY_ID=t.APPPAY_ID and t.APPTYPE='103') as trem1, a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.contract_fee,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_103 a,OPERMAN_INFO o where a.commercial_id="
 				+ commercialId
 				+ " and a.E_ID=o.operman_id"
 				+ " union all "
-				+ "  select INPUT_DATE ,CHANGE_DATE,(select t.term_id1 from TERM_APP_TABLE t where rownum=1 and a.APPPAY_ID=t.APPPAY_ID and t.APPTYPE='105') as trem1,a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.contract_fee,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_105 a,OPERMAN_INFO o where a.commercial_id="
+				+ "  select a.MARCHANT_NAME,INPUT_DATE ,CHANGE_DATE,(select t.term_id1 from TERM_APP_TABLE t where rownum=1 and a.APPPAY_ID=t.APPPAY_ID and t.APPTYPE='105') as trem1,a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.contract_fee,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_105 a,OPERMAN_INFO o where a.commercial_id="
 				+ commercialId
 				+ " and a.E_ID=o.operman_id "
 				+ "union all "
-				+ " select INPUT_DATE ,CHANGE_DATE,' ', a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.FEE_SET,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_106 a,OPERMAN_INFO o where a.commercial_id="
+				+ " select '无' as MARCHANT_NAME,INPUT_DATE ,CHANGE_DATE,' ', a.COMMERCIAL_ID,o.operman_name,a.APPPAY_ID,a.APPTYPE, a.APPR_STATUS,a.FEE_SET,to_char(a.input_date,'yyyy-MM-dd') input_date from APPPAY_106 a,OPERMAN_INFO o where a.commercial_id="
 				+ commercialId + " and a.E_ID=o.operman_id   ";
 
 		List<AppayComShowModel> infos = new ArrayList<AppayComShowModel>();
@@ -314,6 +315,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 		while (set.next())
 		{
 			AppayComShowModel model = new AppayComShowModel();
+			model.setMARCHANT_NAME(set.getString("MARCHANT_NAME"));
 			model.setAPPPAY_ID(set.getInt("APPPAY_ID"));
 			model.setAPPR_STATUS(set.getInt("APPR_STATUS"));
 			model.setAPPTYPE(set.getString("APPTYPE"));

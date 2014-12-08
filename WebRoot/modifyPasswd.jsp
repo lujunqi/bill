@@ -11,7 +11,6 @@ try {
 	  ret.append(Character.forDigit((bytes[i]>>4)&0xf,16));
 	  ret.append(Character.forDigit(bytes[i]&0xf,16));
 	}
-	
 	bill_opera.setPasswd(ret.toString());
 	Bill_operaDao operadao = new Bill_operaDao();
 	operadao.update(bill_opera);

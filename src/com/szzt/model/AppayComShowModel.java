@@ -15,6 +15,14 @@ public class AppayComShowModel
 	private String trem1;
 	private Date input;
 	private Date change;
+	private String MARCHANT_NAME;
+	public String getMARCHANT_NAME() {
+	    return MARCHANT_NAME;
+	}
+
+	public void setMARCHANT_NAME(String mARCHANT_NAME) {
+	    MARCHANT_NAME = mARCHANT_NAME;
+	}
 
 	public Date getChange()
 	{

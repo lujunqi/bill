@@ -13,7 +13,7 @@ public class ZeroTerminalLogExport extends Export
 	public void initSql(String where, String timeLimit)
 	{
 		StringBuilder sql = new StringBuilder();
-		sql.append("select (select a.city from ws_area a where a.areaid = c.unit_area) as 地区, temp.term_id1 as 商户编号, temp.term_id2 as 终端编号, c.trade_name as 商户名称, i.archive_date as 归档时间, i.unit_installed_man as 装机联系人, i.unit_installed_tel as 装机电话, i.unit_installed_add as 装机地址, i.serial1 as 主机序列号, i.serial2 as 键盘序列号  , (select cost.money from temicost cost where cost.cost_type=0 and cost.teminal_info_id=i.teminal_info_id) as 押金");
+		sql.append("select (select a.city from ws_area a where a.areaid = c.unit_area) as 地区, temp.term_id1 as 商户编号, temp.term_id2 as 终端编号, c.trade_name as 商户名称, i.archive_date as 归档时间, i.unit_installed_man as 装机联系人, i.unit_installed_tel as 装机电话,  i.serial1 as 主机序列号, i.serial2 as 键盘序列号  , (select cost.money from temicost cost where cost.cost_type=0 and cost.teminal_info_id=i.teminal_info_id) as 押金");
 		sql.append(" from (select m.merchantsno_id, m.teminal_info_id, sum(fee_count) as fee_count");
 		sql.append(" from rep_teminal m ").append(
 				null == timeLimit ? "" : timeLimit);

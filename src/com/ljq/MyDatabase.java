@@ -59,7 +59,6 @@ public class MyDatabase {
 		return list;
 	}
 
-	
 	public List<Map<String, Object>> getResultSet(Map<String, Object> map,
 			int minnum, int maxnum) {
 		VMPreparedStatement cmd = new VMPreparedStatement(conn);

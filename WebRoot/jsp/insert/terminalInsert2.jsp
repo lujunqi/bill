@@ -367,19 +367,6 @@ text-align: center;
 				</td>
 			</tr>
 			
-			<tr>
-				<td align="right">拓展人：</td>
-				<td>
-					<% DaoUtils daoUtils=new DaoUtils();
-					request.setAttribute("allOperateUsers", daoUtils.localExpandUser(session,false));
-					%>
-					<select name="E_ID" id="E_ID">
-						<c:forEach items="${allOperateUsers }" var="val" varStatus="vasta">
-							<option value="<c:out value="${val.key }"></c:out>"><c:out value="${val.value }"></c:out></option>
-						</c:forEach>
-					</select>
-				</td>
-			</tr>
 			 
 			</table>
 		<div  class="left02">
@@ -456,6 +443,7 @@ text-align: center;
 			<tr>
 				<th class='dataTableHeader' style="width: 90px">绑定(双击解绑)</th>
 				<th class='dataTableHeader'>业务类型</th>
+				<th class='dataTableHeader'>门店名称</th>
 				<th class='dataTableHeader'>扣率</th>
 				<th class='dataTableHeader'>拓展人</th>
 				<th class='dataTableHeader'>业务状态</th>
@@ -464,6 +452,7 @@ text-align: center;
 			<tr id='merDayGain_Templet2'>
 				<td id="APPPAY_ID"></td>
 				<td id="APPTYPE"></td>
+				<td id="MARCHANT_NAME"></td>
 				<td id="contract_fee"></td>
 				<td id="name"></td>
 				<td id="APPR_STATUS"></td>

@@ -15,12 +15,21 @@ public class AppayApproveModel
 		return "AppayApproveModel [APP_TYPE=" + APP_TYPE + ", TERM_ID1="
 				+ TERM_ID1 + ", TERM_ID2=" + TERM_ID2 + ", E_ID=" + E_ID
 				+ ", APPR_DATE=" + APPR_DATE + ", APPR_STATUS=" + APPR_STATUS
-				+ "]";
+				+ ",MARCHANT_NAME="+MARCHANT_NAME+"]";
 	}
 
 	private int APPPAY_ID;
 	private int COMMERCIAL_ID;
 	private String APP_TYPE;// 业务名称
+	private String MARCHANT_NAME;// 门店名称
+	public String getMARCHANT_NAME() {
+	    return MARCHANT_NAME;
+	}
+
+	public void setMARCHANT_NAME(String mARCHANT_NAME) {
+	    MARCHANT_NAME = mARCHANT_NAME;
+	}
+
 	private String TERM_ID1;// 商户编号
 	private String TERM_ID2;// 终端编号
 	private String E_ID;// 拓展人姓名

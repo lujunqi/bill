@@ -38,7 +38,7 @@ function shutdown(){
 		alert('忘记选时间了吧!');
 		return;
 	}
-	window.open('../action/report/exportShutdownToTxt.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open('../action/report/exportShutdownToTxt.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
 }
 function merchant(){
 	var date = $("#date").val();
@@ -46,7 +46,7 @@ function merchant(){
 		alert('忘记选时间了吧!');
 		return;
 	}
-	window.open('../action/report/exportMerchantToTxt.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open('../action/report/exportMerchantToTxt2.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
 }
 function terminal(){
 	var date = $("#date").val();
@@ -54,7 +54,7 @@ function terminal(){
 		alert('忘记选时间了吧!');
 		return;
 	}
-	window.open('../action/report/exportTerminalToTxt.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open('../action/report/exportTerminalToTxt2.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
 
 }
 
@@ -64,7 +64,7 @@ function shutdown_dqd(){
 		alert('忘记选时间了吧!');
 		return;
 	}
-	window.open('../action/report/exportShutdownToTxt_dqd.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open('../action/report/exportShutdownToTxt_dqd.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
 }
 function merchant_dqd(){
 	var date = $("#date").val();
@@ -72,7 +72,7 @@ function merchant_dqd(){
 		alert('忘记选时间了吧!');
 		return;
 	}
-	window.open('../action/report/exportMerchantToTxt_dqd.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open('../action/report/exportMerchantToTxt_dqd.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
 }
 function terminal_dqd(){
 	var date = $("#date").val();
@@ -80,7 +80,7 @@ function terminal_dqd(){
 		alert('忘记选时间了吧!');
 		return;
 	}
-	window.open('../action/report/exportTerminalToTxt_dqd.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open('../action/report/exportTerminalToTxt_dqd.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
 
 }
 
@@ -91,7 +91,7 @@ function parameter(){
 		alert('忘记选时间了吧!');
 		return;
 	}
-	window.open('../action/report/exportParamTable.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open('../action/report/exportParamTable.jsp?date='+$("#date").val()+'','newwindow','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
 
 }
 

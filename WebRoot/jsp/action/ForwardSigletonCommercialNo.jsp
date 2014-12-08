@@ -27,7 +27,7 @@
 				int a_106 = set.getInt(1);
 				int a_102 = set.getInt(2);
 				//商户编号不存在
-				if (a_106 == 0 && a_102 == 0)
+				if (a_106 == 0 && a_102 == 0 )
 				{
 				    //判断16位终端号是否重复
 				    if(no2 != null && no2.length() == 16){
