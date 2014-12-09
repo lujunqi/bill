@@ -465,11 +465,7 @@ var id=<%=request.getParameter("CommercialId")%>;
 			$("#UNIT_ADD").focus();
 			return false;
 		}
-		if(!isChinaOrNumbOrLett($("#UNIT_NAME").val())){
-			alert("客户单位名称不能输入特殊符号！");
-			$("#UNIT_NAME").focus();
-			return false;
-		}
+		
 		if(!isTel($("#CONTACT_TEL_2").val())){
 			alert("请输入正确的固定电话！");
 			$("#CONTACT_TEL_2").focus();
