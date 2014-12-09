@@ -46,6 +46,7 @@
 			System.out.println("----102审批---------------");
 			String TERM_ID1 = request.getParameter("TERM_ID1");
 			String COMMERCIAL_ID = request.getParameter("COMMERCIAL_ID");
+			/*
 			String sql = "select * from (select count(*) from TERM_APP_TABLE where trim(TERM_ID1)='"
 				+ TERM_ID1
 				+ "')t"
@@ -72,7 +73,7 @@
 			}
 			set.close();
 			dba.release();
-			
+			*/
 			
 			Apppay102_Info info = bind.toModel(request,
 					Apppay102_Info.class);
