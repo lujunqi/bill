@@ -187,7 +187,7 @@ function find(cur_page,appStatus){
 		$.post("../action/findById/Commercial..jsp",{id:${param.CommercialId}},function(j){
 			var jj=$.parseJSON(j);
 			$("#unitName").html(jj.UNIT_NAME);
-			$("#TERM_ID1").val(jj.UNIT_AREA);
+			$("#TERM_ID1").val("821"+jj.UNIT_AREA);
 			UNIT_AREA = "821"+jj.UNIT_AREA;
 			if ($.trim($("#MC_NAME").val()).length<1) {
 				$("#MC_NAME").val(jj.UNIT_NAME);
@@ -308,9 +308,11 @@ function find(cur_page,appStatus){
 										$(this).val($.trim(result[itemId]));
 							}
 							});
+							
 							if($("#TERM_ID1").val()==""){
 								$("#TERM_ID1").val(UNIT_AREA);
 							}
+							
 						$("#ACCOUNT_NO_CHECK").val($("#ACCOUNT_NO").val());	
 						$("#FEE_TYPE").change();
 						//卡限制
