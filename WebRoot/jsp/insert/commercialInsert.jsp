@@ -82,7 +82,7 @@ input{
 
 function isMobile(val) { 
 	var teleReg = /^((0\d{2,3})-)(\d{7,8})$/;  
-    var mobileReg =/^1[358]\d{9}$/; 
+    var mobileReg =/^1[3587]\d{9}$/; 
     if (!teleReg.test(val) && !mobileReg.test(val)){  
         return false;  
     }else{  

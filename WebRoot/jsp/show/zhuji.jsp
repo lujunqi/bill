@@ -251,7 +251,9 @@ function clearTermid1Zyh(id){
 		<div class="left02downDiv">
 		<form method="post" action="../action/report/HostEngineExport.jsp" >
 			<%if(per.hasPermission(session, Permission.LEADER_POSITION)){ %>
+		
 				<label>请选择地区:</label> <select name="area" id="area">
+				<option value="">全省</option>
 				<option value="4302">株洲市</option>
 				<option value="4303">湘潭市</option>
 				<option value="4304">衡阳市</option>
@@ -267,6 +269,8 @@ function clearTermid1Zyh(id){
 				<option value="4325">娄底市</option>
 				<option value="4326">湘西自治州</option>
 			</select>
+			
+			
 			<%} %>
 			<input value="导出" type="submit">
 		</form>
@@ -283,7 +287,7 @@ function clearTermid1Zyh(id){
 			<td width="13%">
 				<input   style='width: 100px' id="host_no" name="host_no" />
 			</td>	
-			<td align="right" ><input name="submit" type="button" value="查 询" onclick="search()"  />&nbsp;
+			<td align="right" ><input name="submit" type="button" value="查 询" onClick="search()"  />&nbsp;
 			</td>
 		</tr>
 		</table>
@@ -308,6 +312,7 @@ function clearTermid1Zyh(id){
 				<th class='dataTableHeader'>机具类型</th>
 				<th class='dataTableHeader'>地市</th>
 				<th class='dataTableHeader'>区镇</th>
+				<th class='dataTableHeader'>终端状态</th>
 				<th class='dataTableHeader'>查看详细</th>
 			</tr>
 			<tr id='complain_Templet' style="cursor:hand;">
@@ -317,6 +322,8 @@ function clearTermid1Zyh(id){
 					<td id='equi_type' ></td>
 					<td id='UNIT_INSTALLED_STREET' ></td>
 					<td id='Unit_Installed_Add' ></td>
+					<td id='teminal_status' ></td>
+					
 					<td id='opera' ></td>
 			</tr>	
 		</table>

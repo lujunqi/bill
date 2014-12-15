@@ -197,9 +197,9 @@ function importReort(){
 		<tr>
 			<td align='right' width="8%">导入时间:</td>
 			<td width="30%">
-				<input  readonly="readonly" style='width: 100px' id="startTime" name="startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});" class="Wdate" />
+				<input  readonly="readonly" style='width: 100px' id="startTime" name="startTime" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'});" class="Wdate" />
 				至
-				<input  readonly="readonly" style='width: 100px' id="endTime" name="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});" class="Wdate" />
+				<input  readonly="readonly" style='width: 100px' id="endTime" name="endTime" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'});" class="Wdate" />
 			</td>
 	
 			<td align='right' width="8%">序列号:</td>
@@ -226,7 +226,7 @@ function importReort(){
 
 					</select>
 			</td>	
-			<td align="right" ><input  type="button" value="查 询" onclick="find(0)"  />
+			<td align="right" ><input  type="button" value="查 询" onClick="find(0)"  />
 			</td>
 		</tr>
 			<tr>
@@ -309,7 +309,7 @@ function importReort(){
 					<option value='4301'  >长沙市</option>
 
 				</select>
-				<input name="s" type="button" value="调配" onclick="update();"/>
+				<input name="s" type="button" value="调配" onClick="update();"/>
 			</td>
 		</tr>
 		</table>

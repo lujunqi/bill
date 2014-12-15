@@ -31,6 +31,7 @@ public class HostEngineDao extends CreatePage
 			engine.setTerm_id1(rs.getString("term_id1"));
 			engine.setTerm_id2(rs.getString("term_id2"));
 			engine.setUnit_Installed_Add(rs.getString("Unit_Installed_Add"));
+			engine.setTeminal_status(rs.getString("TEMINAL_STATUS"));
 			engine.setUNIT_INSTALLED_STREET(rs
 					.getString("UNIT_INSTALLED_STREET"));
 			engine.setCommercial_id(rs.getInt("commercial_id"));
@@ -45,6 +46,7 @@ public class HostEngineDao extends CreatePage
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("select * from(select rownum rn,ter.commercial_id,ter.teminal_info_id,temp.term_id1,  temp.term_id2 ,");
 		buffer.append(" case ter.equi_type  when 0 then '普通POS' when 1 then '移动POS' when 2 then '分体POS' when 3 then'其他类型POS' end as equi_type,");
+		buffer.append(" DECODE(TER.TEMINAL_STATUS,1,'录入完成', 2,'部分审批完成', 3,'全部审批完成' ,4,'调试完成', 5,'分配完成', 6,'撤销完成', 7,'暂未使用', 13,'归档完成',15,'整改状态') TEMINAL_STATUS,");
 		buffer.append(" ter.Unit_Installed_Add,   ter.UNIT_INSTALLED_STREET");
 		buffer.append("  from Teminal_Info ter, Term_App_Table temp where temp.teminal_info_id = ter.teminal_info_id    and temp.apptype = '105'");
 		buffer.append(" and rownum<=").append(this.getCurPage() * 20);
