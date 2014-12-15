@@ -23,11 +23,11 @@
 		{
 			if ("1".equals(status))
 			{
-				where += " and not exists (select i.serial1 from teminal_info i where i.serial1=t.host_no  and (i.teminal_status in (4,5) or  (i.teminal_status=13 and i.installed_status=4))) ";
+				where += " and not exists (select i.serial1 from teminal_info i where upper(i.serial1)=upper(t.host_no)  and (i.teminal_status in (4,5) or  (i.teminal_status=13 and i.installed_status=4))) ";
 
 			} else if ("2".equals(status))
 			{
-				where += " and exists (select i.serial1 from teminal_info i where i.serial1=t.host_no  and (i.teminal_status in (4,5) or  (i.teminal_status=13 and i.installed_status=4))) ";
+				where += " and exists (select i.serial1 from teminal_info i where upper(i.serial1)=upper(t.host_no)  and (i.teminal_status in (4,5) or  (i.teminal_status=13 and i.installed_status=4))) ";
 			}
 		}*/
 		String startTime = request.getParameter("startTime");
