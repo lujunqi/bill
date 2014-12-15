@@ -7,11 +7,26 @@ public class HostEngine
 	private String equi_type;
 	private String UNIT_INSTALLED_STREET;
 	private String Unit_Installed_Add;
-	private String teminal_status;
 	private int teminal_info_id;
 	private int commercial_id;
+	private String teminal_status;
+	private String apptype;
 	
-	
+	public String getTeminal_status() {
+	    return teminal_status;
+	}
+
+	public void setTeminal_status(String teminal_status) {
+	    this.teminal_status = teminal_status;
+	}
+
+	public String getApptype() {
+	    return apptype;
+	}
+
+	public void setApptype(String apptype) {
+	    this.apptype = apptype;
+	}
 
 	public int getCommercial_id()
 	{
@@ -81,14 +96,6 @@ public class HostEngine
 	public void setUnit_Installed_Add(String unit_Installed_Add)
 	{
 		Unit_Installed_Add = unit_Installed_Add;
-	}
-
-	public String getTeminal_status() {
-		return teminal_status;
-	}
-
-	public void setTeminal_status(String teminal_status) {
-		this.teminal_status = teminal_status;
 	}
 
 }

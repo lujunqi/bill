@@ -306,16 +306,20 @@ function clearTermid1Zyh(id){
 		<div class="left02downDiv">
 		<table id='complain_Table' class='dataTable1' width="100%">
 			<tr>
+				<th class='dataTableHeader'>业务类型</th>
 				<th class='dataTableHeader'>商户编号</th>
+				
 			<!-- 	<th class='dataTableHeader'>商户名称</th> -->
 				<th class='dataTableHeader'>终端编号</th>
 				<th class='dataTableHeader'>机具类型</th>
 				<th class='dataTableHeader'>地市</th>
 				<th class='dataTableHeader'>区镇</th>
 				<th class='dataTableHeader'>终端状态</th>
+				
 				<th class='dataTableHeader'>查看详细</th>
 			</tr>
 			<tr id='complain_Templet' style="cursor:hand;">
+				<td id='apptype' ></td>
 					<td id='term_id1' ></td>
 				<!--	<td id='merchant_name' ></td>-->
 					<td id='term_id2' ></td>
