@@ -89,6 +89,10 @@ function bankcc(val){
 	if(val=="05025510"){
 		return true;
 	}
+	if(val=="04895510"){
+		return true;
+	}
+	
 	if(val=="15585591"){
 		return true;
 	}
