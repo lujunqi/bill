@@ -3,12 +3,10 @@ package com.szzt.dao;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.dodou.dao.Apppay_105Dao;
 import com.dodou.db.DatabaseAccess;
 import com.dodou.inferface.AbstractDao;
 import com.dodou.inferface.TerminalWorkFlow;
@@ -18,10 +16,8 @@ import com.szzt.exception.OutOfStoreException;
 import com.szzt.exception.SerialExistsException;
 
 public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
-		TerminalWorkFlow
-{
-	public Terminal_InfoDao()
-	{
+		TerminalWorkFlow {
+	public Terminal_InfoDao() {
 	}
 
 	/**
@@ -31,29 +27,25 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	 * @return
 	 * @throws Exception
 	 */
-	public int loadCommercialIdByTerId(int id) throws Exception
-	{
+	public int loadCommercialIdByTerId(int id) throws Exception {
 		String sql = "select COMMERCIAL_ID from TEMINAL_INFO where TEMINAL_INFO_ID="
 				+ id;
 		ResultSet result = super.execQuery(sql);
-		if (result.next())
-		{
+		if (result.next()) {
 			BigDecimal big = result.getBigDecimal(1);
 			return big.intValue();
 		}
 		return -1;
 	}
 
-	public Terminal_InfoDao(String where, String table)
-	{
+	public Terminal_InfoDao(String where, String table) {
 		super(where, table);
 	}
 
 	public static final String TABLE = "TEMINAL_INFO";
 
 	@Override
-	public String initQuerySql()
-	{
+	public String initQuerySql() {
 
 		StringBuffer builder = new StringBuffer();
 		builder.append(
@@ -74,13 +66,11 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		return builder.toString();
 	}
 
-	public List<Terminal_Info> selectList() throws Exception
-	{
+	public List<Terminal_Info> selectList() throws Exception {
 		String sql = this.initQuerySql();
 		List<Terminal_Info> list = new ArrayList<Terminal_Info>();
 		ResultSet rs = super.execQuery(sql);
-		while (rs.next())
-		{
+		while (rs.next()) {
 			Terminal_Info info = this.wrapToModel(rs);
 			list.add(info);
 		}
@@ -90,16 +80,13 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	}
 
 	@Override
-	public Terminal_Info[] select() throws Exception
-	{
+	public Terminal_Info[] select() throws Exception {
 		return this.select(this.initQuerySql());
 	}
 
 	@Override
-	public Terminal_Info[] select(String sql) throws Exception
-	{
-		if (null == sql || "".equals(sql))
-		{
+	public Terminal_Info[] select(String sql) throws Exception {
+		if (null == sql || "".equals(sql)) {
 			return this.select();
 		}
 
@@ -110,8 +97,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		this.setTotalCount(result.getRow());
 		result.first();
 		int j = 0;
-		for (int i = this.getStart(); i < this.getEnd(); i++)
-		{
+		for (int i = this.getStart(); i < this.getEnd(); i++) {
 			if (this.getTotalCount() == 0)
 				break;
 			result.absolute(i + 1);
@@ -125,8 +111,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		return infos;
 	}
 
-	private Terminal_Info wrapToModel(ResultSet result) throws SQLException
-	{
+	private Terminal_Info wrapToModel(ResultSet result) throws SQLException {
 		Terminal_Info info = new Terminal_Info();
 		info.setTEMINAL_INFO_ID(result.getInt("TEMINAL_INFO_ID"));
 		info.setCOMMERCIAL_ID(result.getInt("COMMERCIAL_ID"));
@@ -155,13 +140,11 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		info.setCOMM_TYPE(result.getInt("COMM_TYPE"));
 		info.setIS_BIND(result.getInt("IS_BIND"));
 		info.setCOMM(result.getString("COMM"));
-		if (null != result.getTimestamp("INPUT_DATE"))
-		{
+		if (null != result.getTimestamp("INPUT_DATE")) {
 			info.setINPUT_DATE(new Date(result.getTimestamp("INPUT_DATE")
 					.getTime()));
 		}
-		if (null != result.getTimestamp("CHANGE_DATE"))
-		{
+		if (null != result.getTimestamp("CHANGE_DATE")) {
 			info.setCHANGE_DATE(new Date(result.getTimestamp("CHANGE_DATE")
 					.getTime()));
 		}
@@ -175,14 +158,12 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	}
 
 	@Override
-	public Terminal_Info[] select(Terminal_Info data) throws Exception
-	{
+	public Terminal_Info[] select(Terminal_Info data) throws Exception {
 		return null;
 	}
 
 	@Override
-	public int insert(Terminal_Info terminal) throws Exception
-	{
+	public int insert(Terminal_Info terminal) throws Exception {
 		String sql = "insert into TEMINAL_INFO ";
 		String fields = "TEMINAL_INFO_ID";
 		String values = "TEMINAL_INFO_ID.nextval";
@@ -196,39 +177,37 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		fields += ",E_ID";
 		values += "," + terminal.getE_ID();
 		// 客户装机联系人
-		if (terminal.getUNIT_INSTALLED_MAN() != null)
-		{
+		if (terminal.getUNIT_INSTALLED_MAN() != null) {
 			fields += ",UNIT_INSTALLED_MAN";
 			values += ",'" + terminal.getUNIT_INSTALLED_MAN() + "'";
 		}
+		//菜单版本
+		fields += ",Term_version";
+		values += ",'" + terminal.getTerm_version() + "'";
+
 		// 客户装机联系电话:
-		if (null != terminal.getUNIT_INSTALLED_TEL())
-		{
+		if (null != terminal.getUNIT_INSTALLED_TEL()) {
 			fields += ",UNIT_INSTALLED_TEL";
 			values += ",'" + terminal.getUNIT_INSTALLED_TEL() + "'";
 		}
 		// 装机城市:
-		if (terminal.getUNIT_INSTALLED_CITY() != null)
-		{
+		if (terminal.getUNIT_INSTALLED_CITY() != null) {
 			fields += ",UNIT_INSTALLED_CITY";
 			values += ",'" + terminal.getUNIT_INSTALLED_CITY() + "'";
 		}
 		// 装机乡镇（或街道）:
-		if (terminal.getUNIT_INSTALLED_STREET() != null)
-		{
+		if (terminal.getUNIT_INSTALLED_STREET() != null) {
 			fields += ",UNIT_INSTALLED_STREET";
 			values += ",'" + terminal.getUNIT_INSTALLED_STREET() + "'";
 		}
 
 		// 客户装机地址
-		if (terminal.getUNIT_INSTALLED_ADD() != null)
-		{
+		if (terminal.getUNIT_INSTALLED_ADD() != null) {
 			fields += ",UNIT_INSTALLED_ADD";
 			values += ",'" + terminal.getUNIT_INSTALLED_ADD() + "'";
 		}
 		// 备注信息
-		if (terminal.getREMARK_INFO() != null)
-		{
+		if (terminal.getREMARK_INFO() != null) {
 			fields += ",REMARK_INFO";
 			values += ",'" + terminal.getREMARK_INFO() + "'";
 		}
@@ -274,7 +253,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		fields += ",COMMERCIAL_ID";
 		values += "," + terminal.getCOMMERCIAL_ID() + "";
 		fields += ",UNIT_INSTALLED_NAME";
-		values += ",'"+ terminal.getUNIT_INSTALLED_NAME()+"'";
+		values += ",'" + terminal.getUNIT_INSTALLED_NAME() + "'";
 		fields += ",SERIAL1";
 		values += ",' '";
 		// fields += ",INSTALLED_STATUS";
@@ -283,8 +262,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		values += "," + INPUT_OK;
 		// 通讯方式描述:
 		if (terminal.getCOMM() != null
-				&& terminal.getCOMM().trim().length() > 0)
-		{
+				&& terminal.getCOMM().trim().length() > 0) {
 			fields += ",COMM";
 			values += ",'" + terminal.getCOMM() + "'";
 		}
@@ -300,8 +278,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	 * 
 	 * @param id
 	 */
-	private int terStatus(int id) throws Exception
-	{
+	private int terStatus(int id) throws Exception {
 		StringBuffer sql = new StringBuffer();
 		sql.append("select TEMINAL_STATUS from ").append(TABLE)
 				.append(" where TEMINAL_INFO_ID=").append(id);
@@ -311,13 +288,11 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	}
 
 	@Override
-	public void update(Terminal_Info terminal) throws Exception
-	{
+	public void update(Terminal_Info terminal) throws Exception {
 		// 终端状态
 		int status = this.terStatus(terminal.getTEMINAL_INFO_ID());
 		// 只有最新状态才可以修改
-		if (status > 1)
-		{
+		if (status > 1) {
 			throw new ForbidUpdateException();
 		}
 		// 使用bindrequest绑定数据
@@ -353,13 +328,11 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	 * @return
 	 * @throws Exception
 	 */
-	private boolean checkStatus(int terminalId) throws Exception
-	{
+	private boolean checkStatus(int terminalId) throws Exception {
 		// 判断状态
 		Terminal_Info[] old = this.select("select * from " + TABLE
 				+ " where TEMINAL_INFO_ID=" + terminalId);
-		if (null != old[0])
-		{
+		if (null != old[0]) {
 			int now = old[0].getTEMINAL_STATUS();
 			return now < DEBUG_Ok;
 		}
@@ -375,10 +348,8 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	}
 
 	@Override
-	public void delete(int id) throws Exception
-	{
-		if (this.terStatus(id) == 1)
-		{
+	public void delete(int id) throws Exception {
+		if (this.terStatus(id) == 1) {
 			// 删除终端
 			// 删除中间表
 			String delTer = "delete from " + TABLE + " where TEMINAL_INFO_ID="
@@ -389,8 +360,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 			String photo = "delete from " + TPhotoDao.TABLE
 					+ " where terminal_info_id=" + id;
 			DatabaseAccess dba = null;
-			try
-			{
+			try {
 				dba = super.executeUpdate(delTer);
 				int temp = dba.executeUpdate(delTemp);
 				int costItems = dba.executeUpdate(cost);
@@ -401,8 +371,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 				super.debug("删除费用表个数:" + costItems);
 				super.debug("删除图片表的个数:" + photos);
 				super.debug("-------->删除终端成功<------------");
-			} catch (Exception e)
-			{
+			} catch (Exception e) {
 				if (null != dba)
 					dba.rollback();
 				e.printStackTrace();
@@ -412,11 +381,9 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	}
 
 	@Override
-	public void operate(Terminal_Info info) throws Exception
-	{
+	public void operate(Terminal_Info info) throws Exception {
 		// 全部审批完全之前才可以审批
-		if (this.terStatus(info.getTEMINAL_INFO_ID()) >= 3)
-		{
+		if (this.terStatus(info.getTEMINAL_INFO_ID()) >= 3) {
 			return;
 		}
 		// 分别查询三张表
@@ -427,30 +394,30 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		// String sql2 = sql.replace("APPPAY_103", "APPPAY_102");
 		String sql3 = sql.replace("103", "101");
 		String sql5 = sql.replace("103", "105");
-		
+
 		super.initUpdate(TABLE);
 
 		if (this.checkIsOperate(sql) && this.checkIsOperate(sql3)
-				&& this.checkIsOperate(sql5))
-		{
+				&& this.checkIsOperate(sql5)) {
 			// select
 			// substr(concat('00000000',a.nextval),length(concat('00000000',a.currval))-7,8)
 			// from dual;
 			// 审批完成
-		    	//是否为通联机具,非通联机具则直接归档
-		    	Terminal_Info ti = this.findById(info.getTEMINAL_INFO_ID());
-		    	if (ti.getTEMINAL_PRODUCT() == 0){
-		    	    super.wrapUpdateSql("TEMINAL_STATUS", 3);
-		    	}else{
-		    	    super.wrapUpdateSql("TEMINAL_STATUS", 13);
-		    	    super.wrapUpdateSql("INSTALLED_STATUS", 4);
-		    	    super.wrapUpdateSql(
-				"ARCHIVE_DATE",
-				"to_date('"
-						+ super.formatDate(new Date(System
-								.currentTimeMillis())) + "','yyyy-MM-dd')");
-		    	}
-		    	
+			// 是否为通联机具,非通联机具则直接归档
+			Terminal_Info ti = this.findById(info.getTEMINAL_INFO_ID());
+			if (ti.getTEMINAL_PRODUCT() == 0) {
+				super.wrapUpdateSql("TEMINAL_STATUS", 3);
+			} else {
+				super.wrapUpdateSql("TEMINAL_STATUS", 13);
+				super.wrapUpdateSql("INSTALLED_STATUS", 4);
+				super.wrapUpdateSql(
+						"ARCHIVE_DATE",
+						"to_date('"
+								+ super.formatDate(new Date(System
+										.currentTimeMillis()))
+								+ "','yyyy-MM-dd')");
+			}
+
 			super.wrapUpdateSql(
 					"APPROVAL_DATE",
 					"to_date('"
@@ -464,16 +431,14 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 			super.debug("------------------是否查询到便民--------------"
 					+ (ters.length != 0));
 
-			if (null != ters && ters[0] != null)
-			{
+			if (null != ters && ters[0] != null) {
 				Terminal_Info t = ters[0];
 				Apppay104_InfoDao dao104 = new Apppay104_InfoDao();
 				dao104.insert(t);
 			}
 			// 启用中间表
 
-		} else
-		{
+		} else {
 			super.wrapUpdateSql("TEMINAL_STATUS", OPERATE_Ok);
 		}
 
@@ -488,40 +453,32 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	 * @return true所有业务审批通过，false 还有业务审批未通过
 	 * @throws Exception
 	 */
-	private boolean checkIsOperate(String sql) throws Exception
-	{
+	private boolean checkIsOperate(String sql) throws Exception {
 		ResultSet set = super.execQuery(sql);
-		if (set.next())
-		{
+		if (set.next()) {
 			return (set.getBigDecimal(1).intValue() == 0);
 		}
 		return false;
 	}
 
-	public boolean waitingTerminal(Terminal_Info terminal) throws Exception
-	{
+	public boolean waitingTerminal(Terminal_Info terminal) throws Exception {
 		return false;
 
 	}
 
-	public boolean cancelTerminal(Terminal_Info info) throws Exception
-	{
+	public boolean cancelTerminal(Terminal_Info info) throws Exception {
 		// if (this.checkStatus(info.getTEMINAL_INFO_ID(), CANCEL_OK))
 		// {
-		if (this.terStatus(info.getTEMINAL_INFO_ID()) == FILE_Ok)
-		{
-			try
-			{
+		if (this.terStatus(info.getTEMINAL_INFO_ID()) == FILE_Ok) {
+			try {
 				super.initUpdate(TABLE);
 				super.wrapUpdateSql("TEMINAL_STATUS", CANCEL_OK);
 				super.wrapUpdateSql("CANCEL_TIME", "sysdate");
 				super.update("TEMINAL_INFO_ID=" + info.getTEMINAL_INFO_ID());
 				this.modifyTemp(info.getTEMINAL_INFO_ID(), 2);
-			} catch (Exception e)
-			{
+			} catch (Exception e) {
 				super.rollback();
-			} finally
-			{
+			} finally {
 				super.release();
 			}
 			super.debug("------------------撤机成功-----------------------");
@@ -531,18 +488,15 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		return false;
 	}
 
-	public boolean fileTerminal(Terminal_Info info) throws Exception
-	{
-		try
-		{
+	public boolean fileTerminal(Terminal_Info info) throws Exception {
+		try {
 			// 使用bind绑定信息
 			super.initUpdate(TABLE);
 
 			// super.wrapUpdateSql("SAFE_MAN", info.getSAFE_MAN());
 			// super.wrapUpdateSql("INST_MAN", info.getINST_MAN());
 			// super.wrapUpdateSql("DEBUG_MAN", info.getDEBUG_MAN());
-			if (null != info.getINSTALL_END_DATE())
-			{
+			if (null != info.getINSTALL_END_DATE()) {
 				super.wrapUpdateSql(
 						"INSTALL_END_DATE",
 						"to_date('"
@@ -551,16 +505,14 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 			}
 
 			// 延迟装机不归档
-			if (info.getINSTALLED_STATUS() != 2)
-			{
+			if (info.getINSTALLED_STATUS() != 2) {
 				super.wrapUpdateSql("TEMINAL_STATUS", FILE_Ok);
 				// super.wrapUpdateSql("TEMINAL_STATUS", FILE_Ok);
 			}
 
 			super.wrapUpdateSql("INSTALLED_STATUS", info.getINSTALLED_STATUS());
 
-			if (null != info.getINSTALL_DATE())
-			{
+			if (null != info.getINSTALL_DATE()) {
 				super.wrapUpdateSql("INSTALL_DATE",
 						"to_date('" + super.formatDate(info.getINSTALL_DATE())
 								+ "','yyyy-MM-dd')");
@@ -571,8 +523,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 			super.update("TEMINAL_INFO_ID=" + info.getTEMINAL_INFO_ID());
 
 			// 未装机，取消装机，停用中间表
-			if (info.getINSTALLED_STATUS() != 4)
-			{
+			if (info.getINSTALLED_STATUS() != 4) {
 				this.modifyTemp(info.getTEMINAL_INFO_ID(), 2);
 			} else
 			// 装机成功启用中间表
@@ -580,11 +531,9 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 				this.modifyTemp(info.getTEMINAL_INFO_ID(), 1);
 			}
 
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 			super.rollback();
-		} finally
-		{
+		} finally {
 			super.release();
 		}
 		super.debug("------------------归档成功-----------------------");
@@ -598,14 +547,11 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	 * 
 	 * @param info
 	 */
-	public void checkSerialSigleton(Terminal_Info info) throws Exception
-	{
-		if (null == info || info.getSERIAL1() == null)
-		{
+	public void checkSerialSigleton(Terminal_Info info) throws Exception {
+		if (null == info || info.getSERIAL1() == null) {
 			return;
 		}
-		if (info.getTEMINAL_PRODUCT() != 0)
-		{
+		if (info.getTEMINAL_PRODUCT() != 0) {
 			return;
 		}
 
@@ -616,12 +562,10 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 
 		ResultSet rs = super.execQuery(inStore);
 
-		if (!rs.next() || rs.getInt(1) < 1)
-		{
+		if (!rs.next() || rs.getInt(1) < 1) {
 			rs.close();
 			throw new OutOfStoreException();
-		} else
-		{
+		} else {
 			rs.close();
 		}
 		// 在仓库中，则要判断是否重复
@@ -634,10 +578,8 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 
 		ResultSet set = super.execQuery(sql);
 
-		if (set.next())
-		{
-			if (set.getInt(1) != 0)
-			{
+		if (set.next()) {
+			if (set.getInt(1) != 0) {
 				set.close();
 				throw new SerialExistsException("");
 			}
@@ -651,10 +593,8 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 
 		ResultSet set2 = super.execQuery(sql2);
 
-		if (set2.next())
-		{
-			if (set2.getInt(1) != 0)
-			{
+		if (set2.next()) {
+			if (set2.getInt(1) != 0) {
 				set2.close();
 				throw new SerialExistsException("");
 			}
@@ -663,8 +603,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		super.debug("判断主机序列号：" + inStore + "\n 是否在使用:" + use);
 	}
 
-	public boolean debugTerminal(Terminal_Info info) throws Exception
-	{
+	public boolean debugTerminal(Terminal_Info info) throws Exception {
 
 		// 确定调试主机序列号唯一
 		this.checkSerialSigleton(info);
@@ -681,8 +620,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		return true;
 	}
 
-	public boolean assign(Terminal_Info info) throws Exception
-	{
+	public boolean assign(Terminal_Info info) throws Exception {
 		// if (this.checkStatus(info.getTEMINAL_INFO_ID(), DEBUG_Ok))
 		// {
 		// 使用bind绑定信息
@@ -703,11 +641,9 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 
 	}
 
-	public void notDebug(int id, int oid) throws Exception
-	{
+	public void notDebug(int id, int oid) throws Exception {
 		// 使用bind绑定信息
-		try
-		{
+		try {
 			super.initUpdate(TABLE);
 			super.wrapUpdateSql("TEMINAL_STATUS", FILE_Ok);
 			super.wrapUpdateSql("INSTALLED_STATUS", 5);
@@ -715,11 +651,9 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 			super.update("TEMINAL_INFO_ID=" + id);
 			this.modifyTemp(id, 2);
 
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 			super.rollback();
-		} finally
-		{
+		} finally {
 			super.release();
 		}
 
@@ -729,16 +663,14 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	/**
 	 * 设置中间表的状态
 	 */
-	private void modifyTemp(int id, int status) throws Exception
-	{
+	private void modifyTemp(int id, int status) throws Exception {
 		// 修改中间表为停用状态
 		String temp = "update " + ApppayTerminalDao.TABLE + " set STATUS="
 				+ status + " where TEMINAL_INFO_ID=" + id;
 		super.executeUpdate(temp);
 	}
 
-	public void waitingFile(int id) throws Exception
-	{
+	public void waitingFile(int id) throws Exception {
 		// 待归档。。。
 		super.initUpdate(TABLE);
 		super.wrapUpdateSql("TEMINAL_STATUS", Terminal_InfoDao.DEBUG_Ok);
@@ -747,33 +679,27 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		super.debug("------------------》转换成待归档《-----------------------");
 	}
 
-	public void waitingDebug(int id) throws Exception
-	{
-		try
-		{
+	public void waitingDebug(int id) throws Exception {
+		try {
 			super.initUpdate(TABLE);
 			super.wrapUpdateSql("TEMINAL_STATUS", 3);
 			super.wrapUpdateSql("INSTALLED_STATUS", -1);
 			super.update("TEMINAL_INFO_ID=" + id);
 			this.modifyTemp(id, 1);
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 			super.rollback();
-		} finally
-		{
+		} finally {
 			super.release();
 		}
 		super.debug("------------------》转换成待调试《-----------------------");
 	}
 
 	@Override
-	public Terminal_Info findById(int id) throws Exception
-	{
+	public Terminal_Info findById(int id) throws Exception {
 		String sql = "select * from " + TABLE + " where TEMINAL_INFO_ID=" + id;
 		ResultSet rs = execQuery(sql);
 		Terminal_Info info = null;
-		if (rs.next())
-		{
+		if (rs.next()) {
 			info = this.wrapToModel(rs);
 		}
 		rs.close();

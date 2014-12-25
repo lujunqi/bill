@@ -24,7 +24,7 @@ public class TerminalAppTemp implements TableBeanInterface
 	private String APPDATA_NAME;// VARCHAR(20) not null,
 	private int STATUS;// NUMBER not null,
 	private int APPPAY_ID;
-
+	
 	public int getAPPPAY_ID()
 	{
 		return APPPAY_ID;
@@ -137,7 +137,6 @@ public class TerminalAppTemp implements TableBeanInterface
 	{
 		return STATUS;
 	}
-
 	public void setSTATUS(int sTATUS)
 	{
 		STATUS = sTATUS;
@@ -162,5 +161,7 @@ public class TerminalAppTemp implements TableBeanInterface
 	{
 		TERM_ID4 = tERM_ID4;
 	}
+
+
 
 }

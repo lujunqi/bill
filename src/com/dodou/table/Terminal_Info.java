@@ -42,7 +42,8 @@ public class Terminal_Info implements TableBeanInterface
 	private String REMARK_INFO = "";
 	private int E_ID;// 拓展人
 	private int IS_OVERLAY;// 叠加便民
-
+	private int term_version ;//菜单版本
+	
 	private Date CANCEL_TIME;// 撤机时间
 	
 	
@@ -97,6 +98,12 @@ public class Terminal_Info implements TableBeanInterface
 		{
 			this.setTEMINAL_INFO_ID(Integer.parseInt(request
 					.getParameter("TEMINAL_INFO_ID")));
+		}
+		if (request.getParameter("term_version") != null
+				&& !request.getParameter("term_version").equals(""))
+		{
+			this.setTerm_version(Integer.parseInt(request
+					.getParameter("term_version")));
 		}
 
 		if (request.getParameter("REMARK_INFO") != null
@@ -534,6 +541,14 @@ public class Terminal_Info implements TableBeanInterface
 	public void setREMARK_INFO(String rEMARK_INFO)
 	{
 		REMARK_INFO = rEMARK_INFO;
+	}
+
+	public int getTerm_version() {
+		return term_version;
+	}
+
+	public void setTerm_version(int term_version) {
+		this.term_version = term_version;
 	}
 
 }

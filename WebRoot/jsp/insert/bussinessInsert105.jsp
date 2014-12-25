@@ -459,7 +459,8 @@ function bussiness105Operate(id,index){
 	var TERM_ID2=$("#terminal_number"+index).val();
 	var TERM_ID3=$("#TERM_ID3"+index).val();
 	var TERM_ID4=$("#TERM_ID4"+index).val();
-	
+	var term_version=$("#term_version",$("#TERM_ID4"+index).parent().parent()).html();
+
 	// commercialNoLength=-1;//商户长度
 	 //terminalNoLength=-1;//终端长度
 	 if(-1!=commercialNoLength){
@@ -481,7 +482,7 @@ function bussiness105Operate(id,index){
 		dataType : 'json',
 		//url : '../action/BussinessOperate.jsp',
 		url:'../action/ForwardSigletonCommercialNo.jsp',
-		data : {'APP_TYPE':'105','is105':true,'APPPAY_ID':APPPAY_ID,'TEMINAL_INFO_ID':TEMINAL_INFO_ID,'TERM_ID1':TERM_ID1,'TERM_ID2':TERM_ID2,"TERM_ID3":TERM_ID3,"TERM_ID4":TERM_ID4,"COMMERCIAL_ID":${param.CommercialId}},
+		data : {'APP_TYPE':'105','is105':true,'APPPAY_ID':APPPAY_ID,'TEMINAL_INFO_ID':TEMINAL_INFO_ID,'TERM_ID1':TERM_ID1,'TERM_ID2':TERM_ID2,"TERM_ID3":TERM_ID3,"TERM_ID4":TERM_ID4,"term_version":term_version,"COMMERCIAL_ID":${param.CommercialId}},
 		type : 'post',
 		success : function(id) {
 			if(id<0){
@@ -1380,6 +1381,8 @@ color:red;
 				<th class='dataTableHeader'>清算终端编号</th>
 				<th class='dataTableHeader'>录入时间</th>
 				<th class='dataTableHeader'>pos类型</th>
+				<th class='dataTableHeader'>菜单版本</th>
+				
 				<th class='dataTableHeader'>操作</th>
 				<th class='dataTableHeader'>详情</th>
 			</tr>
@@ -1396,6 +1399,8 @@ color:red;
 				<td id="TERM_ID4"></td>
 				<td id="INPUT_DATE"></td>
 				<td id="EQUI_TYPE"></td>
+				<td id="term_version" class="term_version"></td>
+				
 				<td id="dosmthing"></td>
 				<td id="MORE"></td>
 			</tr>	

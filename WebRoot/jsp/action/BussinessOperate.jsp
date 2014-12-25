@@ -33,6 +33,8 @@
 				temp.setTERM_ID4("' '");
 			}
 		}
+		temp.setMENU_VER(request.getParameter("term_version"));
+		System.out.println("================"+request.getParameter("term_version"));
 		//其中中间表
 		dao.operate(temp);
 		//修改业务信息

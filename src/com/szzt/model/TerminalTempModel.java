@@ -24,7 +24,7 @@ public class TerminalTempModel
 	
 	private Date INPUT_DATE;
 	private int EQUI_TYPE;
-	
+	private int term_version;
 	
 	
 	public Date getINPUT_DATE()
@@ -170,6 +170,14 @@ public class TerminalTempModel
 	public void setTERM_ID2(String tERM_ID2)
 	{
 		TERM_ID2 = tERM_ID2;
+	}
+
+	public int getTerm_version() {
+		return term_version;
+	}
+
+	public void setTerm_version(int term_version) {
+		this.term_version = term_version;
 	}
 
 }

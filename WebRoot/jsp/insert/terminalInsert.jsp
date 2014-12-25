@@ -483,9 +483,9 @@ function find(cur_page){
 				<td align='right'>装机城市:</td>
 				<td>
 					<!-- <input type="text" name='UNIT_INSTALLED_CITY' id="UNIT_INSTALLED_CITY"/> -->
-					<select id="UNIT_INSTALLED_CITY1" name="UNIT_INSTALLED_CITY1" onchange="changeComplexProvince(this.value, sub_array, 'UNIT_INSTALLED_CITY', 'UNIT_INSTALLED_STREET');">
+					<select id="UNIT_INSTALLED_CITY1" name="UNIT_INSTALLED_CITY1" onChange="changeComplexProvince(this.value, sub_array, 'UNIT_INSTALLED_CITY', 'UNIT_INSTALLED_STREET');">
 	   				 </select>
-				      <select id="UNIT_INSTALLED_CITY" name="UNIT_INSTALLED_CITY" onchange="changeCity(this.value,'UNIT_INSTALLED_STREET','UNIT_INSTALLED_STREET');">
+				      <select id="UNIT_INSTALLED_CITY" name="UNIT_INSTALLED_CITY" onChange="changeCity(this.value,'UNIT_INSTALLED_STREET','UNIT_INSTALLED_STREET');">
 				    </select>
 				      <select id="UNIT_INSTALLED_STREET" name="UNIT_INSTALLED_STREET">
         </select>
@@ -561,10 +561,19 @@ function find(cur_page){
 					</select>
 						<font>* 体彩项目自动叠加便民，无需选择“叠加”！</font>
 				</td>
+			<td align="right">版本:</td>
+				<td>
+					<select id="term_version" name="term_version">
+						<option value="1">1</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
 			<td align="right">备注信息:</td>
 				<td>
 					<textarea rows="3" cols="20" id="REMARK_INFO" name="REMARK_INFO"></textarea>
 				</td>
+				<td></td><td></td>
 			</tr>
 			<% DaoUtils daoUtils=new DaoUtils();
 			%>
@@ -585,7 +594,7 @@ function find(cur_page){
 			</tr>
 			<tr>
 				<td>押金(元):</td>
-				<td><input type="text" name="MONEY0" id="MONEY0" onkeyup="onlyNumberAllow(this)"/>
+				<td><input type="text" name="MONEY0" id="MONEY0" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 				<input type="hidden" name="COSTTYPEID0" id="COSTTYPEID0" class="notRequired"/>
 				<input type="hidden" value="0" class="notRequired" name="COST_TYPE0" id="COST_TYPE0" />
@@ -601,7 +610,7 @@ function find(cur_page){
 				<td>服务费(元):</td>
 				<td>
 				<input type="hidden" name="COSTTYPEID1" id="COSTTYPEID1" />
-					<input type="text" class="notRequired" name="MONEY1" id="MONEY1" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" class="notRequired" name="MONEY1" id="MONEY1" onKeyUp="onlyNumberAllow(this)"/>
 					<input type="hidden" value="1" class="notRequired" name="COST_TYPE1" id="COST_TYPE1" />
 				</td>
 				<td>
@@ -616,7 +625,7 @@ function find(cur_page){
 			<tr>
 				<td>通讯费(元):</td>
 				<td>
-					<input type="text" class="notRequired" name="MONEY2" id="MONEY2" onkeyup="onlyNumberAllow(this)" />
+					<input type="text" class="notRequired" name="MONEY2" id="MONEY2" onKeyUp="onlyNumberAllow(this)" />
 					<input type="hidden" name="COSTTYPEID2" id="COSTTYPEID2" class="notRequired"/>
 					<input type="hidden" value="2" class="notRequired" name="COST_TYPE2" id="COST_TYPE2" />
 				</td>
@@ -674,18 +683,18 @@ function find(cur_page){
 				<tr >
 					<td>
 						<c:if test="${param.show==1 }">
-								<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showLog(${param.terminalId})">修改日志</button>
+								<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showLog(${param.terminalId})">修改日志</button>
 							&nbsp;&nbsp;
 							<%if(!per.hasPermission(session, Permission.OPERAT_POSITION)){ %>
-							<button type="button" style="width:100px;text-align: center; table-layout: fixed;margin-right: 20px" name="updateData" id="modifyBtn" onclick="updateData4()">修改</button>
+							<button type="button" style="width:100px;text-align: center; table-layout: fixed;margin-right: 20px" name="updateData" id="modifyBtn" onClick="updateData4()">修改</button>
 							&nbsp;&nbsp;
 							<%} %>
 						</c:if>
-						<button type="button" id="attachBtn" style="width:100px;text-align: center; table-layout: fixed;" onclick="showAttachFile()">附件</button>
-					<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showAppendPage(${param.terminalId})">追加备注</button>
-						&nbsp;&nbsp;<button type="button" style="width:100px;text-align: center; table-layout: fixed;" onclick="beforeSubmit('terminal_baseInfo_form')">提交</button>
+						<button type="button" id="attachBtn" style="width:100px;text-align: center; table-layout: fixed;" onClick="showAttachFile()">附件</button>
+					<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showAppendPage(${param.terminalId})">追加备注</button>
+						&nbsp;&nbsp;<button type="button" style="width:100px;text-align: center; table-layout: fixed;" onClick="beforeSubmit('terminal_baseInfo_form')">提交</button>
 						
-						&nbsp;&nbsp;<button type="button" id="windowBackBtn" onclick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
+						&nbsp;&nbsp;<button type="button" id="windowBackBtn" onClick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
 							<!-- <a href="commercialInsert.jsp">录入客户信息</a> -->
 					</td>
 				</tr>
@@ -812,8 +821,8 @@ function find(cur_page){
 								}
 							}
 						</script>
-					<button type="button" name="updateData" id="debug_OK" style="width:100px;text-align: center; table-layout: fixed;" onclick="commonFormValidate('terminal_status_form_2')">调试完成</button>
-					&nbsp;&nbsp;<button type="button" name="updateData"  style="width:100px;text-align: center; table-layout: fixed;" onclick="unDebug()">未调试</button>
+					<button type="button" name="updateData" id="debug_OK" style="width:100px;text-align: center; table-layout: fixed;" onClick="commonFormValidate('terminal_status_form_2')">调试完成</button>
+					&nbsp;&nbsp;<button type="button" name="updateData"  style="width:100px;text-align: center; table-layout: fixed;" onClick="unDebug()">未调试</button>
 					<a target="_blank" name="print" href="../print/printTeminalInfo.jsp?teminal_info_id=${param.terminalId}">打印装机单</a>
 					<%} %>
 				</center>
@@ -851,7 +860,7 @@ function find(cur_page){
 				</table>
 			<%if(per.hasPermission(session, Permission.FILE_POSITION)){ %>
 				<center>
-					<button type="button" name="updateData" id="assignBtn"  style="width:100px;text-align: center; table-layout: fixed;" onclick="commonFormValidate('terminal_status_form_5')">完成</button>
+					<button type="button" name="updateData" id="assignBtn"  style="width:100px;text-align: center; table-layout: fixed;" onClick="commonFormValidate('terminal_status_form_5')">完成</button>
 					<a name="print" style="font: red" target="_blank" href="../print/printTemicost.jsp?teminal_info_id=${param.terminalId}">打印收据</a>
 				</center>
 			<%} %>
@@ -871,7 +880,7 @@ function find(cur_page){
 				<tr>
 					<td align="right">装机是否成功（装机状态）:</td>
 					<td>
-						<select name="INSTALLED_STATUS" id="INSTALLED_STATUS" onchange="if($(this).val()!=4){
+						<select name="INSTALLED_STATUS" id="INSTALLED_STATUS" onChange="if($(this).val()!=4){
 								$('#INSTALL_END_DATE').attr('class','notRequired');
 								$('#INSTALL_DATE').attr('class','notRequired');
 								$('#INSTALL_END_DATE').attr('class','notRequired');
@@ -901,7 +910,7 @@ function find(cur_page){
 					</td>
 					<td align="right">押金收取日期:</td>
 					<td>
-					 	<input type="text" name="REFUNDDATE0" id="REFUNDDATE0" class="notRequired" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly="readonly" /> 
+					 	<input type="text" name="REFUNDDATE0" id="REFUNDDATE0" class="notRequired" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly="readonly" /> 
 					</td>
 				</tr>
 				<tr>
@@ -926,12 +935,12 @@ function find(cur_page){
 				<tr>
 					<td align="right">装机日期:</td>
 					<td>
-					 <input type="text" name="INSTALL_DATE" id="INSTALL_DATE" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" required="required" readonly="readonly"/> 
+					 <input type="text" name="INSTALL_DATE" id="INSTALL_DATE" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" required="required" readonly="readonly"/> 
 					<font>*</font>
 					</td>
 					<td align="right">装机终止日期:</td>
 					<td>
-						 <input type="text" name="INSTALL_END_DATE" id="INSTALL_END_DATE" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" required="required" readonly="readonly"/> 
+						 <input type="text" name="INSTALL_END_DATE" id="INSTALL_END_DATE" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" required="required" readonly="readonly"/> 
 					<font>*</font>
 					</td>
 				</tr>
@@ -956,9 +965,9 @@ function find(cur_page){
 						<%
 							if(per.hasPermission(session,Permission.FILE_POSITION)||per.hasPermission(session,Permission.LEADER_POSITION)){
 						%>
-					<button type="button" name="updateData" id="TerminalMessageChange" style="width:100px;text-align: center; table-layout: fixed;" onclick="showFunctionWindow(2,'终端信息变更')">终端信息变更</button>
-					&nbsp;&nbsp;<button type="button" name="updateData"  style="width:100px;text-align: center; table-layout: fixed;" onclick="commonFormValidate('terminal_status_form_10')">归档</button>
-				<td>&nbsp;&nbsp;<button type="button" id="terminal_Cancel" disabled="disabled" name="updateData"   style="width:100px;text-align: center; table-layout: fixed;" onclick="beforeCancelCheck(1)">撤机</button><td>
+					<button type="button" name="updateData" id="TerminalMessageChange" style="width:100px;text-align: center; table-layout: fixed;" onClick="showFunctionWindow(2,'终端信息变更')">终端信息变更</button>
+					&nbsp;&nbsp;<button type="button" name="updateData"  style="width:100px;text-align: center; table-layout: fixed;" onClick="commonFormValidate('terminal_status_form_10')">归档</button>
+				<td>&nbsp;&nbsp;<button type="button" id="terminal_Cancel" disabled="disabled" name="updateData"   style="width:100px;text-align: center; table-layout: fixed;" onClick="beforeCancelCheck(1)">撤机</button><td>
 					<%} %>
 				</center>
 			</form>
@@ -991,7 +1000,7 @@ function find(cur_page){
 							<center  class="panel-container">
 								<table>
 								<tr>
-									<td><button type="button" name="updateData" onclick="waitingOperate(2)" disabled="disabled" id="waitingDebug">待调试</button> <td>
+									<td><button type="button" name="updateData" onClick="waitingOperate(2)" disabled="disabled" id="waitingDebug">待调试</button> <td>
 								</tr>
 							</table>
 							</center>
@@ -1031,7 +1040,7 @@ function find(cur_page){
 					}
 				
 				</script>
-			<form class="formlyWrapper-Base" onsubmit="return visitInsert()" id="visitForm" action="../action/TerminalCallVisitInsert.jsp" method="post">
+			<form class="formlyWrapper-Base" onSubmit="return visitInsert()" id="visitForm" action="../action/TerminalCallVisitInsert.jsp" method="post">
 				<table style="font-sizd: 1.2em" border="0px">
 				<input type="hidden" name="teminal_info_id" value="${param.terminalId}">
 				<input type="hidden" name="comId" value="${param.CommercialId}">
@@ -1070,7 +1079,7 @@ function find(cur_page){
 			<center>
 				<input style="width:100px;text-align: center; table-layout: fixed;"  value="提交" type="submit">
 				<input value="重置" type="reset" style="width:100px;text-align: center; table-layout: fixed;" >
-				<input value="派单" type="button" onclick="assignOrder()" style="width:100px;text-align: center; table-layout: fixed;" >
+				<input value="派单" type="button" onClick="assignOrder()" style="width:100px;text-align: center; table-layout: fixed;" >
 			</center>
 			</form>
 		<%} %>	

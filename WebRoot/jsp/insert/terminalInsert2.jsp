@@ -285,9 +285,9 @@ text-align: center;
 				<td align='right'>装机城市:</td>
 				<td>
 					<!-- <input type="text" name='UNIT_INSTALLED_CITY' id="UNIT_INSTALLED_CITY"/> -->
-					<select id="UNIT_INSTALLED_CITY1" name="UNIT_INSTALLED_CITY1" onchange="changeComplexProvince(this.value, sub_array, 'UNIT_INSTALLED_CITY', 'UNIT_INSTALLED_STREET');">
+					<select id="UNIT_INSTALLED_CITY1" name="UNIT_INSTALLED_CITY1" onChange="changeComplexProvince(this.value, sub_array, 'UNIT_INSTALLED_CITY', 'UNIT_INSTALLED_STREET');">
 	   				 </select>
-				      <select id="UNIT_INSTALLED_CITY" name="UNIT_INSTALLED_CITY" onchange="changeCity(this.value,'UNIT_INSTALLED_STREET','UNIT_INSTALLED_STREET');">
+				      <select id="UNIT_INSTALLED_CITY" name="UNIT_INSTALLED_CITY" onChange="changeCity(this.value,'UNIT_INSTALLED_STREET','UNIT_INSTALLED_STREET');">
 				    </select>
 				      <select id="UNIT_INSTALLED_STREET" name="UNIT_INSTALLED_STREET">
         </select>
@@ -361,12 +361,20 @@ text-align: center;
 					</select>
 					<font>*</font>
 				</td>
-					<td align="right">备注信息:</td>
+					<td align="right">程序版本选择:</td>
+				<td>
+					<select id="term_version" name="term_version">
+						<option value="1025">岳阳房地局项目</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+			<td align="right">备注信息:</td>
 				<td>
 					<textarea rows="3" cols="20" id="REMARK_INFO" name="REMARK_INFO"></textarea>
 				</td>
-			</tr>
-			
+				<td></td><td></td>
+			</tr>			
 			 
 			</table>
 		<div  class="left02">
@@ -384,7 +392,7 @@ text-align: center;
 			</tr>
 			<tr>
 				<td>押金(元):</td>
-				<td><input type="text" name="MONEY0" id="MONEY0" onkeyup="onlyNumberAllow(this)"/><font>*</font>
+				<td><input type="text" name="MONEY0" id="MONEY0" onKeyUp="onlyNumberAllow(this)"/><font>*</font>
 				<input type="hidden" name="COSTTYPEID0" id="COSTTYPEID0" class="notRequired"/>
 				<input type="hidden" value="0" class="notRequired" name="COST_TYPE0" id="COST_TYPE0" />
 				</td>
@@ -399,7 +407,7 @@ text-align: center;
 				<td>服务费(元):</td>
 				<td>
 				<input type="hidden" name="COSTTYPEID1" id="COSTTYPEID1" />
-					<input type="text" onkeyup="onlyNumberAllow(this)" class="notRequired" name="MONEY1" id="MONEY1" />
+					<input type="text" onKeyUp="onlyNumberAllow(this)" class="notRequired" name="MONEY1" id="MONEY1" />
 					<input type="hidden" value="1" class="notRequired" name="COST_TYPE1" id="COST_TYPE1" />
 				</td>
 				<td>
@@ -414,7 +422,7 @@ text-align: center;
 			<tr>
 				<td>通讯费(元):</td>
 				<td>
-					<input type="text" onkeyup="onlyNumberAllow(this)"  class="notRequired" name="MONEY2" id="MONEY2" />
+					<input type="text" onKeyUp="onlyNumberAllow(this)"  class="notRequired" name="MONEY2" id="MONEY2" />
 					<input type="hidden" name="COSTTYPEID2" id="COSTTYPEID2" class="notRequired"/>
 					<input type="hidden" value="2" class="notRequired" name="COST_TYPE2" id="COST_TYPE2" />
 				</td>
@@ -467,8 +475,8 @@ text-align: center;
 			<center>
 				<tr >
 					<td>
-						<button type="button" style="width:100px;text-align: center; table-layout: fixed;" onclick="beforeSubmit('terminal_baseInfo_form')">提交</button>
-						<button type="button" id="windowBackBtn" onclick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
+						<button type="button" style="width:100px;text-align: center; table-layout: fixed;" onClick="beforeSubmit('terminal_baseInfo_form')">提交</button>
+						<button type="button" id="windowBackBtn" onClick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
 					</td>
 				</tr>
 			</center>
