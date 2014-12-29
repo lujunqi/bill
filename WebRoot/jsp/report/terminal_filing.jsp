@@ -275,13 +275,9 @@ String[] t = list.get(i);
     
       <input name="submit" type="button" value="查 询" onclick="find(0)"  />
       &nbsp;
-      <%Permission per=new PositionPermessionImpl();
-				if(per.hasPermission(session, Permission.REPORT_EXPORT))
-				{
-				%>
+      
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <input name="goback" type="submit" value="导出excel"  />
-      <%} %>
        
     </div>
     <input type="hidden" id="cur_page" name="cur_page" />

@@ -211,9 +211,9 @@ public class ApppayTerminalDao extends AbstractDao<TerminalAppTemp>
 		if (null != info.getTERM_ID4())
 			sql.append(" TERM_ID4=").append(info.getTERM_ID4()).append(",");
 		if (null != info.getMENU_VER())
-			sql.append(" MENU_VER=").append(info.getMENU_VER());
+			sql.append(" MENU_VER=").append(info.getMENU_VER()).append(",");
 
-		sql.append(",status=1 ");
+		sql.append("status=1 ");
 
 		sql.append(" where APPPAY_ID=").append(info.getAPPPAY_ID())
 				.append(" and ").append(" TEMINAL_INFO_ID=")
