@@ -184,7 +184,7 @@ body {
 				<tr>
 					<td colspan="2"><font id="commercialNo"><%=rs.getString("seq") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					第<%=(rs.getInt("total")+1) %>次打印</font></td>
-					<td  style="text-align: right">2014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<td  style="text-align: right">2015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;<%=UtilTime.getMouth() %>&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;<%=UtilTime.getDay() %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				</tr>
