@@ -452,6 +452,7 @@ text-align: center;
 				<th class='dataTableHeader' style="width: 90px">绑定(双击解绑)</th>
 				<th class='dataTableHeader'>业务类型</th>
 				<th class='dataTableHeader'>门店名称</th>
+				<th class='dataTableHeader'>商户编号</th>
 				<th class='dataTableHeader'>扣率</th>
 				<th class='dataTableHeader'>拓展人</th>
 				<th class='dataTableHeader'>业务状态</th>
@@ -461,6 +462,7 @@ text-align: center;
 				<td id="APPPAY_ID"></td>
 				<td id="APPTYPE"></td>
 				<td id="MARCHANT_NAME"></td>
+				<td id="TREM1"></td>
 				<td id="contract_fee"></td>
 				<td id="name"></td>
 				<td id="APPR_STATUS"></td>
