@@ -164,9 +164,10 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 
 	@Override
 	public int insert(Terminal_Info terminal) throws Exception {
+		int teminal_info_id = teminal_info_id();
 		String sql = "insert into TEMINAL_INFO ";
 		String fields = "TEMINAL_INFO_ID";
-		String values = "TEMINAL_INFO_ID.nextval";
+		String values = ""+teminal_info_id;
 
 		// EC_NAME拓展人
 		// if (terminal.getEC_NAME() != null)
@@ -267,12 +268,23 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 			values += ",'" + terminal.getCOMM() + "'";
 		}
 		sql += "(" + fields + ") values (" + values + ")";
+		
 		DatabaseAccess dba = super.executeUpdate(sql);
-		int id = super.loadAppCurrId(dba, TABLE, "TEMINAL_INFO_ID",
-				terminal.getCOMMERCIAL_ID());
+		int id = teminal_info_id;
 		return id;
 	}
-
+	private int teminal_info_id() throws Exception
+	{
+		String sql = "select TEMINAL_INFO_ID.nextval from dual";
+		ResultSet set = super.execQuery(sql);
+		int id = -1;
+		if (set.next())
+		{
+			id = set.getInt(1);
+		}
+		set.close();
+		return id;
+	}
 	/**
 	 * 判断终端绑定的业务没有已经审批的
 	 * 
