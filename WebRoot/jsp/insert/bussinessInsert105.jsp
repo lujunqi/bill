@@ -224,6 +224,7 @@ $(function(){
 			data : {'id':${param.appayId}},
 			type : 'post',
 			success : function(json, textStatus) {
+
 				//var result=json.Apppay_105[0];
 				var result=json;
 				//alert(result["UNIT_NO"]);
@@ -731,11 +732,17 @@ function zhengGai(){
 	}
 }
 function func_auto(c1,c2){
+<%
+Permission per2=new PositionPermessionImpl();
+if(request.getParameter("show")==null || !per2.hasPermission(session, Permission.OPERAT_POSITION)){
+%>
+	
 	if(confirm("是否选择银行["+c2+"\n"+c1+"]")){
 		$("#account_bank_brach").val(c2);
 		$("#account_bank_id").val(c1);
 		$("#TB_closeWindowButton").trigger("click");
 	}
+<%}%>
 }
 </script>
 <style type="text/css">
@@ -746,7 +753,12 @@ color:red;
 </head>
 
 <body>
-
+<div id="div2" style=" display:none;">
+<b>请输入支行名关键字：</b><input type="text" id="auto" class='notRequired'>
+<ul id="autoinfos" prism="dataGrid">
+<li style="height:30px; line-height:30px;"><a href='javascript:func_auto("#@C1#","#@C2#");'>#@C2#[支行号：#@C1#][接收行号：#@C5#]</a></li>
+</ul>
+</div>
 <!-- 终端管理 -->
   <div  class="panel-container">
    		<div  class="left02">
@@ -815,21 +827,16 @@ color:red;
 			<tr>	
 				<td align="right">账户支行名:</td>
 				<td>
-					<input type="text" name="account_bank_brach" id="account_bank_brach"/>
+					<input type="text" readonly="readonly" name="account_bank_brach" id="account_bank_brach"/>
 					<font>*</font>
 				</td>
 				<td align="right">账户支行号:</td>
 				<td>
-					<input type="text" name="account_bank_id" id="account_bank_id" maxlength="12" onKeyUp="onlyNumberAllow(this)"/>
+					<input type="text" readonly="readonly" name="account_bank_id" id="account_bank_id" maxlength="12" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 					<a href="#TB_inline?height=250&width=600&inlineId=div2" class="thickbox">检索行号</a>
 				</td>
-<div id="div2" style=" display:none;">
-<b>请输入支行名关键字：</b><input type="text" id="auto" class='notRequired'>
-<ul id="autoinfos" prism="dataGrid">
-<li style="height:30px; line-height:30px;"><a href='javascript:func_auto("#@C1#","#@C2#");'>#@C2#[支行号：#@C1#][接收行号：#@C5#]</a></li>
-</ul>
-</div>
+
 			</tr>
 			<tr>
 				<td align="right">账户所在省：</td>

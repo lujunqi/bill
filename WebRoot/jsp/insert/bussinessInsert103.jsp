@@ -401,6 +401,7 @@ function find(cur_page,appStatus){
 	 }); 
 }
 </script>
+<script type="text/javascript" src="../../js/jquery.prism.2.0.js"></script>
 <script type="text/javascript">
 function updateData2(){
 	//$("#bussiness101form input").removeAttr("disabled");
@@ -433,6 +434,30 @@ function updateData2(){
 		$("#bussiness101form button").removeAttr("disabled");
 	}
 }
+$(function(){
+	$("#auto").bind("propertychange input",function(e) {
+        if($("#auto").val()!=""){
+			$("#autoinfos").prism({
+				content:"ajax:../../auto_bank_info.rp",
+				param:{C2:$("#auto").val(),ACTION_TYPE:"JSONLIST"}
+				});
+		}
+    });
+
+});
+function func_auto(c1,c2){
+<%
+Permission per2=new PositionPermessionImpl();
+if(request.getParameter("show")==null || !per2.hasPermission(session, Permission.OPERAT_POSITION)){
+%>
+	if(confirm("是否选择银行["+c2+"\n"+c1+"]")){
+		$("#ACCOUNT_BANK_ID").val(c1);
+		$("#ACCOUNT_BANK_NAME").val(c2);
+		$("#TB_closeWindowButton").trigger("click");
+	}
+<%}%>
+}
+
 </script>
 <style type="text/css">
 	font{
@@ -442,7 +467,12 @@ function updateData2(){
 </head>
 
 <body >
-
+<div id="div2" style=" display:none;">
+<b>请输入支行名关键字：</b><input type="text" id="auto" class='notRequired'>
+<ul id="autoinfos" prism="dataGrid">
+<li style="height:30px; line-height:30px;"><a href='javascript:func_auto("#@C1#","#@C2#");'>#@C2#[支行号：#@C1#][接收行号：#@C5#]</a></li>
+</ul>
+</div>
   <div id="easyTabContext"  class="panel-container">
    		<div  class="left02">
 			<div class="left02topDiv">
@@ -505,13 +535,13 @@ function updateData2(){
 			<tr>	
 				<td align="right">账户支行号:</td>
 				<td>
-					<input type="text" name="ACCOUNT_BANK_ID" maxlength="12" id="ACCOUNT_BANK_ID" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="ACCOUNT_BANK_ID" maxlength="12" readonly="readonly" id="ACCOUNT_BANK_ID" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
-					<a target="_bank" href="https://e.czbank.com/CORPORBANK/query_unionBank_index.jsp">检索行号</a>
+					<a href="#TB_inline?height=250&width=600&inlineId=div2" class="thickbox">检索行号</a>
 				</td>
 				<td align="right">账户支行名称:</td>
 				<td>
-					<input type="text" name="ACCOUNT_BANK_NAME" id="ACCOUNT_BANK_NAME"/>
+					<input type="text" name="ACCOUNT_BANK_NAME" readonly="readonly" id="ACCOUNT_BANK_NAME"/>
 					<font>*</font>
 				</td>
 			</tr>
@@ -565,7 +595,7 @@ function updateData2(){
 			<tr>
 				<td align="right">签约扣率(%):</td>
 				<td>
-					<input type="text" name="CONTRACT_FEE" id="CONTRACT_FEE" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="CONTRACT_FEE" id="CONTRACT_FEE" onKeyUp="onlyNumberAllow(this)"/>
 				<font>*</font>
 				</td>
 				<td align="right">拓展渠道:</td>
@@ -582,12 +612,12 @@ function updateData2(){
 			<tr>
 				<td align="right">保底(元):</td>
 				<td>
-					<input type="text" name="BASE" id="BASE" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="BASE" id="BASE" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 				</td>
 				<td align="right">封顶(元):</td>
 				<td>
-					<input type="text" name="TOP" id="TOP" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="TOP" id="TOP" onKeyUp="onlyNumberAllow(this)"/>
 					<font>*</font>
 				</td>
 			</tr>
@@ -619,7 +649,7 @@ function updateData2(){
 				</td>
 				<td align="right">终端月保底(元):</td>
 				<td>
-					<input type="text" name="TER_MONTH_MIN" id="TER_MONTH_MIN" class="notRequired" onkeyup="onlyNumberAllow(this)"/>
+					<input type="text" name="TER_MONTH_MIN" id="TER_MONTH_MIN" class="notRequired" onKeyUp="onlyNumberAllow(this)"/>
 				</td>
 			</tr>
 			<tr>
@@ -780,16 +810,16 @@ function updateData2(){
 						Permission per=new PositionPermessionImpl();
 						%>
 						<c:if test="${param.show==1 }">
-							<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showLog(${param.appayId})">修改日志</button>
+							<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showLog(${param.appayId})">修改日志</button>
 						&nbsp;&nbsp;
-							<button style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showAttachFile(${param.appayId})">附件</button>
+							<button style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showAttachFile(${param.appayId})">附件</button>
 							<%if(!per.hasPermission(session, Permission.OPERAT_POSITION)) {%>
-								<button type="button" id="modifyBtn" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="updateData2()">修改</button>
+								<button type="button" id="modifyBtn" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="updateData2()">修改</button>
 							<%} %>
 						</c:if>
-						<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onclick="showAppendPage(${param.appayId})">追加备注</button>
-						<button type="button" id="submitBtn" style="width:100px;text-align: center; table-layout: fixed;" onclick="beforeSubmit('bussiness101form')">提交</button>
-						<button type="button" id="windowBackBtn" onclick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" name="windowBackBtn" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
+						<button type="button" style="width:100px;text-align: center; table-layout: fixed;" name="updateData" onClick="showAppendPage(${param.appayId})">追加备注</button>
+						<button type="button" id="submitBtn" style="width:100px;text-align: center; table-layout: fixed;" onClick="beforeSubmit('bussiness101form')">提交</button>
+						<button type="button" id="windowBackBtn" onClick="window.location.href='commercialInsert.jsp?show=1&CommercialId=${param.CommercialId}'" name="windowBackBtn" style="width:100px;text-align: center; table-layout: fixed;" >返回</button>
 					</td>
 				</tr>
 			</center>
@@ -833,7 +863,7 @@ function updateData2(){
 			<tr>
 				<td align='right'>审批状态:</td>
 				<td>
-					<select name="APPR_STATUS" id="APPR_STATUS" onchange="
+					<select name="APPR_STATUS" id="APPR_STATUS" onChange="
 						if(this.value==1){
 							$('#aaaaaaaaaaaaaaaaaaa').removeAttr('disabled');
 							$('#APPR_REMARK').removeAttr('disabled');
@@ -851,7 +881,7 @@ function updateData2(){
 				
 				<td align="right">不通过原因:</td>
 				<td>
-					<select disabled="disabled" onchange="$('#APPR_REMARK').val($('#aaaaaaaaaaaaaaaaaaa').val())" id="aaaaaaaaaaaaaaaaaaa">
+					<select disabled="disabled" onChange="$('#APPR_REMARK').val($('#aaaaaaaaaaaaaaaaaaa').val())" id="aaaaaaaaaaaaaaaaaaa">
 						<option>--请选择--</option>
 						<option value="资料缺失">资料缺失</option>
 						<option value="扣率不符">扣率不符</option>
