@@ -795,6 +795,7 @@ color:red;
 					<font>*</font>
 				</td>
 				<% DaoUtils daoUtils=new DaoUtils();
+				daoUtils.localExpandUser(session,request.getParameter("show")==null);
 					request.setAttribute("expandUsers", daoUtils.localExpandUser(session,request.getParameter("show")==null));
 					request.setAttribute("allChannel", daoUtils.channelInfo());
 					request.setAttribute("allBank", daoUtils.bankInfo());

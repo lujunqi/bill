@@ -127,7 +127,7 @@ public class DaoUtils
 	public List<KeyValueModel> operateUser() throws Exception
 	{
 		List<KeyValueModel> list = new ArrayList<KeyValueModel>();
-		String sql = "select OPERMAN_NAME,OPERMAN_ID from OPERMAN_INFO  where OPER_STATUS=1 order by OPERMAN_NAME desc";
+		String sql = "select OPERMAN_NAME,OPERMAN_ID from OPERMAN_INFO  order by OPERMAN_NAME desc";
 		ResultSet result = dba.executeQuery(sql);
 		wrapModel(list, result);
 		dba.release();
@@ -137,10 +137,11 @@ public class DaoUtils
 	public List<KeyValueModel> operateUser(int position) throws Exception
 	{
 		List<KeyValueModel> list = new ArrayList<KeyValueModel>();
-		String sql = "select OPERMAN_NAME,OPERMAN_ID from OPERMAN_INFO where OPER_STATUS=1 and OPERMAN_ID in(select OPERMAN_ID from USE_ROLE_INFO where POST_ID="
+		String sql = "select OPERMAN_NAME,OPERMAN_ID from OPERMAN_INFO where OPERMAN_ID in(select OPERMAN_ID from USE_ROLE_INFO where POST_ID="
 				+ position + ") order by OPERMAN_NAME desc";
 		ResultSet result = dba.executeQuery(sql);
 		wrapModel(list, result);
+		System.out.println(sql);
 		dba.release();
 		return list;
 	}
