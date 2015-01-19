@@ -86,6 +86,12 @@ $(function(){
 });
 function bankcc(val){
 
+	if(val=="99995500"){
+		return true;
+	}
+	if(val=="99995501"){
+		return true;
+	}
 	if(val=="03045510"){
 		return true;
 	}
