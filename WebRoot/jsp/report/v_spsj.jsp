@@ -285,7 +285,7 @@ String[] t = list.get(i);
 <div id="listDiv" class="left02">
 <div class="left02downDiv">
   <form id="queryForm">
-    <table id='cust_Table' class='dataTable1' >
+    <table id='cust_Table' class='dataTable1' width="100%">
       <thead id="tableHead">
         <tr>
           <%
