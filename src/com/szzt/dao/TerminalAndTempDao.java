@@ -42,7 +42,7 @@ public class TerminalAndTempDao extends CreatePage {
 			m.setUNIT_INSTALLED_ADD(set.getString("i"));
 			m.setTERM_ID3(set.getString("j"));
 			m.setTERM_ID4(set.getString("k"));
-			m.setTerm_version(set.getInt("l"));
+			m.setTerm_version(set.getString("l"));
 			if (null != set.getTimestamp("INPUT_DATE"))
 				m.setINPUT_DATE(new Date(set.getTimestamp("INPUT_DATE")
 						.getTime()));

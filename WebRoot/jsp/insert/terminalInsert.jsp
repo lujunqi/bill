@@ -265,9 +265,10 @@ var leader=${sessionScope.man.oper_address};
 						$.post("../action/findById/Terminal.jsp",{'id':${param.terminalId},'singleton':true},function(json){
 							var result=eval("("+json+")");
 							//var result=json.resultset[0];
+							
+
 							disableForm(result);
 							$("input,select,textarea").each(function(){
-								//alert(result["TEMINAL_STATUS"]);
 								var itemId=$(this).attr("id");
 								if(itemId=="IS_OVERLAY"){
 									$("#IS_OVERLAY").val(result[itemId]);
@@ -289,6 +290,7 @@ var leader=${sessionScope.man.oper_address};
 							if(leader!=result["UNIT_INSTALLED_CITY"]&&leader!='0000'){
 								$("button,select,a,input").attr("disabled","disabled");
 							}
+							$("#term_version").val(result["TERM_VERSION"]);
 						});
 					});
 		<%
@@ -564,7 +566,10 @@ function find(cur_page){
 			<td align="right">版本:</td>
 				<td>
 					<select id="term_version" name="term_version">
-						<option value="1">1</option>
+						<option value="0">请选择</option>
+						<option value="00100014">岳阳房地局项目</option>
+						<option value="00100016">吉屋网络项目</option>
+						
 					</select>
 				</td>
 			</tr>

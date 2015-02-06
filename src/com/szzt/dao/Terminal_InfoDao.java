@@ -137,6 +137,8 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 		info.setINSTALLED_STATUS(result.getInt("INSTALLED_STATUS"));
 		info.setAPPROVAL_DATE(result.getDate("APPROVAL_DATE"));
 		info.setTEMINAL_STATUS(result.getInt("TEMINAL_STATUS"));
+		info.setTerm_version(result.getString("TERM_VERSION"));
+		
 		info.setCOMM_TYPE(result.getInt("COMM_TYPE"));
 		info.setIS_BIND(result.getInt("IS_BIND"));
 		info.setCOMM(result.getString("COMM"));
@@ -709,6 +711,7 @@ public class Terminal_InfoDao extends AbstractDao<Terminal_Info> implements
 	@Override
 	public Terminal_Info findById(int id) throws Exception {
 		String sql = "select * from " + TABLE + " where TEMINAL_INFO_ID=" + id;
+		System.out.println("========"+sql);
 		ResultSet rs = execQuery(sql);
 		Terminal_Info info = null;
 		if (rs.next()) {

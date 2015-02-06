@@ -270,6 +270,14 @@ $(function(){
 				//客户基本信息查询完毕后开始查询终端信息。。。
 				appStatus=result["appr_status"];
 				UNIT_NO=result["UNIT_NO"];
+
+				if(UNIT_NO==0){
+					if(result.fee_chan==2){
+						$("#UNIT_NO").val(2);
+					}
+					
+				}
+				
 				find(0);
 			},
 			error : function(d) {

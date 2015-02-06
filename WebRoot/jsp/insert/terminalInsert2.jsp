@@ -365,7 +365,7 @@ text-align: center;
 				<td>
 					<select id="term_version" name="term_version">
 						<option value="0">请选择</option>
-						<option value="1025">岳阳房地局项目</option>
+						<option value="00100014">岳阳房地局项目</option>
 						<option value="00100016">吉屋网络项目</option>
 						
 					</select>
