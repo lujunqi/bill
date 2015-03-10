@@ -478,6 +478,7 @@ function bussiness105Operate(id,index){
 
 	// commercialNoLength=-1;//商户长度
 	 //terminalNoLength=-1;//终端长度
+
 	 if(-1!=commercialNoLength){
 		if(null==TERM_ID1||$.trim(TERM_ID1).length!=commercialNoLength){
 			alert("商户号长度为："+commercialNoLength+",当前长度:"+TERM_ID1.length);
@@ -492,7 +493,14 @@ function bussiness105Operate(id,index){
 				return;
 			}
 	 }
-	
+	 if(-1!=terminalNoLength){
+		 if(null==TERM_ID4||$.trim(TERM_ID4).length!=terminalNoLength){
+				alert("清算终端号长度为："+terminalNoLength+",当前长度:"+TERM_ID4.length);
+				return;
+			}
+	 }
+	 
+
 	$.ajax( {
 		dataType : 'json',
 		//url : '../action/BussinessOperate.jsp',
@@ -504,6 +512,8 @@ function bussiness105Operate(id,index){
 				//alert("操作失败！");
 				alert("操作失败，商户编号已经存在！");
 				//window.location.reload();
+			}else if(id==20150211){
+				alert("操作失败，编号输入错误！");
 			}else{
 				alert("操作成功！");
 				$("#commercial_id"+index).attr("disabled","disabled");

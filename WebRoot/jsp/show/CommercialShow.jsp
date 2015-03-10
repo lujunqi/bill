@@ -35,8 +35,10 @@ String info=request.getParameter("info");
 <script src="../../js/jquery-1.7.min.js" type="text/javascript"></script>
 <script src="../../js/jquery.pagination2.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../js/jquery.dataTable.js"></script>
+<script type="text/javascript" src="../../js/md5.js"></script>
 <script src="../../js/province_city_area_select.js" type="text/javascript"></script>
 <script type="text/javascript">
+
 /**
  * 根据地区编码获取地区中文名称
  */
@@ -177,7 +179,9 @@ function getAreaNameByCode(code) {
 	function getArea(number){
 	}
 	function showWindow(id){
-		window.open ('../insert/commercialInsert.jsp?show=1&CommercialId='+id, 'newwindow', 'height=600, width=1000, top=40, left=100,menubar=no, scrollbars=yes, resizable=yes,location=n o, status=yes'); //这句要写成一行 
+		var myDate = new Date();
+		
+		window.open ('../insert/commercialInsert.jsp?show=1&digit='+hex_md5(myDate.getFullYear()+'*'+myDate.getMonth()+'%'+myDate.getDate()+id)+'&CommercialId='+id, 'newwindow', 'height=600, width=1000, top=40, left=100,menubar=no, scrollbars=yes, resizable=yes,location=n o, status=yes'); //这句要写成一行 
 
 	}
 </script>
@@ -252,7 +256,7 @@ function getAreaNameByCode(code) {
 					</select>
 				</td>
 				<td align='right'>	
-				<input type="button" id="queryBtn" name="total" value="开始查询" onclick="find()"/>
+				<input type="button" id="queryBtn" name="total" value="开始查询" onClick="find()"/>
 				<font color=red id="showMsg"></font>
 			</form>
 		</div>

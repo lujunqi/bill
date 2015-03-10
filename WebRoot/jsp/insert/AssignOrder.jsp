@@ -1,5 +1,6 @@
 <%@page import="com.dodou.inferface.Permission"%>
 <%@page import="com.szzt.dao.DaoUtils"%>
+<%@ include file="../../import.jsp"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%

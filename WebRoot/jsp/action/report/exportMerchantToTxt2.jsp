@@ -7,7 +7,7 @@
 "select (select temp.term_id3\n" +
 "          from term_app_table temp\n" + 
 "         where temp.apppay_id = a.apppay_id\n" + 
-"           and temp.status = 1\n" + 
+
 "         group by temp.term_id3) as term_id3,\n" + 
 "       a.unit_no,\n" + 
 "       memo,\n" + 

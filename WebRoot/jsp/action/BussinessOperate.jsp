@@ -8,6 +8,7 @@
 <%
 	ApppayTerminalDao dao = new ApppayTerminalDao();
 	Terminal_InfoDao tdao = new Terminal_InfoDao();
+	boolean flag = true;
 	try
 	{
 		//终端ID，业务ID
@@ -17,6 +18,14 @@
 		{
 			temp.setTERM_ID3(temp.getTERM_ID1());
 			temp.setTERM_ID4(temp.getTERM_ID2());
+			System.out.println(temp.getTERM_ID2()+"=="+temp.getTERM_ID4());
+			if(temp.getTERM_ID2().trim().length()!=8){
+				flag = false;
+			}
+			if(temp.getTERM_ID4().trim().length()!=8){
+				flag = false;
+			}
+			
 		}
 		if (request.getParameter("APP_TYPE").equals("102"))
 		{
@@ -33,18 +42,21 @@
 				temp.setTERM_ID4("' '");
 			}
 		}
-		temp.setMENU_VER(request.getParameter("term_version"));
-		System.out.println("================"+request.getParameter("term_version"));
-		//其中中间表
-		dao.operate(temp);
-		//修改业务信息
-		Terminal_Info info = new Terminal_Info();
-		info.setTEMINAL_INFO_ID(temp.getTEMINAL_INFO_ID());
-		info.setCOMMERCIAL_ID(temp.getCOMMERCIAL_ID());
+		if(flag){
+			temp.setMENU_VER(request.getParameter("term_version"));
+			System.out.println("================"+request.getParameter("term_version"));
+			//其中中间表
+			dao.operate(temp);
+			//修改业务信息
+			Terminal_Info info = new Terminal_Info();
+			info.setTEMINAL_INFO_ID(temp.getTEMINAL_INFO_ID());
+			info.setCOMMERCIAL_ID(temp.getCOMMERCIAL_ID());
+			tdao.operate(info);
+			out.println(11);			
+		}else{
+			out.println(20150211);
 
-		tdao.operate(info);
-
-		out.println(11);
+		}
 		dao.release();
 		tdao.release();
 	} catch (Exception e)

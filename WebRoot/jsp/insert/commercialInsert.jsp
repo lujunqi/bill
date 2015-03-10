@@ -78,6 +78,7 @@ input{
 <script src="../../js/Area.js" type="text/javascript"></script>
 <script src="../../js/validator.js" type="text/javascript"></script>
 <script src="../../js/AreaData_min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/md5.js"></script>
 <script type="text/javascript">
 
 function isMobile(val) { 
@@ -188,6 +189,14 @@ function checkSigletonComNo(){
 }
 
 var id=<%=request.getParameter("CommercialId")%>;
+var digit="<%=request.getParameter("digit")%>";
+var myDate = new Date();
+
+if(digit!=hex_md5(myDate.getFullYear()+'*'+myDate.getMonth()+'%'+myDate.getDate()+id) && id!=null){
+	alert("非法访问");
+//	location.href("../../index.jsp");
+  window.location.href="../../index.jsp"; 
+}
 <%
 	if(request.getParameter("show")!=null){
 		%>

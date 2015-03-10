@@ -6,7 +6,8 @@
 	
 	String sql = "select temp.term_id3,c.unit_add,c.contact_name_1,c.contact_tel_1,temp.term_id4 from teminal_info i, Apppay_105 m,term_app_table temp,commercial_info c where to_char(i.approval_date,'yyyy-MM-dd') = '"
 			+ date
-			+ "'  and i.teminal_status >= 3 and m.appr_status = 2 and i.teminal_info_id=temp.teminal_info_id and m.apppay_id=temp.apppay_id and c.commercial_id=temp.commercial_id and temp.apptype='105' and temp.status=1  and (m.fee_chan = 1 or m.fee_chan is null)";
+			+ "'  and i.teminal_status >= 3 and m.appr_status = 2 and i.teminal_info_id=temp.teminal_info_id and m.apppay_id=temp.apppay_id and c.commercial_id=temp.commercial_id and temp.apptype='105' and (m.fee_chan = 1 or m.fee_chan is null)";
+			System.out.println(sql);
 	DatabaseAccess dba = new DatabaseAccess();
 	ResultSet rs = dba.executeQuery(sql);
 	StringBuffer content = new StringBuffer();

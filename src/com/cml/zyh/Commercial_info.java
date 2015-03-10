@@ -28,7 +28,7 @@ public class Commercial_info
 	private int unit_status;
 	private String input_date;
 	private String change_date;
-
+	private String checkdigit;//验证码
 	// ljn新加
 	private int sales_man;
 
@@ -385,6 +385,14 @@ public class Commercial_info
 			this.setSales_man(Integer.parseInt(request
 					.getParameter("sales_man")));
 		}
+	}
+
+	public String getCheckdigit() {
+		return checkdigit;
+	}
+
+	public void setCheckdigit(String checkdigit) {
+		this.checkdigit = checkdigit;
 	}
 
 }
