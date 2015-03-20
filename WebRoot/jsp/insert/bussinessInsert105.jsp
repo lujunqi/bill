@@ -295,6 +295,37 @@ $(function(){
 		var jj=$.parseJSON(j);
 		$("#unitName").html(jj.UNIT_NAME);
 		com_area=jj["UNIT_AREA"];
+		$("#UNIT_NO").change(function(){
+			
+			switch($("#UNIT_NO").find("option:selected").text()){
+				case '银联清算':
+					$('#commercialNoTemp').val('821'+com_area);
+				   break;
+				case '总部清算':
+					commercialNoLength=15;
+					terminalNoLength=8;
+					forceStep=true;
+
+					if(com_area=="4325"){
+						$('#commercialNoTemp').val('8214313');
+					}else if(com_area=="4326"){
+						$('#commercialNoTemp').val('8214331');
+					}else{
+						$('#commercialNoTemp').val('821'+com_area);
+					}
+					$('[name=commercial_id],[name=terminal_number]').attr('disabled','disabled');
+					break;
+				case '本地清算':
+				    break;
+				case '多渠道清算':
+					
+					$('#commercialNoTemp').val('');
+					forceStep=false;
+					//商户编号不填，终端编号（填16位）,同时可填清算商户编号和清算终端编号
+					terminalNoLength=16;
+					break;
+			}
+		});
 		<%
 		if(request.getParameter("show")==null){
 		%>
@@ -1029,24 +1060,7 @@ color:red;
 					<%DaoUtils u=new DaoUtils();
 					request.setAttribute("UNIT_NO", u.qingSuanJiGou());
 					%>
-					<select name="UNIT_NO" id="UNIT_NO" onChange="
-						switch($(this).find('[selected=selected]').text()){
-							case '银联清算':
-							case '总部清算':
-								commercialNoLength=15;
-								terminalNoLength=8;
-								forceStep=true;
-								$('#commercialNoTemp').val('821'+com_area);
-								$('[name=commercial_id],[name=terminal_number]').attr('disabled','disabled');
-								break;
-							case '本地清算':
-							case '多渠道清算':
-								forceStep=false;
-								//商户编号不填，终端编号（填16位）,同时可填清算商户编号和清算终端编号
-								terminalNoLength=16;
-								break;
-						}
-					">
+					<select name="UNIT_NO" id="UNIT_NO" >
 						<option value="">---请选择---</option>
 						<c:forEach items="${UNIT_NO }" var="vv">
 							<option value="${vv.value }">${vv.key }</option>

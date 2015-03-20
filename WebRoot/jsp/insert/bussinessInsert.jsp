@@ -302,7 +302,7 @@ function find(cur_page,appStatus){
 		url:'../action/TerminalAndTempQuery.jsp',
 		dataType:'json',
 		type:'POST',
-		data:{"APPPAY_ID":<%=request.getParameter("appayId")==null?-1:request.getParameter("appayId")%>,apptype:101},
+		data:{"APPPAY_ID":<%=request.getParameter("appayId")==null?-1:request.getParameter("appayId")%>,'cur_page':cur_page+1,apptype:101},
 		success: function(json){
 			//alert("TEMINAL_INFO_ID in(select TEMINAL_INFO_ID from TERM_APP_TABLE where APPPAY_ID=<%=request.getParameter("appayId")==null?-1:request.getParameter("appayId")%>)");
 			var object = json.resultset;
