@@ -26,7 +26,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 		{
 			this.hasFeeChain = true;
 		}
-		builder.append("select b.* from (SELECT a.*,ROWNUM RN FROM (SELECT A.*,c.UNIT_NAME,UNIT_AREA");
+		builder.append("select b.* from (SELECT a.*,(SELECT OI.OPERMAN_NAME FROM OPERMAN_INFO OI WHERE OI.OPERMAN_ID = A.E_ID) OPERMAN_NAME,ROWNUM RN FROM (SELECT A.*,c.UNIT_NAME,UNIT_AREA");
 		builder.append(" FROM (SELECT * FROM ").append(table).append(" dd ");
 		if (null != where && !"".equals(where))
 			builder.append(" where " + where);
@@ -452,7 +452,8 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 			info.setACCOUNT_CITY(rs.getString("ACCOUNT_CITY"));
 			info.setACCOUNT_NAME(rs.getString("ACCOUNT_NAME"));
 			info.setUNIT_AREA(rs.getString("UNIT_AREA"));
-
+			info.setBASE(rs.getString("OPERMAN_NAME"));
+			
 			if (this.hasFeeChain)
 			{
 				info.setFee_chan(rs.getInt("fee_chan"));
@@ -471,7 +472,7 @@ public class ApppayCommonDao extends AbstractDao<Apppay101_Info>
 			info.setAPPR_DATE(rs.getDate("APPR_DATE"));
 			info.setAPPR_REMARK(rs.getString("APPR_REMARK"));
 			info.setSTATUS(rs.getInt("STATUS"));
-
+			
 			// ---------
 
 			String input = rs.getString("INPUT_DATE");

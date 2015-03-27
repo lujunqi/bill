@@ -256,8 +256,8 @@ width: 150px;
 			
 				<td align='right'>录入时间:</td>
 				<td>
-					从<input readonly="readonly" id="INPUT_DATE" onclick="new WdatePicker({dateFmt:'yyyy-MM-dd HH'})"/>
-					至<input readonly="readonly" id="INPUT_DATE2" onclick="new WdatePicker({dateFmt:'yyyy-MM-dd HH'})"/>
+					从<input readonly="readonly" id="INPUT_DATE" onClick="new WdatePicker({dateFmt:'yyyy-MM-dd HH'})"/>
+					至<input readonly="readonly" id="INPUT_DATE2" onClick="new WdatePicker({dateFmt:'yyyy-MM-dd HH'})"/>
 				</td>
 				<br>
 				<td align='right'>	
@@ -318,7 +318,7 @@ width: 150px;
 						<option value="6">本地渠道</option>
 					</select>
 				</td>
-				<input  type="button" name="total" id="queryBtn" value="开始查询" onclick="find2()"/>
+				<input  type="button" name="total" id="queryBtn" value="开始查询" onClick="find2()"/>
 				<font color=red id="showMsg"></font>
 			</form>
 		</div>
@@ -332,6 +332,7 @@ width: 150px;
 				<th class='dataTableHeader'>业务类型</th>
 				<th class='dataTableHeader'>业务状态</th>
 				<th class='dataTableHeader'>交易渠道</th>
+				<th class='dataTableHeader'>拓展人</th>
 				<th class='dataTableHeader'>录入时间</th>
 				<th class='dataTableHeader'>更新时间</th>
 				<th class='dataTableHeader'>详情</th>
@@ -342,6 +343,7 @@ width: 150px;
 				<td id="APPTYPE"></td>
 				<td id="APPR_STATUS"></td>
 				<td id="fee_chan2"></td>
+				<td id="BASE"></td>
 				<td id="INPUT_DATE"></td>
 				<td id="CHANGE_DATE"></td>
 				<td id="more_detial"></td>

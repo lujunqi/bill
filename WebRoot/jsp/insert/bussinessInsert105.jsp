@@ -69,6 +69,7 @@ $(function(){
 	$("#auto").bind("propertychange input",function(e) {
         if($("#auto").val()!=""){
 			$("#autoinfos").prism({
+				async:true,
 				content:"ajax:../../auto_bank_info.rp",
 				param:{C2:$("#auto").val(),ACTION_TYPE:"JSONLIST"}
 				});

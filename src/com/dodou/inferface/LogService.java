@@ -108,17 +108,17 @@ public class LogService
 		String vv = "";
 		if (update == 2)
 		{
-			v = "存折";
+			v = "结算行入账";
 		} else
 		{
-			v = "银行卡";
+			v = "银联小额入账";
 		}
 		if (old == 2)
 		{
-			vv = "存折";
+			vv = "结算行入账";
 		} else
 		{
-			vv = "银行卡";
+			vv = "银联小额入账";
 		}
 		this.appendDirty(vv, v, "账户账号");
 	}

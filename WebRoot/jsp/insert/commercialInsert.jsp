@@ -193,9 +193,9 @@ var digit="<%=request.getParameter("digit")%>";
 var myDate = new Date();
 
 if(digit!=hex_md5(myDate.getFullYear()+'*'+myDate.getMonth()+'%'+myDate.getDate()+id) && id!=null){
-	alert("非法访问");
+//	alert("非法访问");
 //	location.href("../../index.jsp");
-  window.location.href="../../index.jsp"; 
+//  window.location.href="../../index.jsp"; 
 }
 <%
 	if(request.getParameter("show")!=null){
