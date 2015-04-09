@@ -4,11 +4,11 @@
     response.setHeader("Content-disposition",
 		    "attachment; filename=mchnt_" + date + ".txt");
     String sql = 
-"select (select temp.term_id3\n" +
+"select (select MAX(temp.term_id3)\n" +
 "          from term_app_table temp\n" + 
 "         where temp.apppay_id = a.apppay_id\n" + 
 
-"         group by temp.term_id3) as term_id3,\n" + 
+"        ) as term_id3,\n" + 
 "       a.unit_no,\n" + 
 "       memo,\n" + 
 "       (select max(c5) from back_type where c1 = a.account_bank_id) as c5,\n" + 
