@@ -579,6 +579,13 @@ public class Apppay_105
 			this.setMARCHANT_NAME2(request.getParameter("MARCHANT_NAME2"));
 
 		}
+		if (request.getParameter("REMARK_INFO") != null
+				&& !request.getParameter("REMARK_INFO").equals(""))
+		{
+			this.setREMARK_INFO(request.getParameter("REMARK_INFO"));
+
+		}
+		
 		if (request.getParameter("apppay_id") != null
 				&& !request.getParameter("apppay_id").equals(""))
 		{
@@ -695,6 +702,7 @@ public class Apppay_105
 		{
 			this.setReason(request.getParameter("reason"));
 		}
+		System.out.println(request.getParameter("appr_remark") +"=============");
 		if (request.getParameter("appr_remark") != null
 				&& !request.getParameter("appr_remark").equals(""))
 		{
