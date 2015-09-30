@@ -14,6 +14,7 @@
 			response.sendRedirect("../insert/error.jsp");
 			return;
 		}
+		System.out.print("------------------------\n");
 		Log.getLogger().info("开始导入文件........");
 		PhotoDao dao = new PhotoDao();
 		Photo photo = new Photo();
