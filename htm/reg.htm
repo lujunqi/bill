@@ -33,10 +33,15 @@ border:solid 1px #CCCCCC;
 }
 -->
 </style>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/ns-default.css" />
+		<link rel="stylesheet" type="text/css" href="css/ns-style-attached.css" />
+
 <script src="js/modernizr.custom.js"></script>
-		<!--[if IE]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>注册</title>
@@ -55,25 +60,43 @@ border:solid 1px #CCCCCC;
       <input type="text" style="width:50%;" placeholder="请输入图形验证码">
       <img src="images/genimage.jpg" width="100" height="40" align="middle"> </div>
     <div class="form-item" >
-
       <input type="text" style="width:40%;" placeholder="136******">
       <input type="button" style="background:#FFFFFF;  border:solid 1px #CCCCCC; width:20%; " value="获取短信">
-
-     <div style=" color:#FF0000"> <img src="images/login_36.png" width="28" height="23" align="bottom"> 您输入的手机号已注册！ </div>
+      <div style=" color:#FF0000"> <img src="images/login_36.png" width="28" height="23" align="bottom"> 您输入的手机号已注册！ </div>
     </div>
-	<div class="form-item" >
+    <div class="form-item" >
       <input type="text"  placeholder="输入短信验证码">
-	</div>
-	<div class="form-item" >
+    </div>
+    <div class="form-item" >
       <input type="text"  placeholder="请设置6-12位的登录密码">
-	</div>
-	<div class="form-item" >
-    注册视即为同意 <a href="#" style=" color:#FF0000">《招商美伦健康注册协议》</a>	</div>
-	 <div style="margin-top:44px;">
-    <input type="button" value="注  册" style="background:#cccccc; color:#ffffff; width:60%; height:44px; line-height:44px;
+    </div>
+    <div class="form-item" > 注册视即为同意 <a href="#" style=" color:#FF0000">《招商美伦健康注册协议》</a> </div>
+    <div style="margin-top:44px;">
+      <input type="button" value="注  册" id="btn_reg" style="background:#cccccc; color:#ffffff; width:60%; height:44px; line-height:44px;
 	border:0;">
-	</div>
+    </div>
   </div>
 </div>
+<script src="js/classie.js"></script>
+<script src="js/notificationFx.js"></script>
+<script>
+
+(function() {
+	var bttn = document.getElementById( 'btn_reg' );
+	bttn.disabled = false;
+	bttn.addEventListener( 'click', function() {
+		var notification = new NotificationFx({
+		message : '<span class="icon icon-calendar"></span><p>恭喜您！成功注册招商健康平台，为了更方便管理您的健康档案，请<a href="#">完善资料</a>.</p>',
+		layout : 'attached',
+		effect : 'bouncyflip',
+		type : 'notice', // notice, warning or error
+		onClose : function() {
+		bttn.disabled = false;
+		}
+		});
+		notification.show();
+	});
+})();
+</script>
 </body>
 </html>
