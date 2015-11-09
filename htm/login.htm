@@ -3,28 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/css.css" />
 <style type="text/css">
 <!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	font-size:12px;
-}
-.head {
-margin-top:5px;
-margin-bottom:5px;
-}
-.body{
-text-align:center;
-margin:10px;
-}
-.form-item {
-text-align:left; width:80%; color:#FF0000 ; margin:auto;
-position: relative;
-
-margin-bottom: 15px;
-z-index: 18;
-}
 .form-item input{
 padding-left:44px;
 height:41px;
@@ -32,7 +14,6 @@ line-height: normal; /* for non-ie */
 line-height: 22px\9; /* for ie */  
 width:90%;
 
-border:solid 1px #CCCCCC;
 }
 -->
 </style>
@@ -41,7 +22,7 @@ border:solid 1px #CCCCCC;
 <title>登陆</title>
 </head>
 <body>
-<div style="width:500px; margin:auto">
+<div class="main">
 <div class="head">
   <div style="float:left; height:42px; line-height:42px;"> <img src="images/back.png" width="24" height="42" align="middle" > </div>
   <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="images/logo.png" width="239" height="53" align="middle"> <img src="images/login_12.png" width="64" height="31" align="middle"> </div>
@@ -49,15 +30,16 @@ border:solid 1px #CCCCCC;
 <div style="clear:both;"></div>
 <div style=" height:4px; background:#003366;"></div>
 <div class="body">
+<div style="height:40px;"></div>
   <div class="form-item">
-    <input type="text" style="background:url(images/login_18.png) no-repeat;" placeholder="请输入用户名/手机号">
+    <input type="text" style="background:#fff url(images/login_18.png) no-repeat;" placeholder="请输入用户名/手机号">
   </div>
   <div class="form-item">
-    <input type="password" style="background:url(images/login_22.png) no-repeat;" placeholder="请输入密码">
+    <input type="password" style="background:#fff url(images/login_22.png) no-repeat;" placeholder="请输入密码">
   </div>
   <div class="form-item" >
 
-	<input type="text" style="background:url(images/login_28.png) no-repeat; width:50%;" placeholder="请输入验证码">
+	<input type="text" style="background:#fff url(images/login_28.png) no-repeat; width:50%;" placeholder="请输入验证码">
 	<img src="images/genimage.jpg" width="100" height="40" align="middle">    
     <div style="text-align:left; width:80%; color:#FF0000 ; margin:auto;"> <img src="images/login_36.png" width="28" height="23" align="bottom"> 您输入的验证码错误 </div>
   </div>
@@ -69,6 +51,7 @@ border:solid 1px #CCCCCC;
 		<div style="float:right;">忘记密码？</div>
 	</div>
   </div>
+  <div style="height:40px;"></div>
   </div>
 </div>
 </body>

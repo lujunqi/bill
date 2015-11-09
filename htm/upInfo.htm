@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/css.css" />
 <link rel="stylesheet" type="text/css" href="css/ns-default.css" />
@@ -14,13 +15,13 @@
 <![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>注册</title>
+<title>完善资料</title>
 </head>
 <body>
 <div class="main">
   <div class="head">
     <div style="float:left; height:42px; line-height:42px;"> <img src="images/back.png" width="24" height="42" align="middle" > </div>
-    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="images/logo.png" width="239" height="53" align="middle"> <img src="images/reg_06.png" width="64" height="31" align="middle"> </div>
+    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="images/logo.png" width="239" height="53" align="middle"> <img src="images/upInfo_06.png" width="124" height="30" align="middle"> </div>
   </div>
   <div style="clear:both;"></div>
   <div style=" height:4px; background:#003366;"></div>
@@ -28,8 +29,18 @@
   <div class="body">
   <div style="height:40px;"></div>
     <div class="form-item" >
-      <input type="text" style="width:50%;" placeholder="请输入图形验证码">
-      <img src="images/genimage.jpg" width="100" height="40" align="middle"> </div>
+      <input name="text" type="text"  placeholder="输入您的真实姓名">
+    </div>
+	<div class="form-item" >
+      <input name="text" type="text"  placeholder="输入18位的身份证号">
+    </div>
+	<div class="form-item" >
+      <input name="text" type="button" value="上传身份证（正面）" style=" color:#FFFFFF; background:#006699; border:0;">
+    </div>
+	<div class="form-item" >
+      <input name="text" type="button" value="上传身份证（背面）" style=" color:#FFFFFF; background:#006699; border:0;">
+    </div>
+	
     <div class="form-item" >
       <input type="text" style="width:40%;" placeholder="136******">
       <input type="button" style="background:#FFFFFF;  border:solid 1px #CCCCCC; width:20%; " value="获取短信">
@@ -38,12 +49,8 @@
     <div class="form-item" >
       <input type="text"  placeholder="输入短信验证码">
     </div>
-    <div class="form-item" >
-      <input type="text"  placeholder="请设置6-12位的登录密码">
-    </div>
-    <div class="form-item" > 注册视即为同意 <a href="#" style=" color:#FF0000">《招商美伦健康注册协议》</a> </div>
     <div style="margin-top:44px;">
-      <input type="button" value="注  册" id="btn_reg" style="background:#999999; color:#ffffff; width:60%; height:44px; line-height:44px;
+      <input type="button" value="提 交" id="btn_reg" style="background:#999999; color:#ffffff; width:60%; height:44px; line-height:44px;
 	border:0;">
     </div>
 	<div style="height:40px;"></div>
