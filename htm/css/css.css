@@ -1,19 +1,33 @@
 body {
 	margin-left: 0px;
 	margin-top: 0px;
-	font-size:12px;
+	font-size:14px;
+	font-family: "微软雅黑";
+}
+p{
+margin:0px;
+padding:0px;
+}
+a{
+text-decoration:none;
 }
 .main{
-width:500px; margin:auto
+width:550px; margin:auto
 }
 .head {
 background:#FFFFFF;
-height:60px;
+height:90px;
+line-height:90px;
 }
 .body{
 text-align:center;
 background:#fff url(../images/bg.png) repeat;	
-
+background-size:cover;
+height:900px;
+}
+.form{
+width:550px;
+margin:auto;
 }
 .foot{
 background:#CCCCCC; 
@@ -21,18 +35,22 @@ padding-top:10px;
 padding-bottom:10px; 
 text-align:center;
 color:#666666;
+
 }
 
 .form-item {
-text-align:left; width:80%;  margin:auto;
+
+width:400px;
+margin:auto;
 margin-bottom: 15px;
 
 }
 .form-item input{
-padding-left:5px;
+
 height:41px;
 line-height: normal; /* for non-ie */  
 line-height: 22px\9; /* for ie */  
-width:90%;
+width:400px;
 border:solid 1px #CCCCCC;
+border-radius: 8px;
 }

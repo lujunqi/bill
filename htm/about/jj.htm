@@ -14,10 +14,18 @@
 .menu li{
 list-style:none;
 float:left;
-width:18%;
+width:20%;
 height:auto;
-padding:5px;
+padding-top:5px;
+padding-bottom:5px;
 background:#bd9452;
+}
+.menu li h3{
+text-align:center;
+color:#FFFFFF;
+padding:0px;
+margin:0px;
+font-size:14px;
 }
 #gywm{
 background:#b77b25;
@@ -25,20 +33,16 @@ background:#b77b25;
 .menu2 li{
 list-style:none;
 float:left;
-width:23%;
+width:20%;
 height:50px;
 line-height:50px;
 text-align:center;
 }
+
 .menu2 li:hover{
 border-bottom:#FF0000 solid 1px;
 }
-.menu li h3{
-text-align:center;
-color:#FFFFFF;
-padding:0px;
-margin:0px;
-}
+
 #zj ul {
 list-style:none;
 }
@@ -48,14 +52,267 @@ width:40%;
 text-align:left;
 padding:5px;
 }
-#fw ul {
-list-style:none;
-padding:0px;
-margin:0px;
-}
+
+.slider {
+    position: relative;
+    height: 340px;
+    min-width: 550px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .slider .slider-pointer {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    list-style: none;
+    padding: 0;
+    z-index: 999;
+  }
+  .slider .slider-pointer li {
+    display: inline-block;
+    margin: 0 15px;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    opacity: 0.85;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+    transition: all 320ms ease;
+  }
+  .slider .slider-pointer li:hover {
+    background-color: #e30006;
+  }
+  .slider .slider-pointer li.active {
+    background-color: #b00005;
+  }
+  .slider .slider-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .slider .slider-inner .item {
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+  .slider .slider-inner .img {
+    background-position: center top !important;
+    width: 100%;
+    height: 100%;
+  }
+  .slider .slider-control {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 999;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: #ffffff;
+    opacity: 0.5;
+    cursor: pointer;
+    top: 40%;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+    transition: all 320ms ease;
+  }
+  .slider .slider-control:hover {
+    opacity: 0.65;
+    background-color: #b00005;
+  }
+  .slider .slider-control:active {
+    opacity: 0.85;
+  }
+  .slider .slider-control.prev {
+    display: none;
+    left: 20px;
+  }
+  .slider .slider-control.next {
+    display: none;
+    right: 20px;
+  }
+  .slider:hover .slider-control.prev {
+    display: block;
+    left: 20px;
+  }
+  .slider:hover .slider-control.next {
+    display: block;
+    right: 20px;
+  }
+  .fwInfo{display:none;}
 </style>
 <script src="../js/modernizr.custom.js"></script>
 <script src="../js/jquery.min.js"></script>
+<script>
+;(function($) {
+$.fn.Slider = function(options) {
+  "use strict";
+
+  var settings = $.extend({
+    isAuto: true,
+    transTime: 3000,
+    animateSpeed: 1000,  
+    sliderMode: 'slide', //'slide | fade',
+    pointerControl: true,
+    pointerEvent: 'click',//'hover' | 'click',
+    arrowControl: true,
+  }, options);
+  var interval;
+  var isAnimating     = false;
+  var $slider         = $(this);
+  var $sliderWrap     = $slider.find('.slider-inner');
+  var sliderCount     = $sliderWrap.find('> .item').length;
+  var sliderWidth     = $slider.width();
+  var currentIndex    = 0;
+
+  var sliderFun = {
+    controlInit: function() {
+      // pointerControl
+      if (settings.pointerControl) {
+        
+        var html = '';
+        html += '<ol class="slider-pointer">';
+        for (var i = 0; i < sliderCount; i++) {
+          if (i == 0) {
+            html += '<li class="active"></li>'
+          }else{
+            html += '<li></li>'
+          }
+        }
+        html += '</ol>'
+        $slider.append(html);
+          // 指示器居中
+        var $pointer = $slider.find('.slider-pointer');
+        $pointer.css({
+          left: '50%',
+          marginLeft: - $pointer.width()/2
+        });
+      }
+      // pointerControl
+      if (settings.arrowControl) {
+        var html = "";
+        html += '<span class="slider-control prev">&lt;</span>';
+        html += '<span class="slider-control next">&gt;</span>'
+        $slider.append(html);
+      }
+      $slider.on('click', '.slider-control.prev', function(event) {
+        sliderFun.toggleSlide('prev');
+      });
+      $slider.on('click', '.slider-control.next', function(event) {
+        sliderFun.toggleSlide('next');
+      });
+    },
+    // slider
+    sliderInit: function() {
+      sliderFun.controlInit();
+      // 模式选择
+      if (settings.sliderMode == 'slide') {
+        // slide 模式
+        $sliderWrap.width(sliderWidth * sliderCount);
+        $sliderWrap.children().width(sliderWidth);
+      }else{
+        // mode 模式
+        $sliderWrap.children().css({
+          'position': 'absolute',
+          'left': 0,
+          'top': 0
+        });
+        $sliderWrap.children().first().siblings().hide();
+      }
+      // 控制事件
+      if (settings.pointerEvent == 'hover') {
+        $slider.find('.slider-pointer > li').mouseenter(function(event) {
+          sliderFun.sliderPlay($(this).index());
+        });
+      }else{
+        $slider.find('.slider-pointer > li').click(function(event) {
+          sliderFun.sliderPlay($(this).index());
+        });
+      }
+      // 自动播放
+      sliderFun.autoPlay();
+    },
+    // slidePlay
+    sliderPlay: function(index) {
+      sliderFun.stop();
+      isAnimating = true;
+	  $(".fwInfo").hide();
+	  $(".fwInfo:eq("+index+")").show();
+	  
+      $sliderWrap.children().first().stop(true, true);
+      $sliderWrap.children().stop(true, true);
+      $slider.find('.slider-pointer').children()
+        .eq(index).addClass('active')
+        .siblings().removeClass('active');
+      if (settings.sliderMode == "slide") {
+        // slide
+        if (index > currentIndex) {
+          $sliderWrap.animate({
+            left: '-=' + Math.abs(index - currentIndex) * sliderWidth + 'px'
+          }, settings.animateSpeed, function() {
+            isAnimating = false;
+            sliderFun.autoPlay();
+          });
+        } else if (index < currentIndex) {
+          $sliderWrap.animate({
+            left: '+=' + Math.abs(index - currentIndex) * sliderWidth + 'px'
+          }, settings.animateSpeed, function() {
+            isAnimating = false;
+            sliderFun.autoPlay();
+          });
+        } else {
+          return;
+        }
+      }else{
+        // fade
+        if ($sliderWrap.children(':visible').index() == index) return;
+        $sliderWrap.children().fadeOut(settings.animateSpeed)
+          .eq(index).fadeIn(settings.animateSpeed, function() {
+            isAnimating = false;
+            sliderFun.autoPlay();
+          });
+      }
+      currentIndex = index;
+    },
+    // toggleSlide
+    toggleSlide: function(arrow) {
+      if (isAnimating) {
+        return;
+      }
+      var index;
+      if (arrow == 'prev') {
+        index = (currentIndex == 0) ? sliderCount - 1 : currentIndex - 1;
+        sliderFun.sliderPlay(index);
+      }else if(arrow =='next'){
+        index = (currentIndex == sliderCount - 1) ? 0 : currentIndex + 1;
+        sliderFun.sliderPlay(index);
+      }
+    },
+    // autoPlay
+    autoPlay: function() {
+      if (settings.isAuto) {
+        interval = setInterval(function () {
+          var index = currentIndex;
+          (currentIndex == sliderCount - 1) ? index = 0: index = currentIndex + 1;
+          sliderFun.sliderPlay(index);
+        }, settings.transTime);
+      }else{
+        return;
+      }
+    },
+    //stop
+    stop: function() {
+      clearInterval(interval);
+    },
+  };
+  sliderFun.sliderInit();
+}
+})(jQuery);
+jQuery(document).ready(function($) {
+  $('#slider').Slider();
+});
+</script>
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -65,10 +322,9 @@ margin:0px;
 </head>
 <body>
 <div class="main">
-  <div class="head">
-    <div style="float:left; height:42px; line-height:42px;"> <img src="../images/back.png" width="24" height="42" align="middle" > </div>
-    <div style="float:right; height:42px; line-height:42px;"><img src="../images/about_03.png" width="48" height="48" id="more"></div>
-    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="../images/logo.png" width="239" height="53" align="middle"><img src="../images/about_06.png" width="125" height="30" align="middle"></div>
+  <div class="head"> <img src="../images/back.png" width="24" height="42" align="middle" >
+    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; float:right"> <img src="../images/about_03.png" width="48" height="48" align="middle" id="more" > </div>
+    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="../images/logo.png" width="239" height="53" align="middle"> <img src="../images/about_06.png" width="125" height="30" align="middle"> </div>
   </div>
   <div style="clear:both;"></div>
   <div style=" height:4px; background:#003366;"></div>
@@ -99,52 +355,72 @@ margin:0px;
       <li style="width:1px; background:#999999;"></li>
       <li name="fw">美伦服务</li>
       <li style="width:1px; background:#999999;"></li>
-      <li>卓越环境</li>
+      <li name="hj">卓越环境</li>
     </div>
     <div style="clear:both;"></div>
     <!--公司简介-->
     <div id="content">
-      <section  id="jj" style="line-height:35px;"> 报道称，美国马萨诸塞州47岁妇女茱蒂日前因剧烈腹痛入院，一开始，她还以为自己有胆结石，感到紧张不安。她表示，医生在对其进行全身检查后对她说：“告诉你个好消息，你没有结石，但怀孕了。而且你现在就要生了！”1小时后，8磅重的健康宝宝便出世了。
-        据悉，夫妇俩激动地给女儿取名卡罗琳·罗斯·布朗。其中卡罗琳和罗斯分别是布朗夫妇母亲的名字。 <img src="../images/index_19.png" width="100%"> 
-	 </section >
+      <section  id="jj" style="line-height:35px; text-align:left;"> 报道称，美国马萨诸塞州47岁妇女茱蒂日前因剧烈腹痛入院，一开始，她还以为自己有胆结石，感到紧张不安。她表示，医生在对其进行全身检查后对她说：“告诉你个好消息，你没有结石，但怀孕了。而且你现在就要生了！”1小时后，8磅重的健康宝宝便出世了。
+        据悉，夫妇俩激动地给女儿取名卡罗琳·罗斯·布朗。其中卡罗琳和罗斯分别是布朗夫妇母亲的名字。 <img src="../images/index_19.png" width="100%"> </section >
+      <section  id="zj" style="line-height:20px;">
+        <ul>
+          <li> <img src="../images/index_19.png" style="width:100%"> </li>
+          <li>
+            <h3>杨医生</h3>
+            <p> 带出了一系列新元素,并且将在未来被广泛应用。然而,有一些元素在使用时易被混淆,包括以下两个新元素..... </p>
+          </li>
+        </ul>
+        <div style="clear:both;"></div>
+        <ul style="height:5px; background:#999999;">
+        </ul>
+        <ul>
+          <li>
+            <h3>杨医生</h3>
+            <p> 带出了一系列新元素,并且将在未来被广泛应用。然而,有一些元素在使用时易被混淆,包括以下两个新元素..... </p>
+          </li>
+          <li> <img src="../images/index_19.png" style="width:100%"> </li>
+        </ul>
+      </section>
+      <section id="fw" style=" height:600px;">
+        <div class="slider" id="slider">
+          <div class="slider-inner">
+            <div class="item"> <img class="img" src="../images/about_02.png" width="100%"> </div>
+            <div class="item"> <img class="img"  src="../images/about_04.png" width="100%"> </div>
+            <div class="item"> <img class="img"  src="../images/about_05.png" width="100%"> </div>
+          </div>
+        </div>
+		<div class="fwInfo">
+		<p style="text-align:left; font-size:24px;">高端体验</p>
+		<p style="text-align:left; line-height:30px; padding-left:10px;">美伦健康中心内共设有15间vip体检套房;<br>精心为客户打造尊贵、快捷。
+		<br>精准、私密的个人定制式健检服务流程。
+		<br>拥有国内尖端、全面的体检体系：与华大基因、金域检验、台湾安和等检测机构开展特色体检项目合作。</p>
 		
-	  <section  id="zj" style="line-height:20px;">
-	  	<ul>
-			<li>
-			<img src="../images/index_19.png" style="width:100%">
-			</li>
-			<li>
-				<h3>杨医生</h3>
-				<p>
-				带出了一系列新元素,并且将在未来被广泛应用。然而,有一些元素在使用时易被混淆,包括以下两个新元素.....
-				</p>
-			</li>
-		</ul>
-		<div style="clear:both;"></div>
-		<ul style="height:5px; background:#999999;"></ul>
-		<ul>
-			<li>
-				<h3>杨医生</h3>
-				<p>
-				带出了一系列新元素,并且将在未来被广泛应用。然而,有一些元素在使用时易被混淆,包括以下两个新元素.....
-				</p>
-			</li>
-			<li>
-			<img src="../images/index_19.png" style="width:100%">
-			</li>
-		</ul>
+		
+		</div>
+		<div class="fwInfo" style="text-align:left; padding-top:20px;">
+		<img src="../images/about_1_06.png" width="150" >
+		<img src="../images/about_1_08.png" width="150">
+		<img src="../images/about_1_10.png" width="150">
+		<img src="../images/about_1_16.png" width="150">
+		<img src="../images/about_1_15.png" width="150">
+		</div>
+		<div class="fwInfo">
+		<p style="text-align:left; font-size:24px;">会员服务内容</p>
+		<p style="text-align:left; line-height:30px; padding-left:10px;">
+		健康档案管理、日常诊疗、日常医疗档案维护、名中医保健、慢病跟踪管理、就医指导、名医远程咨询、三甲医院就医贵宾通道家庭生活管家培训、营养指导、上门随访、药箱/保健品定期管理、半年指标监测、脊柱保健、对症健康讲座。
+		</p>
+		</div>
+		
+      </section>
+      <div style="clear:both;"></div>
+	  <section id="hj">
+	  <div  style=" height:400px;">
+	  待续...
+	  </div>
 	  </section>
-	  <section id="fw" style="line-height:20px;">
-	  	<ul>
-			<li style="background:url(../images/index_03.png); width:100%;background-size:cover; height:300px;">
-			
-			</li>
-			<li style="background:url(../images/index_19.png); width:100%;background-size:cover; height:300px;"></li>
-			
-		</ul>
-	  </section>
-	</div>
-	
+	  <div style="clear:both;"></div>
+	  <div style="clear:both;"></div>
+    </div>
   </div>
   <!-- end body -->
   <div style="clear:both;"></div>
@@ -179,8 +455,9 @@ function init(){
 		$("#"+$(this).attr("name")).show();
 	});
 	//美伦服务
-	
+	$(".fwInfo:eq("+0+")").show();
 }
+
 </script>
 </body>
 </html>

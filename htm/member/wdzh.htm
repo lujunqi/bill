@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="../css/css.css" />
+<link rel="stylesheet" type="text/css" href="../css/ns-default.css" />
+<link rel="stylesheet" type="text/css" href="../css/ns-style-attached.css" />
+<style type="text/css">
+#body {
+	text-align:center;
+}
+.menu li{
+list-style:none;
+float:left;
+width:20%;
+height:auto;
+padding-top:5px;
+padding-bottom:5px;
+background:#bd9452;
+}
+.menu li h3{
+text-align:center;
+color:#FFFFFF;
+padding:0px;
+margin:0px;
+font-size:14px;
+}
+#hyzx{
+background:#b77b25;
+}
+
+
+</style>
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script>
+
+</script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的账户</title>
+</head>
+<body>
+<div class="main">
+  <div class="head"> <img src="../images/back.png" width="24" height="42" align="middle" >
+    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; float:right"> <img src="../images/about_03.png" width="48" height="48" align="middle" id="more" > </div>
+    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="../images/logo.png" width="239" height="53" align="middle"> <img src="../images/member_03.png" alt="我的账户" width="123" height="31" align="middle"> </div>
+  </div>
+  <div style="clear:both;"></div>
+  <div style=" height:4px; background:#003366;"></div>
+  <!--begin body-->
+  <div id="body">
+    <div id="menu" class="menu">
+      <li id="tjgl"><img src="../images/about_11.png">
+        <h3>体检管理</h3>
+      </li>
+      <li id="jksc"><img src="../images/about_13.png">
+        <h3>健康商城</h3>
+      </li>
+      <li id="zx"><img src="../images/about_15.png" width="45" height="45">
+        <h3>资讯</h3>
+      </li>
+      <li id="gywm"><img src="../images/about_17.png" width="45" height="45">
+        <h3>关于我们</h3>
+      </li>
+      <li id="hyzx"><img src="../images/about_19.png" width="45" height="45">
+        <h3>会员中心</h3>
+      </li>
+    </div>
+    <div style="clear:both;"></div>
+    <div style=" height:2px;"></div>
+    <div id="my_acc" style="height:150px; width:100%; background:#CCCCCC; text-align:left;">
+	 <img src="../images/20151110164734.jpg" 
+	  style="width:80px; height:80px; border-radius:50%; overflow:hidden; margin-left:10px; position:relative ; margin-top:20px"/>
+	  
+	  <h3 style=" float:right; margin-right:15%; text-align:center;">
+	  会员卡余额（元）
+	  <p>1234</p>
+	  </h3>
+	  
+	  <h3 style=" float:right; text-align:center;margin-right:5%;">
+	  账户余额（元）
+	  <p>1234</p>
+	  </h3>
+	  <div style=" position:relative; bottom:0px; left:40%; width:inherit;margin-top:-20px">
+	  <input type="button" value="充 值" style="border:0px; height:40px; line-height:40px; background:#FF6600;color:#FFFFFF; width:100px;">
+	  <input type="button" value="提 现" style="border:0px; height:40px; line-height:40px;background:#009966;color:#FFFFFF;width:100px;">
+	  
+	   </div>
+	  </div>
+    <div style=" height:2px;"></div>
+  </div>
+  <!-- end body -->
+  <div style="clear:both;"></div>
+  <!--begin foot-->
+  <div class="foot"> <a>首页</a>| <a>我的购物车</a>| <a>退出</a>| <a>回到顶部</a>
+    <h2><img src="../images/index_33.png" width="41" height="31" align="bottom">400-000-000</h2>
+    <h4>Copyright.......</h4>
+  </div>
+  <!--end foot-->
+</div>
+<script src="../js/classie.js"></script>
+<script src="../js/notificationFx.js"></script>
+<script>
+$(init);
+function init(){
+	$("#menu").show();
+	$("#more").click(function(){
+		if($("#menu").is(':hidden')){
+		$("#menu").show();
+		}else{
+		$("#menu").hide();
+		}
+	});
+	
+}
+
+</script>
+</body>
+</html>
