@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+<meta charset="utf-8">
+<title>注册页</title>
+</head>
+<link href="resource/css/common.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resource/js/jquery.js"></script>
+<script type="text/javascript" src="resource/js/jquery.validate.js"></script>
+<script type="text/javascript" src="resource/js/interaction.js"></script>
+<body style="background-color:#f4f4f4;">
+    <div class="headBar">
+        <a href="javascript:history.back(-1)"><img class="headleft" src="resource/images/backjt.png"/></a>
+        <span>手机注册</span>
+    </div>
+    <div class="mth1">
+    </div>
+    <div class="register">
+    <form id="registerForm1" action="register2.html">
+    <div class="mid mt10" style="width:80%;">
+      <span class="registerinputlabel">+86</span><span><img id="registericon1" class="registerinputicon" src="resource/images/registericon1.png"/></span>
+      <input type="tel" id="registermobile" name="registermobile" style="width:80%;" maxlength="11" value="输入手机号码" />
+      <br/><label class="tip">为了安全，我们会向你的手机发送验证码</label>
+    </div>
+    <div class="mid mt10" style="width:80%;">
+      <span class="registerinputlabel">密码 :</span><span><img id="registericon2" class="registerinputicon" style="width:24px;" src="resource/images/registericon2.png"/></span>
+      <input type="password" id="registerkeyword" name="registerkeyword" style="width:80%;"/>
+      <label class="keywordtip">设置登入密码</label>
+      <br/><label class="error" for="registerkeyword"></label>
+    </div>
+    <div class="mid mt10" style="width:80%;">
+      <input type="submit" style="color:#fff;font-size:16px; background:#2d94fb;border:none;border-radius:2px; width:100%;" value="下一步" />
+    </div>
+    </form>
+    <div class="mid agreement">
+        <img class="yesbtn" src="resource/images/yesBtn.png"/>
+        <span>点击"下一步",即表示本人已同意<a href="#">《注册协议》</a></span>
+    </div>
+    </div>
+</body>
+</html>

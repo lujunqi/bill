@@ -3,31 +3,42 @@ body {
 	margin-top: 0px;
 	font-size:14px;
 	font-family: "微软雅黑";
+	
 }
 p{
 margin:0px;
 padding:0px;
 }
+#body{
+min-height:900px;
+}
 a{
 text-decoration:none;
 }
 .main{
-width:550px; margin:auto
+
+margin:auto;
+min-width:600px;
+
 }
 .head {
 background:#FFFFFF;
 height:90px;
 line-height:90px;
 }
+.clear{
+clear:both;
+}
 .body{
-text-align:center;
+
 background:#fff url(../images/bg.png) repeat;	
 background-size:cover;
 height:900px;
 }
 .form{
-width:550px;
+width:90%;
 margin:auto;
+
 }
 .foot{
 background:#CCCCCC; 
@@ -39,18 +50,7 @@ color:#666666;
 }
 
 .form-item {
-
-width:400px;
-margin:auto;
-margin-bottom: 15px;
-
+width:100%;
+margin-top:19px;
 }
-.form-item input{
 
-height:41px;
-line-height: normal; /* for non-ie */  
-line-height: 22px\9; /* for ie */  
-width:400px;
-border:solid 1px #CCCCCC;
-border-radius: 8px;
-}

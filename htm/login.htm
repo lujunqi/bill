@@ -6,13 +6,6 @@
 <link rel="stylesheet" type="text/css" href="css/css.css" />
 <style type="text/css">
 <!--
-.form-item input{
-padding-left:44px;
-height:41px;
-width:356px;
-line-height: normal; /* for non-ie */  
-line-height: 22px\9; /* for ie */ 
-}
 
 -->
 </style>
@@ -21,7 +14,7 @@ line-height: 22px\9; /* for ie */
 <title>登陆</title>
 </head>
 <body>
-<div class="main" style="width:600px;">
+<div class="main" >
   <div class="head"> <img src="images/back.png" width="24" height="42" align="middle" >
     <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="images/logo.png" width="239" height="53" align="middle"> <img src="images/login_12.png" width="64" height="31" align="middle"> </div>
   </div>
@@ -29,35 +22,30 @@ line-height: 22px\9; /* for ie */
   <div style=" height:4px; background:#003366;"></div>
   <div class="body">
     <div class="form">
-      <div style="height:40px;"></div>
-      <div class="form-item" style="height:60px; text-align:left;">
-
-		<input type="password" style="position:absolute;" placeholder="请输入用户名/手机">
-		<img src="images/login_18.png" style="position:absolute;width:30px; height:35px; margin-left:10px; margin-top:3px;">
+      <div style=" height:10px;"></div>
+      <div class="form-item" style="height:42px; background:#FFFFFF;border:solid 1px #CCCCCC;
+border-radius: 8px;"> <img src="images/login_18.png" align="top" style="width:35px; height:35px; margin-left:10px; margin-top:3px;">
+        <input type="text" maxlength="15" style=" width:60%; border:0px;  height:40px; margin:0;" placeholder="请输入用户名/手机">
       </div>
-      <div class="form-item" style="height:60px; text-align:left;">
-	    
-        <input type="password" style="position:absolute;" placeholder="请输入密码">
-		<img src="images/login_22.png" style="position:absolute;width:30px; height:35px; margin-left:10px; margin-top:3px;">
+      <div class="form-item" style="height:42px; background:#FFFFFF;border:solid 1px #CCCCCC;
+border-radius: 8px;"> <img src="images/login_22.png" align="top" style="width:30px; height:35px; margin-left:10px; margin-top:3px;">
+        <input type="password" style=" width:60%; border:0px;  height:40px; margin:0;" placeholder="请输入密码">
       </div>
-
-      <div class="form-item" style="height:60px;">
-        <p style="float:right;"> <img src="images/genimage.jpg" width="100" height="40" align="absmiddle" > </p>
-        <p style="width:256px; float:left; background:#00CC99; text-align:left;">
-          <input type="text" style=" width:256px;position:absolute;" placeholder="请输入验证码">
-          <img src="images/login_28.png" style="position:absolute;width:30px; height:35px; margin-left:10px; margin-top:3px;"> </p>
-      </div>
-      <p style="clear:both;"></p>
-      <div style="text-align:left;  width:400px; color:#FF0000 ; margin:auto;"> <img src="images/login_36.png" width="28" height="23" align="bottom"> 您输入的验证码错误 </div>
-      <div style="margin-top:44px;">
-        <input type="button" value="点击登陆" style="background:#CC6600; color:#FFFFFF; width:400px; height:44px; line-height:44px;
-	border:0;">
-        <div style="text-align:left; width:60%; color:#FF0000 ; margin:auto;">
-          <div style="color:#FF0000; float:left">我要注册</div>
-          <div style="float:right;">忘记密码？</div>
-        </div>
-      </div>
-      <div style="height:40px;"></div>
+      <div class="form-item" style="height:42px; background:#FFFFFF;border:solid 1px #CCCCCC;
+border-radius: 8px;"> <img src="images/login_28.png" align="top" style="width:30px; height:35px; margin-left:10px; margin-top:3px;">
+        <input type="text" style=" width:50%; border:0px;  height:40px; margin:0;" placeholder="请输入验证码">
+		<img src="images/genimage.jpg" height="35" style="float:right; height:35px; margin-top:3px; padding-left:3px; border-left:#CCCCCC solid 1px; margin-right:5px; " align="top"></div>
+	  <div style="color:#FF0000;">
+	 <img src="images/login_36.png"> 输入的验证码错误
+	  </div>
+	  <div class="form-item" >
+	  
+	  <input type="button" style="width:100%;background:#CC6633; color:#fff;border:solid 1px #CCCCCC;
+border-radius: 8px; height:45px; line-height:45px;" value="点 击 登 陆" id="btn_reg">
+	  </div>
+	  <div style="color:#FF0000; float:left;">我要注册</div>
+	  <div style="float:right;">忘记密码？</div>
+	  <div style="clear:both;"></div>
     </div>
   </div>
 </div>

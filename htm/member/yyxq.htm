@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="../css/css.css" />
+<link rel="stylesheet" type="text/css" href="../css/ns-default.css" />
+<link rel="stylesheet" type="text/css" href="../css/ns-style-attached.css" />
+<style type="text/css">
+#body {
+	text-align:center;
+}
+.menu li{
+list-style:none;
+float:left;
+width:20%;
+height:auto;
+padding-top:5px;
+padding-bottom:5px;
+background:#bd9452;
+}
+.menu li h3{
+text-align:center;
+color:#FFFFFF;
+padding:0px;
+margin:0px;
+font-size:14px;
+}
+#hyzx{
+background:#b77b25;
+}
+.acc_list th{
+background:#CCCCCC;
+border-bottom: #993300 solid 1px;
+color:#0099FF;
+text-align:left;
+padding-left:10px;
+height:40px;
+line-height:40px;
+}
+.acc_list td{
+padding:10px;
+}
+.acc_list tr{
+border-bottom: #ccc solid 1px;
+}
+.acc_list input{
+background:#FF6633;
+border:0;
+height:35px;
+line-height:35px;
+width:150px;
+border-radius: 10px;
+}
+.h1{
+	width:50%;
+	height:50px;
+	line-height:50px;
+	border-bottom: #fff solid 2px;	
+	font-weight:bold;
+
+}
+.h1:hover{
+border-bottom: #FF6633 solid 2px;
+}
+
+</style>
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script>
+
+</script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>预约详情</title>
+</head>
+<body>
+<div class="main">
+  <div class="head"> <img src="../images/back.png" width="24" height="42" align="middle" >
+    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; float:right"> <img src="../images/about_03.png" width="48" height="48" align="middle" id="more" > </div>
+    <div style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; width:80%; float:right"> <img src="../images/logo.png" width="239" height="53" align="middle"> <img src="../images/member_03.png" alt="我的账户" width="123" height="31" align="middle"> </div>
+  </div>
+  <div style="clear:both;"></div>
+  <div style=" height:4px; background:#003366;"></div>
+  <!--begin body-->
+  <div id="body">
+    <div id="menu" class="menu">
+      <li id="tjgl"><img src="../images/about_11.png">
+        <h3>体检管理</h3>
+      </li>
+      <li id="jksc"><img src="../images/about_13.png">
+        <h3>健康商城</h3>
+      </li>
+      <li id="zx"><img src="../images/about_15.png" width="45" height="45">
+        <h3>资讯</h3>
+      </li>
+      <li id="gywm"><img src="../images/about_17.png" width="45" height="45">
+        <h3>关于我们</h3>
+      </li>
+      <li id="hyzx"><img src="../images/about_19.png" width="45" height="45">
+        <h3>会员中心</h3>
+      </li>
+    </div>
+    <div style=" clear:both; height:2px;"></div>
+	<div style="float:left; height:42px; line-height:42px;">预约号：12335666</div>
+            <div style="float:right; color:#FF0000; height:42px; line-height:42px;">已预约</div>
+            <div class="clear" style=" border-bottom:#666666 dotted 1px; height:2px;"></div>
+    <table width="100%">
+      <tr>
+        <td align="right">预约房间：</td>
+        <td>
+		<div style="float:left; height:79px; width:113px; background:url(../images/member_07.png)">
+              <div style=" margin-top:50px;">1号</div>
+            </div>
+		</td>
+      </tr>
+	  <tr>
+        <td align="right">预约时间：</td>
+        <td align="left">
+		2015-11-11 11-11-11		</td>
+      </tr>
+	  <tr>
+        <td align="right">体检人1：</td>
+        <td align="left">
+		张三三		</td>
+      </tr>
+	  <tr>
+        <td align="right">体检人2：</td>
+        <td align="left">
+		张三三		</td>
+      </tr>
+	  
+    </table>
+  </div>
+  <!-- end body -->
+  <div style="clear:both;"></div>
+  <!--begin foot-->
+  <div class="foot"> <a>首页</a>| <a>我的购物车</a>| <a>退出</a>| <a>回到顶部</a>
+    <h2><img src="../images/index_33.png" width="41" height="31" align="bottom">400-000-000</h2>
+    <h4>Copyright.......</h4>
+  </div>
+  <!--end foot-->
+</div>
+<script src="../js/classie.js"></script>
+<script src="../js/notificationFx.js"></script>
+<script>
+$(init);
+function init(){
+	$("#menu").show();
+	$("#more").click(function(){
+		if($("#menu").is(':hidden')){
+		$("#menu").show();
+		}else{
+		$("#menu").hide();
+		}
+	});
+	
+}
+
+</script>
+</body>
+</html>
