@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>翔天会展酒店</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="index.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="flexslider/lrtk.css" rel="stylesheet" />
+<link type="text/css" href="flexslider/prettyPhoto.css" rel="stylesheet" />
+<script type="text/javascript" src="flexslider/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="flexslider/lrtk.js"></script>
+<script type="text/javascript" src="flexslider/home.min.js"></script>
+<SCRIPT type=text/javascript charset="utf-8" src="flexslider/lrscroll.js"></SCRIPT>
+</head>
+<body>
+<!--#include virtual="head.html" -->
+<!--body-->
+<p class="clear"></p>
+<div class="body">
+  <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="images/home_pic_4.png" width="668" height="74"  /> </p>
+  <div class="menu">
+    <div style="margin:50px;"> <span style=" font-size:24px; font-weight:bolder;">会务中心</span>
+      <div style="line-height:30px;"> &nbsp;&nbsp;&nbsp;&nbsp;一段文字介绍：- 本文向大家推荐12款实用的 jQuery 图片轮播效果插件,帮助你在你的项目中加入一些效果精美的图片轮播效果,希望这些插件能够帮助到你。 </div>
+    </div>
+  </div>
+  <div class="ad1"> <img src="images/home_pic_5.png" width="660" height="320" /></div>
+  <p class="clear" style="height:20px;"></p>
+  <img src="images/home_pic_6.png" style="width:490px; height:320px; float:left"/> <img src="images/home_pic_7.png"  style="width:490px; height:320px; float:right"/>
+  <!-- 栏目二-->
+  <p class="clear"></p>
+  <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="images/home_pic_8.png" width="668" height="74"  /> </p>
+  <img src="images/home_pic_9.png" style="float:left;" />
+  <div class="infopic">
+    <div class="picbox">
+      <ul class="gallery piclist">
+        <li><img src="images/home_pic_10.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_11.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_10.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_11.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_10.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_11.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_10.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_11.png" width="320" height="348" /></li>
+        <li><img src="images/home_pic_10.png" width="320" height="348" /></li>
+      </ul>
+    </div>
+    <div class="pic_prev"></div>
+    <div class="pic_next"></div>
+  </div>
+</div>
+<p class="clear" style="height:20px;"></p>
+<div class="dai">
+  <div class="body">
+    <p style="height:25px;"></p>
+    <p style="margin:auto; width:668px;"> <img src="images/home_pic_12.png" width="668" height="74" /></p>
+    <p class="clear" style="height:20px;"></p>
+    <img src="images/home_pic_13.png" width="490" height="320"  style="float:left;"/>
+    <div style="float:right;">
+      <table class="metro"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="middle" ><h2>优质睡眠</h2>
+            <div>供了非常人性化的API应付我们的各种需求,其中选择器在此示</div></td>
+          <td style=" background:url(images/home_pic_14.png)">&nbsp;</td>
+          <td valign="middle" ><h2>保证</h2>
+            <div>供了非常人性化的API应付我们的各种需求,其中选择器在此示</div></td>
+        </tr>
+        <tr>
+          <td style=" background:url(images/home_pic_15.png)">&nbsp;</td>
+          <td valign="middle" ><h2>文案文案</h2>
+            <div>供了非常人性化的API应付我们的各种需求,其中选择器在此示</div></td>
+          <td style=" background:url(images/home_pic_16.png)">&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <p class="clear" style="height:40px;"></p>
+</div>
+<p class="clear" style="height:20px;"></p>
+<div class="body">
+  <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="images/home_pic_17.png" width="668" height="74"  /> </p>
+  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <img src="images/home_pic_19.png" width="470" height="220" style="float:left;"/>
+    <div style="float:right; width:470px">
+      <h2 style="color:#68b92e;">一流规模</h2>
+      <span style="color:#464646"> 一流规模一流规模一流规模一流规模一流规模 </span> </div>
+  </div>
+  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <img src="images/home_pic_20.png" width="470" height="220" style="float:right;"/>
+    <div style="float:left; width:470px; text-align:right">
+      <h2 style="color:#68b92e;">一流品质</h2>
+      <span style="color:#464646"> 一流品质一流品质一流品质一流品质 </span> </div>
+  </div>
+  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <img src="images/home_pic_21.png" width="470" height="220" style="float:left;"/>
+    <div style="float:right; width:470px">
+      <h2 style="color:#68b92e;">一流服务</h2>
+      <span style="color:#464646"> 一流服务一流服务一流服务一流服务一流服务 </span> </div>
+  </div>
+</div>
+<p class="clear" style="height:20px;"></p>
+<div class="dai">
+  <div class="body">
+    <p class="clear" style="height:20px;"></p>
+    <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="images/home_pic_22.png" width="668" height="74"  /> </p>
+    <img src="images/home_pic_23.png" width="303" height="30" />
+    <p class="clear" style="height:20px;"></p>
+    <div style="background:#FFF; width:990px; padding:50px; text-align:center;">
+      <ul id="da-thumbs" class="da-thumbs">
+        <li> <a> <img src="images/home_pic_27.png" width="200" height="150">
+          <div class="hot_info">
+            <h2 title="文案">文案文案1</h2>
+            <em></em>
+            <p>其要自行研制远程防空系统。土耳其2013年9月宣布中国精密机械进出口总公司以34亿美元的标</p>
+          </div>
+          </a> </li>
+        <li> <a> <img src="images/home_pic_28.png" width="200" height="150">
+          <div class="hot_info">
+            <h2 title="文案">文案文案2</h2>
+            <em></em>
+            <p>其要自行研制远程防空系统。土耳其2013年9月宣布中国精密机械进出口总公司以34亿美元的标</p>
+          </div>
+          </a> </li>
+        <li> <a> <img src="images/home_pic_27.png" width="200" height="150">
+          <div class="hot_info">
+            <h2 title="文案">文案文案3</h2>
+            <em></em>
+            <p>其要自行研制远程防空系统。土耳其2013年9月宣布中国精密机械进出口总公司以34亿美元的标</p>
+          </div>
+          </a> </li>
+        <li> <a> <img src="images/home_pic_28.png" width="200" height="150">
+          <div class="hot_info">
+            <h2 title="文案">文案文案4</h2>
+            <em></em>
+            <p>其要自行研制远程防空系统。土耳其2013年9月宣布中国精密机械进出口总公司以34亿美元的标</p>
+          </div>
+          </a> </li>
+      </ul>
+    </div>
+    <p class="clear" style="height:20px;"></p>
+    <img src="images/home_pic_26.png" width="303" height="30" />
+    <p class="clear" style="height:20px;"></p>
+    <div style="background:#FFF; width:990px; padding:50px; text-align:center;">
+      <DIV id=featureContainer>
+        <DIV id=feature>
+          <DIV id=block>
+            <DIV id=botton-scroll>
+              <UL class=featureUL>
+                <LI class=featureBox>
+                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_33.png" width=200 height=150> </A></DIV>
+                  <!-- /box -->
+                </LI>
+                <LI class=featureBox>
+                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_34.png" width=200 height=150> </A></DIV>
+                  <!-- /box -->
+                </LI>
+                <LI class=featureBox>
+                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_35.png" width=200 height=150> </A></DIV>
+                  <!-- /box -->
+                </LI>
+                <LI class=featureBox>
+                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_36.png" width=200 height=150> </A></DIV>
+                  <!-- /box -->
+                </LI>
+                <LI class=featureBox>
+                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_33.png" width=200 height=150> </A></DIV>
+                  <!-- /box -->
+                </LI>
+                <LI class=featureBox>
+                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_35.png" width=200 height=150> </A></DIV>
+                  <!-- /box -->
+                </LI>
+              </UL>
+            </DIV>
+            <!-- /botton-scroll -->
+          </DIV>
+          <!-- /block -->
+          <A class=prev href="javascript:void();">Previous</A><A class=next 
+href="javascript:void();">Next</A> </DIV>
+        <!-- /feature -->
+      </DIV>
+    </div>
+    <p class="clear" style="height:40px;"></p>
+  </div>
+</div>
+<div class="body">
+  <p class="clear" style="height:20px;"></p>
+  <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="images/home_pic_37.png" width="668" height="74"  /> </p>
+  <!--酒店介绍-->
+  <div style=" float:left; width:700px;"> <img src="images/home_pic_38.png" width="138" height="30" />
+    <p class="clear" style="height:10px;"></p>
+    <img src="images/home_pic_40.png" width="300" height="178" style="float:left;"/>
+    <p style="line-height:30px; color:#464646; float:right; width:340px; margin:20px;"> 景图片 居中 重复 固定样式 background 经验篇 Background CSS 背景图片与 CSS 背景颜色样式技术经验篇 我们使用 C </p>
+    <p class="clear" style="height:10px;"></p>
+    <div style="width:700px; height:200px;">
+      <DIV id="demo" style="OVERFLOW: hidden; WIDTH: 500px; COLOR: #ffffff; HEIGHT: 100px" onmousemove="MoveDiv(event);" onmouseout="MoveOutDiv();">
+        <div id="demo1" style="width:100%;">
+          <TABLE cellSpacing=0 cellPadding=0>
+            <TBODY>
+              <TR vAlign=top>
+                <TD vAlign=top noWrap><DIV align=right> <img src="images/home_pic_42.png" /> <img src="images/home_pic_43.png" /> <img src="images/home_pic_44.png" /> <img src="images/home_pic_42.png" /> <img src="images/home_pic_43.png" /> <img src="images/home_pic_44.png" /> <img src="images/home_pic_42.png" /> <img src="images/home_pic_43.png" /> <img src="images/home_pic_44.png" /> <img src="images/home_pic_42.png" /> <img src="images/home_pic_43.png" /> <img src="images/home_pic_44.png" /> </DIV></TD>
+              </TR>
+            </TBODY>
+          </TABLE>
+          </TD>
+          <TD width="0"><div id="demo2" style="width:100%;"></div></TD>
+          </TR>
+          </TBODY>
+          </TABLE>
+        </DIV>
+      </div>
+    </div>
+  </div>
+  <!--品牌故事-->
+  <div style=" float:right; width:300px;"> <img src="images/home_pic_39.png" width="138" height="30" /> <img src="images/home_pic_41.png" width="300" height="178" style="margin-top:10px;"/>
+    <p style="line-height:30px; color:#464646"> &nbsp;&nbsp;&nbsp;&nbsp;SS文字图片div元素居中方法之水平居中_互联网_IT/计算机_专业资料。CSS 文字图片 div 元素居中方法之水平 居中文字居中,文字垂直居中水平居中,图 </p>
+  </div>
+</div>
+<p class="clear" style="height:20px;"></p>
+<div class="dai">
+  <table  style="width:1000px; margin:auto;" class="zr" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td colspan="3" align="center" valign="middle" style="background:#f3ede6"><img src="images/home_pic_47.png" width="360" height="36" />
+        <h2 style="color:#464646;">社会责任 社会责任 社会责任 社会责任 </h2></td>
+      <td style="background:url(images/home_pic_48.png)"></td>
+      <td>法之水平居中_互联网_IT/计算机_专业资料。CSS 文字图片 div 元素居中方法之水平 居中文字居中,文</td>
+      <td style="background:#f3ede6">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>法之水平居中_互联网_IT/计算机_专业资料。CSS 文字图片 div 元素居中方法之水平 居中文字居中,文</td>
+      <td style="background:url(images/home_pic_49.png)">&nbsp;</td>
+      <td><img src="images/home_pic_46.png" width="84" height="50" align="absmiddle" /><br />
+        SS 背景颜色样式技术经验篇 我们使用 CSS Background 样式...</td>
+      <td>法之水平居中_互联网_IT/计算机_专业资料。CSS 文字图片 div 元素居中方法之水平 居中文字居中,文</td>
+      <td  style="background:url(images/home_pic_42.png)">&nbsp;</td>
+      <td>法之水平居中_互联网_IT/计算机_专业资料。CSS 文字图片 div 元素居中方法之水平 居中文字居中,文</td>
+    </tr>
+    <tr>
+      <td style="background:#f3ede6">&nbsp;</td>
+      <td>法之水平居中_互联网_IT/计算机_专业资料。CSS 文字图片 div 元素居中方法之水平 居中文字居中,文</td>
+      <td style="background:url(images/home_pic_49.png)">&nbsp;</td>
+      <td style="background:#f3ede6">&nbsp;</td>
+      <td style="background:#f3ede6">&nbsp;</td>
+      <td style="background:url(images/home_pic_49.png)">&nbsp;</td>
+    </tr>
+  </table>
+  <p class="clear" style="height:50px;"></p>
+</div>
+<p class="clear" style="height:20px;"></p>
+<!--#include virtual="foot.html" -->
+
+
+<script src="flexslider/slider.js"></script>
+<script type="text/javascript">
+$(function() {
+	var bannerSlider = new Slider($('#banner_tabs'), {
+		time: 5000,
+		delay: 400,
+		event: 'hover',
+		auto: true,
+		mode: 'fade',
+		controller: $('#bannerCtrl'),
+		activeControllerCls: 'active'
+	});
+	$('#banner_tabs .flex-prev').click(function() {
+		bannerSlider.prev()
+	});
+	$('#banner_tabs .flex-next').click(function() {
+		bannerSlider.next()
+	});
+	
+	
+})
+</script>
+<SCRIPT>
+  var dir=1;
+  var speed=10;
+  var MyMar=null;
+  function Marquee(){
+   var demo = document.getElementById("demo");
+   var demo2 = document.getElementById("demo2");
+   if (dir>0  && (demo2.offsetWidth-demo.scrollLeft)<=0)
+   {
+    demo.scrollLeft=0;
+   }
+   if (dir<0 &&(demo.scrollLeft<=0))
+   {
+    demo.scrollLeft=demo2.offsetWidth;
+   }
+   demo.scrollLeft+=dir;
+  }
+  function onmouseoverMy() {
+   window.clearInterval(MyMar);
+  }
+  function onmouseoutMy() {
+   MyMar=setInterval(Marquee,speed);
+  }
+  function r_left()
+  {
+   if (dir==-1)
+    dir=1;
+  }
+  function r_right()
+  {
+   if (dir==1)
+    dir=-1;
+  }
+ 
+  function IsIE()
+  {
+   var browser=navigator.appName
+   if ((browser=="Netscape"))
+   {
+    return false;
+   }
+   else if(browser=="Microsoft Internet Explorer")
+   {
+    return true;
+   }
+   else
+   {
+    return null;
+   }
+  }
+  
+  var _IsIE = IsIE();
+  var _MousePX = 0;
+  var _MousePY = 0;
+  var _DivLeft = 0;
+  var _DivRight = 0;
+  var _AllDivWidth = 0;
+  var _AllDivHeight = 0;
+  function MoveDiv(e){
+   var obj = document.getElementById("demo");
+     _MousePX = _IsIE ? (document.body.scrollLeft + event.clientX) : e.pageX;
+    _MousePY = _IsIE ? (document.body.scrollTop + event.clientY) : e.pageY;
+   //Opera Browser Can Support ''window.event'' and ''e.pageX''
+   var obj1 = null;
+   if(obj.getBoundingClientRect)
+   {
+    //IE
+    obj1 = document.getElementById("demo").getBoundingClientRect();
+    _DivLeft = obj1.left;
+    _DivRight = obj1.right;
+    _AllDivWidth = _DivRight - _DivLeft;
+   }
+   else if(document.getBoxObjectFor)
+   {
+    //FireFox
+    obj1 = document.getBoxObjectFor(obj); 
+    var borderwidth = (obj.style.borderLeftWidth != null && obj.style.borderLeftWidth != "") ? parseInt(obj.style.borderLeftWidth) : 0;
+    _DivLeft = parseInt(obj1.x) - parseInt(borderwidth);
+    _AllDivWidth = Cut_Px(obj.style.width);
+    _DivRight = _DivLeft + _AllDivWidth;
+   }
+   else
+   {
+    //Other Browser(Opera)
+    _DivLeft = obj.offsetLeft;
+    _AllDivWidth = Cut_Px(obj.style.width);
+    var parent = obj.offsetParent;
+    if(parent != obj)
+    {
+     while (parent) {  
+      _DivLeft += parent.offsetLeft; 
+      parent = parent.offsetParent;
+     }
+    }
+    _DivRight = _DivLeft + _AllDivWidth;
+   }
+ 
+   var pos1,pos2;
+   pos1 = parseInt(_AllDivWidth * 0.4) + _DivLeft;
+   pos2 = parseInt(_AllDivWidth * 0.6) + _DivLeft;
+ 
+   if(_MousePX > _DivLeft && _MousePX < _DivRight)
+   {
+    if(_MousePX > _DivLeft && _MousePX < pos1)//Move left
+    {
+     r_left();
+    }
+    else if(_MousePX < _DivRight && _MousePX > pos2)//Move right
+    {
+     r_right();
+    }
+	
+    if(_MousePX > pos1 && _MousePX < pos2)//Stop
+    {
+     onmouseoverMy();
+     MyMar=null;
+    }else if(_MousePX < pos1 || _MousePX > pos2)
+    {
+     if(MyMar==null)
+     {
+      MyMar=setInterval(Marquee,speed);
+     }
+    }
+   }
+  }
+ 
+  function Cut_Px(cswidth)
+  {
+   cswidth = cswidth.toLowerCase();
+   if(cswidth.indexOf("px") != -1)
+   {
+    cswidth.replace("px","");
+    cswidth = parseInt(cswidth);
+   }
+   return cswidth;
+  }
+ 
+  function MoveOutDiv()
+  {
+   if(MyMar == null)
+   {
+    MyMar=setInterval(Marquee,speed);
+   }
+  }
+document.getElementById("demo2").innerHTML = document.getElementById("demo1").innerHTML;
+ MyMar=setInterval(Marquee,speed);
+ </SCRIPT>
+</body>
+</html>

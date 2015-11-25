@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>翔天会展酒店-会议介绍</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="hyjs.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="flexslider/lrtk.css" rel="stylesheet" />
+<link type="text/css" href="flexslider/prettyPhoto.css" rel="stylesheet" />
+<script type="text/javascript" src="flexslider/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="flexslider/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="flexslider/lrtk.js"></script>
+<script type="text/javascript" src="flexslider/home.min.js"></script>
+<SCRIPT type=text/javascript charset="utf-8" src="flexslider/lrscroll.js"></SCRIPT>
+</head>
+<body>
+<div class="head">
+  <div class="head1">
+    <p style="float:left">欢迎来到翔天会展酒店官网</p>
+    <p style="float:right"><a href="#" class="a1">收藏本站</a> | <a href="#" class="a1">在线服务</a></p>
+  </div>
+</div>
+<div class="head2">
+  <p style="float:left;"><img src="images/home_logo_1.png" alt="logo" width="340" height="87" align="middle" /></p>
+  <p style="float:right;"> <img src="images/home_pic_2.png" /></p>
+</div>
+<p class="clear"></p>
+<!--标题栏-->
+<div class="menu">
+  <p class="menu1"> <a href="index.htm">首  页</a> <a href="hyjs.htm">会场介绍</a> <a href="#">餐饮宴会</a> <a href="#">客房住宿</a> <a href="#">地图指引</a> <a href="#" style="background:#00a2e4">马上咨询您的会场</a> </p>
+</div>
+<p class="clear"></p>
+<!--广告-->
+<div class="ad">
+  <div id="banner_tabs" class="flexslider">
+    <ul class="slides">
+      <li> <a title="" target="_blank" href="#"> <img width="1000" height="460" alt="" style="background: url(images/home_pic_3.png) no-repeat center;" src="images/alpha.png"> </a> </li>
+      <li> <a title="" href="#"> <img width="1000" height="460" style="background: url(images/home_pic_3.png) no-repeat center;" src="images/alpha.png"> </a> </li>
+      <li> <a title="" href="#"> <img width="1000" height="460" alt="" style="background: url(images/home_pic_3.png) no-repeat center;" src="images/alpha.png"> </a> </li>
+    </ul>
+    <ul class="flex-direction-nav">
+      <li><a class="flex-prev" href="javascript:;">Previous</a></li>
+      <li><a class="flex-next" href="javascript:;">Next</a></li>
+    </ul>
+    <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+      <li><a>1</a></li>
+      <li><a>2</a></li>
+      <li><a>2</a></li>
+    </ol>
+  </div>
+</div>
+<!--body-->
+<p class="clear" style="height:20px;"></p>
+<p class="body">
+<p style="margin:auto; width:668px; margin-top:0px; margin-bottom:30px;"> <img src="hyjs_image/spmeeting_pic_1.png" width="668" height="74" /></p>
+</p>
+<div class="dai">
+  <div class="body">
+    <div class="hy_menu" >
+      <div style="height:100px;"></div>
+      <p><img src="hyjs_image/spmeeting_pic_3.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_4.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_5.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_6.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_7.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_8.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_9.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_10.png" /></p>
+      <p><img src="hyjs_image/spmeeting_pic_11.png" /></p>
+    </div>
+    <div style="float:right; width:850px; margin-top:8px; background:#FFF;">
+      <p style="height:14px; background:#9ac52d;"></p>
+      <div style="border:#e2ded2 solid 1px; border-top:0px; height:auto;">
+        <table class="hy_tb" width="100%" height="222" border="0" cellpadding="0" cellspacing="12">
+          <tr>
+            <th scope="row" >参会人数</th>
+            <td width="12%" align="center" bgcolor="#9ac52d">不限</td>
+            <td>50人以下</td>
+            <td>50-100人</td>
+            <td>100-200人</td>
+            <td>200-500人</td>
+            <td>500-1000人</td>
+            <td>1000-2300人</td>
+          </tr>
+          <tr>
+            <th colspan="8" scope="row" style=" height:1px; background:#eeeeee;"> </th>
+          </tr>
+          <tr>
+            <th scope="row">会场形式</th>
+            <td align="center" bgcolor="#9ac52d">不限</td>
+            <td>课桌式</td>
+            <td>剧院式</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+		   <tr>
+            <th colspan="8" scope="row" style=" height:1px; background:#eeeeee;"> </th>
+          </tr>
+          <tr>
+            <th scope="row">展&nbsp;&nbsp;&nbsp;&nbsp;位</th>
+            <td align="center" bgcolor="#9ac52d">不限</td>
+            <td>需要</td>
+            <td>不需要</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+		   <tr>
+            <th colspan="8" scope="row" style=" height:1px; background:#eeeeee;"> </th>
+          </tr>
+          <tr>
+            <th scope="row">配套设施</th>
+            <td align="center" bgcolor="#9ac52d">不限</td>
+            <td>舞台</td>
+            <td>灯光音响</td>
+            <td>投影设备</td>
+            <td>贵宾室</td>
+            <td>同声传译</td>
+            <td>会标广告</td>
+          </tr>
+        </table>
+		<div class="clear"></div>
+		<div style="background:url(hyjs_image/spmeeting_pic_12.png); width:850px; height:454px; float:right;">
+		<img src="hyjs_image/spmeeting_pic_14.png" width="174" height="50" style="float:right; margin-top:240px; margin-right:20px;" />		</div>
+		
+		<div style="height:36px; line-height:36px;" class="clear">
+		<p style="border-bottom:#666666 dashed 1px; height:18px;"></p>
+		</div>
+		<div style="background:url(hyjs_image/spmeeting_pic_15.png); width:850px; height:454px; float:right;">
+		<img src="hyjs_image/spmeeting_pic_14.png" width="174" height="50" style="float:right; margin-top:240px; margin-right:20px;" />		</div>
+    
+		<div style="height:36px; line-height:36px;" class="clear">
+		<p style="border-bottom:#666666 dashed 1px; height:18px;"></p>
+		</div>
+		<div style="background:url(hyjs_image/spmeeting_pic_16.png); width:850px; height:454px; float:right;">
+		<img src="hyjs_image/spmeeting_pic_14.png" width="174" height="50" style="float:right; margin-top:240px; margin-right:20px;" />		</div>
+    
+			<div style="height:36px; line-height:36px;" class="clear">
+		<p style="border-bottom:#666666 dashed 1px; height:18px;"></p>
+		</div>
+		<div style="background:url(hyjs_image/spmeeting_pic_17.png); width:850px; height:454px; float:right;">
+		<img src="hyjs_image/spmeeting_pic_14.png" width="174" height="50" style="float:right; margin-top:240px; margin-right:20px;" />		</div>
+    
+				<div style="height:36px; line-height:36px;" class="clear">
+		<p style="border-bottom:#666666 dashed 1px; height:18px;"></p>
+		</div>
+		<div style="background:url(hyjs_image/spmeeting_pic_18.png); width:850px; height:454px; float:right;">
+		<img src="hyjs_image/spmeeting_pic_14.png" width="174" height="50" style="float:right; margin-top:240px; margin-right:20px;" />		</div>
+    
+				<div style="height:36px; line-height:36px;" class="clear">
+		<p style="border-bottom:#666666 dashed 1px; height:18px;"></p>
+		</div>
+		<div style="background:url(hyjs_image/spmeeting_pic_19.png); width:850px; height:454px; float:right;">
+		<img src="hyjs_image/spmeeting_pic_14.png" width="174" height="50" style="float:right; margin-top:240px; margin-right:20px;" />		</div>
+    	<div class="hy_page" style="margin:auto; float:right;text-align:center;">
+		<img src="hyjs_image/spmeeting_pic_23.png" width="40" height="40" />
+		<a> 1 </a>
+		<a> 2 </a>
+		
+		<img src="hyjs_image/spmeeting_pic_24.png" width="40" height="40" />		</div>
+	  </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!-- end body -->
+<div class="clear" style="height:20px;"></div>
+<div class="foot">
+  <div class="link"> <a href="#">关于翔天</a> | <a href="#">活动专区</a> | <a href="#">客户见证 </a> | <a href="#">行业动态</a> | <a href="#">酒店概况</a> | <a href="#">联系我们 </a></div>
+  <div style=" margin:auto; width:850px; margin-top:20px;"> <img src="images/home_pic_51.png" width="840" height="68" /> </div>
+</div>
+<script src="flexslider/slider.js"></script>
+<script type="text/javascript">
+$(function() {
+	var bannerSlider = new Slider($('#banner_tabs'), {
+		time: 5000,
+		delay: 400,
+		event: 'hover',
+		auto: true,
+		mode: 'fade',
+		controller: $('#bannerCtrl'),
+		activeControllerCls: 'active'
+	});
+	$('#banner_tabs .flex-prev').click(function() {
+		bannerSlider.prev()
+	});
+	$('#banner_tabs .flex-next').click(function() {
+		bannerSlider.next()
+	});
+	
+	
+})
+</script>
+</body>
+</html>

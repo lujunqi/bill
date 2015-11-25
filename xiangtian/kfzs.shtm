@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>翔天会展酒店-客房住宿</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+
+<link type="text/css" href="flexslider/lrtk.css" rel="stylesheet" />
+<link type="text/css" href="flexslider/prettyPhoto.css" rel="stylesheet" />
+<script type="text/javascript" src="flexslider/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="flexslider/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="flexslider/lrtk.js"></script>
+<script type="text/javascript" src="flexslider/home.min.js"></script>
+<SCRIPT type=text/javascript charset=utf-8 src="flexslider/lrscroll.js"></SCRIPT>
+
+</head>
+<body>
+<!--#include virtual="head.html" -->
+<!--body-->
+<p class="clear" style="height:20px;"></p>
+<div class="body">
+  <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="kfzs_image/spkfzs_pic_1.png" width="668" height="74"  /> </p>
+</div>
+<div class="dai">
+  <div class="body" style="background:#FFFFFF;">
+	<div style="margin:auto; width:960px;"> <img src="kfzs_image/spkfzs_pic_2.png" width="960" height="280" /> </div>
+	<p style="height:20px;"></p>
+	
+	<div style="margin:auto; width:960px; height:500px; background:url(kfzs_image/spkfzs_pic_3.png)"> 
+	<img src="kfzs_image/spkfzs_pic_9.png" width="176" height="68" style="float:right; margin-top:200px; margin-right:25px;" />	</div>
+	<div style="margin:auto; width:960px; margin-top:20px; margin-bottom:20px;">
+  	<img src="kfzs_image/spkfzs_pic_4.png" width="960" height="1" /> 
+	</div>
+	
+	<div style="margin:auto; width:960px; height:500px; background:url(kfzs_image/spkfzs_pic_5.png)"> 
+	<img src="kfzs_image/spkfzs_pic_9.png" width="176" height="68" style="float:right; margin-top:200px; margin-right:25px;" />	</div>
+	<div style="margin:auto; width:960px; margin-top:20px; margin-bottom:20px;">
+  	<img src="kfzs_image/spkfzs_pic_4.png" width="960" height="1" /> 
+	</div>
+	
+	<div style="margin:auto; width:960px; height:500px; background:url(kfzs_image/spkfzs_pic_6.png)"> 
+	<img src="kfzs_image/spkfzs_pic_9.png" width="176" height="68" style="float:right; margin-top:200px; margin-right:25px;" />	</div>
+	<div style="margin:auto; width:960px; margin-top:20px; margin-bottom:20px;">
+  	<img src="kfzs_image/spkfzs_pic_4.png" width="960" height="1" /> 
+	</div>
+	
+	<div style="margin:auto; width:960px; height:500px; background:url(kfzs_image/spkfzs_pic_7.png)"> 
+	<img src="kfzs_image/spkfzs_pic_9.png" width="176" height="68" style="float:right; margin-top:200px; margin-right:25px;" />	</div>
+	<div style="margin:auto; width:960px; margin-top:20px; margin-bottom:20px;">
+  	<img src="kfzs_image/spkfzs_pic_4.png" width="960" height="1" /> 
+	</div>
+	
+	<div style="margin:auto; width:960px; height:500px; background:url(kfzs_image/spkfzs_pic_8.png)"> 
+	<img src="kfzs_image/spkfzs_pic_9.png" width="176" height="68" style="float:right; margin-top:200px; margin-right:25px;" />	</div>
+	<div style="margin:auto; width:960px; margin-top:20px; margin-bottom:20px;">
+  	<img src="kfzs_image/spkfzs_pic_4.png" width="960" height="1" /> 
+	</div>
+	
+	
+  </div>
+</div>
+<p class="clear" style="height:20px;"></p>
+<!--#include virtual="foot.html" -->
+
+<script src="flexslider/slider.js"></script>
+<script type="text/javascript">
+$(function() {
+	var bannerSlider = new Slider($('#banner_tabs'), {
+		time: 5000,
+		delay: 400,
+		event: 'hover',
+		auto: true,
+		mode: 'fade',
+		controller: $('#bannerCtrl'),
+		activeControllerCls: 'active'
+	});
+	$('#banner_tabs .flex-prev').click(function() {
+		bannerSlider.prev()
+	});
+	$('#banner_tabs .flex-next').click(function() {
+		bannerSlider.next()
+	});
+	
+	
+})
+</script>
+</body>
+</html>

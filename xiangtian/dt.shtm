@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>翔天会展酒店-地图指引</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="hyjs.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="flexslider/lrtk.css" rel="stylesheet" />
+<link type="text/css" href="flexslider/prettyPhoto.css" rel="stylesheet" />
+<script type="text/javascript" src="flexslider/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="flexslider/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="flexslider/lrtk.js"></script>
+<script type="text/javascript" src="flexslider/home.min.js"></script>
+<SCRIPT type=text/javascript charset="utf-8" src="flexslider/lrscroll.js"></SCRIPT>
+</head>
+<body>
+<!--#include virtual="head.html" -->
+<!--body-->
+<p class="clear" style="height:20px;"></p>
+<p style="margin:auto; width:668px; margin-top:0px; margin-bottom:30px;"> <img src="dt_image/spdtzy_pic_1.png" width="668" height="74" /></p>
+<div class="dai">
+  <div class="body" style="background:#FFFFFF;">
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_2.png" width="960" height="50"  /> </p>
+    <div class="clear" style="height:20px;"></div>
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_3.png" width="960" height="470" /> </p>
+	
+    <div style="height:36px; line-height:36px; margin:auto; width:960px;" class="clear">
+      <img src="dt_image/spkfzs_pic_4.png"  style="margin-top:18px;" />
+    </div>
+	<div class="clear" style="height:20px;"></div>
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_4.png" width="960" height="732" /> </p>
+	
+	<div style="height:36px; line-height:36px; margin:auto; width:960px;" class="clear">
+     <img src="dt_image/spkfzs_pic_4.png"  style="margin-top:18px;" />
+    </div>
+	<div class="clear" style="height:20px;"></div>
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_5.png" width="960" height="722" /> </p>
+	
+	<div style="height:36px; line-height:36px; margin:auto; width:960px;" class="clear">
+      <img src="dt_image/spkfzs_pic_4.png"  style="margin-top:18px;" />
+    </div>
+	<div class="clear" style="height:20px;"></div>
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_6.png" width="960" height="610" /> </p>
+	
+	<div style="height:36px; line-height:36px; margin:auto; width:960px;" class="clear">
+      <img src="dt_image/spkfzs_pic_4.png"  style="margin-top:18px;" />
+    </div>
+	<div class="clear" style="height:20px;"></div>
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_7.png" width="960" height="572" /> </p>
+	
+	<div style="height:36px; line-height:36px; margin:auto; width:960px;" class="clear">
+      <img src="dt_image/spkfzs_pic_4.png"  style="margin-top:18px;" />
+    </div>
+	<div class="clear" style="height:20px;"></div>
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_8.png" width="960" /> </p>
+	
+	<div style="height:36px; line-height:36px; margin:auto; width:960px;" class="clear">
+     <img src="dt_image/spkfzs_pic_4.png"  style="margin-top:18px;" />
+    </div>
+	<div class="clear" style="height:20px;"></div>
+    <p style="margin:auto; width:960px;"> <img src="dt_image/spdtzy_pic_9.png" width="960" /> </p>
+	<div style="height:36px; line-height:36px; margin:auto; width:960px;" class="clear">
+      <img src="dt_image/spkfzs_pic_4.png"  style="margin-top:18px;" />
+    </div>
+	
+  </div>
+
+</div>
+<!-- end body -->
+<div class="clear" style="height:20px;"></div>
+<!--#include virtual="foot.html" -->
+<script src="flexslider/slider.js"></script>
+<script type="text/javascript">
+$(function() {
+	var bannerSlider = new Slider($('#banner_tabs'), {
+		time: 5000,
+		delay: 400,
+		event: 'hover',
+		auto: true,
+		mode: 'fade',
+		controller: $('#bannerCtrl'),
+		activeControllerCls: 'active'
+	});
+	$('#banner_tabs .flex-prev').click(function() {
+		bannerSlider.prev()
+	});
+	$('#banner_tabs .flex-next').click(function() {
+		bannerSlider.next()
+	});
+	
+	
+})
+</script>
+</body>
+</html>
