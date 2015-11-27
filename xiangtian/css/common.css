@@ -1,4 +1,5 @@
 body {
+	font-family: "Microsoft YaHei";
 	margin-left: 0px;
 	margin-top: 0px;
 	font-size:12px;
@@ -194,4 +195,40 @@ margin:10px;
 width:100%;
 margin:auto;
 background:#f3ede6;
+}
+.drift{height: 147px;
+background: url(../images/fd.png) no-repeat center top;
+position: fixed;
+bottom: 0;
+_bottom: auto;
+z-index: 10000;
+_position: absolute;
+overflow: visible;
+_top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);
+width: 100%;
+z-index: 11;
+overflow: hidden;
+}
+
+.say p {
+font-family: "Microsoft YaHei";
+font-size: 26px;
+color: #a86732;
+padding-left: 12px;
+background: url(../images/df1.png) no-repeat bottom left;
+margin-bottom: 16px;
+}
+.say p span {
+display: block;
+font-size: 16px;
+line-height: 21px;
+}
+.drifts em span i {
+color: #464646;
+font-style: normal;
+display: block;
+font-family: "Microsoft YaHei";
+font-size: 12px;
+padding-top: 5px;
+text-align: center;
 }

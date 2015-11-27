@@ -23,9 +23,9 @@
       <div style="line-height:30px;"> &nbsp;&nbsp;&nbsp;&nbsp;一段文字介绍：- 本文向大家推荐12款实用的 jQuery 图片轮播效果插件,帮助你在你的项目中加入一些效果精美的图片轮播效果,希望这些插件能够帮助到你。 </div>
     </div>
   </div>
-  <div class="ad1"> <img src="images/home_pic_5.png" width="660" height="320" /></div>
+  <div class="ad1"> <a href="hyjs.shtm"><img src="images/home_pic_5.png" width="660" height="320" border="0" /></a></div>
   <p class="clear" style="height:20px;"></p>
-  <img src="images/home_pic_6.png" style="width:490px; height:320px; float:left"/> <img src="images/home_pic_7.png"  style="width:490px; height:320px; float:right"/>
+  <a href="hyjs.shtm"><img src="images/home_pic_6.png" border="0" style="width:490px; height:320px; float:left"/></a> <a href="hyjs.shtm"><img src="images/home_pic_7.png" border="0"  style="width:490px; height:320px; float:right"/></a>
   <!-- 栏目二-->
   <p class="clear"></p>
   <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="images/home_pic_8.png" width="668" height="74"  /> </p>
@@ -54,7 +54,7 @@
     <p style="height:25px;"></p>
     <p style="margin:auto; width:668px;"> <img src="images/home_pic_12.png" width="668" height="74" /></p>
     <p class="clear" style="height:20px;"></p>
-    <img src="images/home_pic_13.png" width="490" height="320"  style="float:left;"/>
+    <a href="kfzs.shtm"><img src="images/home_pic_13.png" width="490" height="320" border="0"  style="float:left;"/></a>
     <div style="float:right;">
       <table class="metro"  border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -78,17 +78,17 @@
 <p class="clear" style="height:20px;"></p>
 <div class="body">
   <p style="margin:auto; width:668px; margin-top:30px; margin-bottom:30px;"> <img src="images/home_pic_17.png" width="668" height="74"  /> </p>
-  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <img src="images/home_pic_19.png" width="470" height="220" style="float:left;"/>
+  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <a href="ysdb.shtm"><img src="images/home_pic_19.png" width="470" height="220" border="0" style="float:left;"/></a>
     <div style="float:right; width:470px">
       <h2 style="color:#68b92e;">一流规模</h2>
       <span style="color:#464646"> 一流规模一流规模一流规模一流规模一流规模 </span> </div>
   </div>
-  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <img src="images/home_pic_20.png" width="470" height="220" style="float:right;"/>
+  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <a href="ysdb.shtm"><img src="images/home_pic_20.png" width="470" height="220" border="0" style="float:right;"/></a>
     <div style="float:left; width:470px; text-align:right">
       <h2 style="color:#68b92e;">一流品质</h2>
       <span style="color:#464646"> 一流品质一流品质一流品质一流品质 </span> </div>
   </div>
-  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <img src="images/home_pic_21.png" width="470" height="220" style="float:left;"/>
+  <div style="width:1000px; background:url(images/home_pic_18.png) center no-repeat; height:254px;"> <a href="ysdb.shtm"><img src="images/home_pic_21.png" width="470" height="220" border="0" style="float:left;"/></a>
     <div style="float:right; width:470px">
       <h2 style="color:#68b92e;">一流服务</h2>
       <span style="color:#464646"> 一流服务一流服务一流服务一流服务一流服务 </span> </div>
@@ -143,15 +143,15 @@
             <DIV id=botton-scroll>
               <UL class=featureUL>
                 <LI class=featureBox>
-                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_33.png" width=200 height=150> </A></DIV>
+                  <DIV class=box><A href="khal.shtm" ><IMG  src="images/home_pic_33.png" alt=Paracletos width=200 height=150 border="0"> </A></DIV>
                   <!-- /box -->
                 </LI>
                 <LI class=featureBox>
-                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_34.png" width=200 height=150> </A></DIV>
+                  <DIV class=box><A href="khal.shtm" ><IMG  src="images/home_pic_34.png" alt=Paracletos width=200 height=150 border="0"> </A></DIV>
                   <!-- /box -->
                 </LI>
                 <LI class=featureBox>
-                  <DIV class=box><A ><IMG alt=Paracletos  src="images/home_pic_35.png" width=200 height=150> </A></DIV>
+                  <DIV class=box><A href="khal.shtm" ><IMG  src="images/home_pic_35.png" alt=Paracletos width=200 height=150 border="0"> </A></DIV>
                   <!-- /box -->
                 </LI>
                 <LI class=featureBox>
